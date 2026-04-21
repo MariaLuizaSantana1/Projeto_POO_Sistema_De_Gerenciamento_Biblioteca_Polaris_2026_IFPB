@@ -1,9 +1,10 @@
-package br.edu.ifpb.poo;
+package br.edu.ifpb.poo.modelo;
 
-public class FuncionarioAdministrativo {
+public class Professor {
     private String nome;
     private int matricula;
     private String ativo;
+
 
     public void setNome(String nome) {
         this.nome = nome;

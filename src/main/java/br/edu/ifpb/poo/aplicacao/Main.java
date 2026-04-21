@@ -16,8 +16,8 @@ public class Main {
              """);
              resposta = sc.nextInt();
              switch (resposta){
-                case 1 -> System.out.println("Gerenciador de arquivos vazio");
-                case 2 -> System.out.println("Usuários Indisponíveis");
+                case 1 -> System.out.println("Sem itens para gerenciar");
+                case 2 -> System.out.println("Sem usuários cadastrados");
                 case 3 -> System.out.println("Sem operações disponíveis");
                 case 4 -> System.out.println("Sem consultas disponíveis");
                 case 0 -> System.out.println("Você saiu.");

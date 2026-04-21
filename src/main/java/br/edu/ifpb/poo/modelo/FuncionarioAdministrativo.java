@@ -1,10 +1,9 @@
-package br.edu.ifpb.poo;
+package br.edu.ifpb.poo.modelo;
 
-public class PosGraduado {
+public class FuncionarioAdministrativo {
     private String nome;
     private int matricula;
     private String ativo;
-
 
     public void setNome(String nome) {
         this.nome = nome;

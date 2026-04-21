@@ -1,10 +1,10 @@
-package br.edu.ifpb.poo;
+package br.edu.ifpb.poo.modelo;
 
-public class Professor {
+public class Aluno {
     private String nome;
     private int matricula;
+    private String curso;
     private String ativo;
-
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -19,6 +19,14 @@ public class Professor {
     }
     public int getMatricula() {
         return matricula;
+    }
+
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+    public String getCurso() {
+        return curso;
     }
 
 
