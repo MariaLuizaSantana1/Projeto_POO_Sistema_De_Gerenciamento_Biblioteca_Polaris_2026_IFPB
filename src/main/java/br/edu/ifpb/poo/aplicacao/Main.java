@@ -1,4 +1,4 @@
-package br.edu.ifpb.poo;
+package br.edu.ifpb.poo.aplicacao;
 import java.util.Scanner;
 
 public class Main {
@@ -24,5 +24,6 @@ public class Main {
                 default -> System.out.println("Opção inválida");
              }
         }
+        sc.close();
     }
 }
