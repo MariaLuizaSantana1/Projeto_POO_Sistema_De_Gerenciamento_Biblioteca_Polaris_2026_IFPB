@@ -4,11 +4,10 @@ Ainda no esqueleto do projeto. Interface simples feita. Refinamento necessário.
 Feito classes dos diferentes usuários e dos diferentes itens do acervo. getters e setters dos usuários feito. Divizão de packages iniciais feito.
 
 ## Fazer por agora:
-- [x] Revisar Slide 5 POO
-- [x] Criar classe Aluno
-- [x] Criar classe Professor
-- [x] Criar classe Funcionário
 - [ ] Criar getters e setters
+- [ ] Verificar se há mais classes, mais objetos necessários
+- [ ] Reler especificação do projeto
+- [ ] Anotar dúvidas para levar para a aula de amanhã
 
 
 > ## Observações:
