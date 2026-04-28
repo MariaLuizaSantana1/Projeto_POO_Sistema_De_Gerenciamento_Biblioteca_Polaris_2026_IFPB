@@ -2,9 +2,14 @@ package br.edu.ifpb.poo.modelo;
 
 public class Professor {
     private String nome;
-    private int matricula;
-    private String ativo;
+    private String matricula;
+    private String ativo = "ativo";
 
+
+    public Professor(String nome, String matricula){
+        this.nome = nome;
+        this.matricula = matricula;
+    }
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -14,10 +19,10 @@ public class Professor {
     }
 
 
-    public void setMatricula(int matricula) {
+    public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
-    public int getMatricula() {
+    public String getMatricula() {
         return matricula;
     }
 
@@ -30,6 +35,6 @@ public class Professor {
     }
 
     public String toString(){
-        return "Nome do Professor: " + nome + "\nMatricula: " + matricula + "\nStatus: " + ativo;
+        return "Nome: " + nome + "\nMatricula: " + matricula + "\nStatus: " + ativo;
     }
 }

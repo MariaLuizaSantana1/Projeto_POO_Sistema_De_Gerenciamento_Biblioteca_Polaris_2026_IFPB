@@ -26,6 +26,7 @@ public class GerenciadorDeItens {
     }
     public void listarLivros(){
         for(Livro livro : this.listaLivros){
+            System.out.println("-----------------");
             System.out.println(livro);
         }
     }
@@ -35,6 +36,7 @@ public class GerenciadorDeItens {
     }
     public void listarRevistas(){
         for(Revista resista : this.listaRevistas){
+            System.out.println("-----------------");
             System.out.println(resista);
         }
     }
@@ -44,6 +46,7 @@ public class GerenciadorDeItens {
     }
     public void listarCds(){
         for(Cd cd : this.listaCds){
+            System.out.println("-----------------");
             System.out.println(cd);
         }
     }
@@ -53,6 +56,7 @@ public class GerenciadorDeItens {
     }
     public void listarDvds(){
         for(Dvd dvd : this.listaDvds){
+            System.out.println("-----------------");
             System.out.println(dvd);
         }
     }

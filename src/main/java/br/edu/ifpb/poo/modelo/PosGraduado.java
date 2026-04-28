@@ -2,9 +2,14 @@ package br.edu.ifpb.poo.modelo;
 
 public class PosGraduado {
     private String nome;
-    private int matricula;
-    private String ativo;
+    private String matricula;
+    private String ativo = "ativo";
 
+
+    public PosGraduado(String nome, String matricula){
+        this.nome = nome;
+        this.matricula = matricula;
+    }
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -14,10 +19,10 @@ public class PosGraduado {
     }
 
 
-    public void setMatricula(int matricula) {
+    public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
-    public int getMatricula() {
+    public String getMatricula() {
         return matricula;
     }
 
@@ -27,5 +32,9 @@ public class PosGraduado {
     }
     public String getAtivo() {
         return ativo;
+    }
+
+    public String toString(){
+        return "Nome: " + nome + "\nMatricula: " + matricula + "\nStatus: " + ativo;
     }
 }

@@ -2,8 +2,13 @@ package br.edu.ifpb.poo.modelo;
 
 public class FuncionarioAdministrativo {
     private String nome;
-    private int matricula;
-    private String ativo;
+    private String matricula;
+    private String ativo = "ativo";
+
+    public FuncionarioAdministrativo(String nome, String matricula){
+        this.nome = nome;
+        this.matricula = matricula;
+    }
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -13,10 +18,10 @@ public class FuncionarioAdministrativo {
     }
 
 
-    public void setMatricula(int matricula) {
+    public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
-    public int getMatricula() {
+    public String getMatricula() {
         return matricula;
     }
 
@@ -29,6 +34,6 @@ public class FuncionarioAdministrativo {
     }
 
     public String toString(){
-        return "Nome do Funcionário Administrativo: " + nome + "\nMatricula: " + matricula + "\nStatus: " + ativo;
+        return "Nome: " + nome + "\nMatricula: " + matricula + "\nStatus: " + ativo;
     }
 }
