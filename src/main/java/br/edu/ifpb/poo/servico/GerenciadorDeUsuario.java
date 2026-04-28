@@ -26,6 +26,7 @@ public class GerenciadorDeUsuario {
     }
     public void listarAlunos(){
         for(Aluno aluno : this.listaAlunos){
+            System.out.println("-----------------");
             System.out.println(aluno.toString());
         }
     }
@@ -35,6 +36,7 @@ public class GerenciadorDeUsuario {
     }
     public void listarProfessores(){
         for(Professor professor : this.listaProfessores){
+            System.out.println("-----------------");
             System.out.println(professor);
         }
     }

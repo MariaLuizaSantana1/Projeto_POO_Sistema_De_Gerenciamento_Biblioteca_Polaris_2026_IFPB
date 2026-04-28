@@ -1,4 +1,4 @@
-package br.edu.ifpb.poo;
+package br.edu.ifpb.poo.servico;
 
 public class GerenciadorEmprestimos {
 

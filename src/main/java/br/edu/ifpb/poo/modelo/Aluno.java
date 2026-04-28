@@ -4,13 +4,13 @@ public class Aluno {
     private String nome;
     private int matricula;
     private String curso;
-    private String ativo;
+    private String ativo = "ativo";
 
-    public Aluno(String nome, int matricula, String curso, String ativo){
+
+    public Aluno(String nome, int matricula, String curso){
         this.nome = nome;
         this.matricula = matricula;
         this.curso = curso;
-        this.ativo = ativo;
     }
 
     public void setNome(String nome) {
@@ -45,6 +45,6 @@ public class Aluno {
     }
 
     public String toString(){
-        return " Nome do Aluno" + nome + " Matricula: " + matricula;
+        return "Nome do Aluno: " + nome + "\nMatricula: " + matricula + "\nCurso: " + curso + "\nStatus: " + ativo;
     }
 }
