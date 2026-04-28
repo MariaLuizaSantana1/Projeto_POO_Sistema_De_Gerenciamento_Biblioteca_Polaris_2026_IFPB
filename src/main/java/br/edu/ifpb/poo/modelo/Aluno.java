@@ -6,6 +6,13 @@ public class Aluno {
     private String curso;
     private String ativo;
 
+    public Aluno(String nome, int matricula, String curso, String ativo){
+        this.nome = nome;
+        this.matricula = matricula;
+        this.curso = curso;
+        this.ativo = ativo;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -35,5 +42,9 @@ public class Aluno {
     }
     public String getAtivo() {
         return ativo;
+    }
+
+    public String toString(){
+        return " Nome do Aluno" + nome + " Matricula: " + matricula;
     }
 }
