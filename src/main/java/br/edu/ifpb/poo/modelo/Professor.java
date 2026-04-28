@@ -28,4 +28,8 @@ public class Professor {
     public String getAtivo() {
         return ativo;
     }
+
+    public String toString(){
+        return "Nome do Professor: " + nome + "\nMatricula: " + matricula + "\nStatus: " + ativo;
+    }
 }

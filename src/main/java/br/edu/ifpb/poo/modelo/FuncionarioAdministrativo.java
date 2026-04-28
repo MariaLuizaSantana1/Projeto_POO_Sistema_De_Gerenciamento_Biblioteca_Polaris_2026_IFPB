@@ -27,4 +27,8 @@ public class FuncionarioAdministrativo {
     public String getAtivo() {
         return ativo;
     }
+
+    public String toString(){
+        return "Nome do Funcionário Administrativo: " + nome + "\nMatricula: " + matricula + "\nStatus: " + ativo;
+    }
 }
