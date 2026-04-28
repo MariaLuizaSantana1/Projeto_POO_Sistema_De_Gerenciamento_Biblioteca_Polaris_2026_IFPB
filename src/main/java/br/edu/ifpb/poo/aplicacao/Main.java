@@ -10,7 +10,8 @@ public class Main {
         int resposta = 1;
         GerenciadorDeUsuario usuarios1 = new GerenciadorDeUsuario();
         while (resposta != 0) {
-             System.out.println(""" 
+             System.out.println("""
+                 
                 _____________Biblioteca Polaris____________
                 [1] Gerenciar Itens do Acervo
                 [2] Gerenciar Usuários

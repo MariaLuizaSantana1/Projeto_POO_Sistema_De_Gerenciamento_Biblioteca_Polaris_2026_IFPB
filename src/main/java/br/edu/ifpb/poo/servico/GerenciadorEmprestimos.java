@@ -1,5 +1,9 @@
 package br.edu.ifpb.poo.servico;
 
-public class GerenciadorEmprestimos {
+import java.util.ArrayList;
 
+import br.edu.ifpb.poo.modelo.Emprestimo;
+
+public class GerenciadorEmprestimos {
+    private ArrayList<Emprestimo> listaEmprestimos;
 }

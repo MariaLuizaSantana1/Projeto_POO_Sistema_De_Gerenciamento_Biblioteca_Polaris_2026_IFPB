@@ -9,6 +9,7 @@ import br.edu.ifpb.poo.modelo.Livro;
 import br.edu.ifpb.poo.modelo.Revista;
 
 import br.edu.ifpb.poo.servico.GerenciadorDeUsuario;
+import br.edu.ifpb.poo.servico.GerenciadorDeItens;
 import java.util.Scanner;
 
 public class Interface {
