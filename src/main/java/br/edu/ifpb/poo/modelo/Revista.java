@@ -1,13 +1,19 @@
 package br.edu.ifpb.poo.modelo;
-import java.time.LocalDate;
 
 public class Revista {
     private String issn;
     private String titulo;
     private int volume;
     private String editora;
-    private LocalDate dataPublicacao;
+    private String dataPublicacao;
 
+    public Revista(String issn, String titulo,int volume, String editora, String dataPublicacao){
+        this.issn = issn;
+        this.titulo = titulo;
+        this.volume = volume;
+        this.editora = editora;
+        this.dataPublicacao = dataPublicacao;
+    }
 
     public String getIssn(){
         return issn;
@@ -41,18 +47,17 @@ public class Revista {
     }
 
 
-    public LocalDate getDataPublicacao(){
+    public String getDataPublicacao(){
         return dataPublicacao;
     }
-    public void setDataPublicacao(LocalDate dataPublicacao) {
+    public void setDataPublicacao(String dataPublicacao) {
         this.dataPublicacao = dataPublicacao;
     }
 
 
-
-
-
-
+    public String toString(){
+        return "\nISSN " + issn + "\nTitulo: " + titulo + "\nEditora: " + editora;
+    }
 
 
 

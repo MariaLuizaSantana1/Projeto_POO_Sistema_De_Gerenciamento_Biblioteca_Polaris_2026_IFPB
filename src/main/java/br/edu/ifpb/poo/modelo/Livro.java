@@ -10,6 +10,17 @@ public class Livro {
     private int numeroPaginas;
     private String sinopse;
 
+    public Livro(String isbn, String titulo, String autor, String editora, int anoPublicacao, String generoLiterario, int numeroPaginas, String sinopse){
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.editora = editora;
+        this.anoPublicacao = anoPublicacao;
+        this.generoLiterario = generoLiterario;
+        this.numeroPaginas = numeroPaginas;
+        this.sinopse = sinopse;
+    }
+
 
     public String getIsbn(){
         return isbn;
@@ -73,4 +84,10 @@ public class Livro {
     public void setSinopse(String sinopse) {
         this.sinopse = sinopse;
     }
+
+
+    public String toString(){
+        return "Titulo: " + titulo + "\nAutor: " + autor + "\nAno de Publicação: " + anoPublicacao + "\nSinopse: " + sinopse;
+    }
+
 }
