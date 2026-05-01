@@ -145,7 +145,7 @@ public class Main {
 
                     Livro livros = new Livro(isbn, titulo, autor, editora, anoPublicacao, generoLiterario, numeroPaginas, sinopse);
                     itens.addLivro(livros);
-                    System.out.println("\n Livro Cadastrado com sucesso!");
+                    System.out.println("\n Livro Cadastrado com sucesso!\n");
                 }
                 break;
                 case 2: {
@@ -162,7 +162,7 @@ public class Main {
 
                     Revista revistas = new Revista(issn, titulo, volume, editora, dataPublicacao);
                     itens.addRevista(revistas);
-                    System.out.println("\n Revista Cadastrado com sucesso!");
+                    System.out.println("\n Revista Cadastrado com sucesso!\n");
                 }
                 break;
                 case 3: {
@@ -183,22 +183,22 @@ public class Main {
 
                     Cd cds = new Cd(titulo, artista, faixas);
                     itens.addCd(cds);
-                    System.out.println("\nCd Cadastrado com sucesso!");
+                    System.out.println("\nCd Cadastrado com sucesso!\n");
                 }
                 break;
                 case 4: {
                     System.out.println("Digite o nome do Dvd: ");
                     String titulo = sc.nextLine();
-                    System.out.println("Digite a matricula do Dvd: ");
+                    System.out.println("Digite o nome do diretor: ");
                     String diretor = sc.nextLine();
-                    System.out.println("Digite a duracao do Dvd: ");
+                    System.out.println("Digite a duracao do Dvd(em minutos): ");
                     int duracao = Integer.parseInt(sc.nextLine());
                     System.out.println("Digite a classificacao indicativa do Dvd: ");
                     String classificacaoIndicativa = sc.nextLine();
 
                     Dvd dvds = new Dvd(titulo, diretor, duracao, classificacaoIndicativa);
                     itens.addDvd(dvds);
-                    System.out.println("\nDvd Cadastrado com sucesso!");
+                    System.out.println("\nDvd Cadastrado com sucesso!\n");
                 }
                 break;
                 case 0:
@@ -234,7 +234,7 @@ public class Main {
 
                     Aluno alunos = new Aluno(nome, matricula, curso);
                     usuarios.addAluno(alunos);
-                    System.out.println("\n Aluno Cadastrado com sucesso!");
+                    System.out.println("\n Aluno Cadastrado com sucesso!\n");
                 }
                 break;
                 case 2: {
@@ -245,7 +245,7 @@ public class Main {
 
                     Professor professores = new Professor(nome, matricula);
                     usuarios.addProfessor(professores);
-                    System.out.println("\n Professor Cadastrado com sucesso!");
+                    System.out.println("\n Professor Cadastrado com sucesso!\n");
                 }
                 break;
                 case 3: {
@@ -256,7 +256,7 @@ public class Main {
 
                     PosGraduado posGraduados = new PosGraduado(nome, matricula);
                     usuarios.addPosGraduado(posGraduados);
-                    System.out.println("\n pós graduado Cadastrado com sucesso!");
+                    System.out.println("\n pós graduado Cadastrado com sucesso!\n");
                 }
                 break;
                 case 4: {
@@ -267,7 +267,7 @@ public class Main {
 
                     FuncionarioAdministrativo funcionarios = new FuncionarioAdministrativo(nome, matricula);
                     usuarios.addFuncionarioAdministrativo(funcionarios);
-                    System.out.println("\n Funcionário Administrativo Cadastrado com sucesso!");
+                    System.out.println("\n Funcionário Administrativo Cadastrado com sucesso!\n");
                 }
                 break;
                 case 0:
