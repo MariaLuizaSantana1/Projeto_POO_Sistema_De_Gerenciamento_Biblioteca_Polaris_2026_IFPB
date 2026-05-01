@@ -44,4 +44,10 @@ public class Dvd {
     public String getClassificacaoIndicativa() {
         return classificacaoIndicativa;
     }
+
+    public String toString(){
+        return "\nTitulo: " + titulo + "\nDiretor: " + diretor + "\nDuração: " + duracao +"min" + "\nClassificação indicativa: " + classificacaoIndicativa;
+    }
+
+
 }

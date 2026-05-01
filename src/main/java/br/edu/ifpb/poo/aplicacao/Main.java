@@ -172,10 +172,12 @@ public class Main {
                     String artista = sc.nextLine();
                     System.out.println("Quantas faixas tem o Cd? ");
                     int numFaixas = Integer.parseInt(sc.nextLine());
+                    String[] faixas = new String[numFaixas];
                     System.out.println("Digite o nome das faixas do Cd: ");
-                    for (int i=0; i< numFaixas; i++) {
+                    for (int i=0; i < numFaixas; i++) {
                         String faixa = sc.nextLine();
-                        String[] faixas = faixa;
+                        faixas[i] = faixa;
+                        
                     }
                     
 
@@ -186,11 +188,15 @@ public class Main {
                 break;
                 case 4: {
                     System.out.println("Digite o nome do Dvd: ");
-                    String nome = sc.nextLine();
+                    String titulo = sc.nextLine();
                     System.out.println("Digite a matricula do Dvd: ");
-                    String matricula = sc.nextLine();
+                    String diretor = sc.nextLine();
+                    System.out.println("Digite a duracao do Dvd: ");
+                    int duracao = Integer.parseInt(sc.nextLine());
+                    System.out.println("Digite a classificacao indicativa do Dvd: ");
+                    String classificacaoIndicativa = sc.nextLine();
 
-                    Dvd dvds = new Dvd();
+                    Dvd dvds = new Dvd(titulo, diretor, duracao, classificacaoIndicativa);
                     itens.addDvd(dvds);
                     System.out.println("\nDvd Cadastrado com sucesso!");
                 }

@@ -33,4 +33,8 @@ public class Cd {
     public String[] getListaFaixas() {
         return listaFaixas;
     }
+
+    public String toString(){
+        return "\nTitulo: " + titulo + "\nArtista: " + artista + "\nFaixas: " + listaFaixas;
+    }
 }
