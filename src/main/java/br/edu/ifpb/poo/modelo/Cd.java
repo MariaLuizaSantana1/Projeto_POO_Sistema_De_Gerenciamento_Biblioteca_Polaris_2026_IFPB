@@ -1,5 +1,7 @@
 package br.edu.ifpb.poo.modelo;
 
+import java.util.Arrays;
+
 public class Cd {
     private String titulo;
     private String artista;
@@ -35,6 +37,6 @@ public class Cd {
     }
 
     public String toString(){
-        return "\nTitulo: " + titulo + "\nArtista: " + artista + "\nFaixas: " + listaFaixas;
+        return "\nTitulo: " + titulo + "\nArtista: " + artista + "\nFaixas: " + Arrays.toString(listaFaixas);
     }
 }
