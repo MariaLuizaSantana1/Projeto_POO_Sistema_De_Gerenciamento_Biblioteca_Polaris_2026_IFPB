@@ -58,5 +58,13 @@ public class GerenciadorDeUsuario {
             System.out.println(funcionarioAdministrativo);
         }
     }
+
+    public void BuscarAluno(){
+        for (int i = 0; i < 10; i++) {
+            
+        }
+    }
+
+    
     
 }
