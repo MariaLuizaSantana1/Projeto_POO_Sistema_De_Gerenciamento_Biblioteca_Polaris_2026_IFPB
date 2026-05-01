@@ -1,10 +1,25 @@
 package br.edu.ifpb.poo.modelo;
 
 public class Dvd {
+    private String titulo;
     private String diretor;
     private int duracao;
-    private char classificacaoIndicativa;
+    private String classificacaoIndicativa;
 
+    public Dvd(String titulo, String diretor, int duracao, String classificacaoIndicativa){
+        this.titulo = titulo;
+        this.diretor = diretor;
+        this.duracao = duracao;
+        this.classificacaoIndicativa = classificacaoIndicativa;
+    }
+
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+    public String getTitulo() {
+        return titulo;
+    }
 
 
     public void setDiretor(String diretor) {
@@ -23,10 +38,10 @@ public class Dvd {
     }
 
 
-    public void setClassificacaoIndicativa(char classificacaoIndicativa) {
+    public void setClassificacaoIndicativa(String classificacaoIndicativa) {
         this.classificacaoIndicativa = classificacaoIndicativa;
     }
-    public char getClassificacaoIndicativa() {
+    public String getClassificacaoIndicativa() {
         return classificacaoIndicativa;
     }
 }

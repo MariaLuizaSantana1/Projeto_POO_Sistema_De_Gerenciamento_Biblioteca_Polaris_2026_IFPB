@@ -1,8 +1,23 @@
 package br.edu.ifpb.poo.modelo;
 
 public class Cd {
+    private String titulo;
     private String artista;
     private String[] listaFaixas;
+
+
+    public Cd(String titulo, String artista, String[] listaFaixas){
+        this.titulo = titulo;
+        this.artista = artista;
+        this.listaFaixas = listaFaixas;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+    public String getTitulo() {
+        return titulo;
+    }
 
     public void setArtista(String artista) {
         this.artista = artista;

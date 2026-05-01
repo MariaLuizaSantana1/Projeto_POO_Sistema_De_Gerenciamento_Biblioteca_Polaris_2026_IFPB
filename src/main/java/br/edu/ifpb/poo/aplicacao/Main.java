@@ -167,11 +167,19 @@ public class Main {
                 break;
                 case 3: {
                     System.out.println("Digite o nome do Cd: ");
-                    String nome = sc.nextLine();
-                    System.out.println("Digite a matricula do Cd: ");
-                    String matricula = sc.nextLine();
+                    String titulo = sc.nextLine();
+                    System.out.println("Digite o nome do artista do Cd: ");
+                    String artista = sc.nextLine();
+                    System.out.println("Quantas faixas tem o Cd? ");
+                    int numFaixas = Integer.parseInt(sc.nextLine());
+                    System.out.println("Digite o nome das faixas do Cd: ");
+                    for (int i=0; i< numFaixas; i++) {
+                        String faixa = sc.nextLine();
+                        String[] faixas = faixa;
+                    }
+                    
 
-                    Cd cds = new Cd();
+                    Cd cds = new Cd(titulo, artista, faixas);
                     itens.addCd(cds);
                     System.out.println("\nCd Cadastrado com sucesso!");
                 }
