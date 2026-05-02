@@ -101,6 +101,9 @@ public class Main {
                 case 3:
                     buscarUsuario(sc, usuarios);
                     break;
+                case 4:
+                    buscarItem(sc, itens);
+                    break;
                 case 0:
                     break;
                 default:
@@ -128,7 +131,7 @@ public class Main {
                     usuarios.buscarAluno(matriculaAluno);
                     break;
                 case 2:
-                    System.out.println("Digite a matricula do aluno que deseja buscar: ");
+                    System.out.println("Digite a matricula do Professor que deseja buscar: ");
                     String matriculaProfessor = sc.nextLine();
                     usuarios.buscarProfessor(matriculaProfessor);
                     break;
@@ -138,9 +141,52 @@ public class Main {
                     usuarios.buscarPosGraduado(matriculaPos);
                     break;
                 case 4:
-                    System.out.println("Digite a matricula do aluno que deseja buscar: ");
+                    System.out.println("Digite a matricula do Funcionário Administrativo que deseja buscar: ");
                     String matriculaFuncionario = sc.nextLine();
                     usuarios.buscarFuncionario(matriculaFuncionario);
+                    break;
+                case 0:
+                    break;
+                default:
+                    System.out.println("Opção inválida");
+            }
+        }
+    }
+
+
+
+    private static void buscarItem(Scanner sc, GerenciadorDeItens itens){
+        int respco = 1;
+        while (respco != 0) {
+            System.out.println("""
+               Que item do acervo você gostaria de buscar? 
+               [1] Pesquisar Livro
+               [2] Pesquisar Revista
+               [3] Pesquisar Cd
+               [4] Pesquisar Dvd
+               [0] Voltar
+            """);
+            respco = Integer.parseInt(sc.nextLine());
+            switch (respco) {
+                case 1:
+                    System.out.println("Digite o título do livro que deseja buscar: ");
+                    String tituloLivro = sc.nextLine();
+                    itens.buscarLivro(tituloLivro);
+                    break;
+                case 2:
+                    System.out.println("Digite o título da revista que deseja buscar: ");
+                    String tituloRevista = sc.nextLine();
+                    itens.buscarRevista(tituloRevista);
+                    break;
+                case 3:
+                    System.out.println("Digite o título do cd que deseja buscar: ");
+                    String tituloCd = sc.nextLine();
+                    itens.buscarCd(tituloCd);
+                    break;
+                case 4:
+                    System.out.println("Digite o título do dvd que deseja buscar: ");
+                    String tituloDvd = sc.nextLine();
+                    itens.buscarDvd(tituloDvd);
                     break;
                 case 0:
                     break;

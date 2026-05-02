@@ -60,6 +60,52 @@ public class GerenciadorDeItens {
             System.out.println(dvd.toString());
         }
     }
+
+    public void buscarLivro(String titulo){
+        for (Livro livros : listaLivros) {
+            if (livros.getTitulo().equals(titulo)){
+                System.out.println("\nLivro encontrado: \n\n" + livros.toString());
+            }
+            else{
+                System.out.println("\nLivro não encontrado\n");;
+            }            
+        }
+    }
+
+    public void buscarRevista(String titulo){
+        for (Revista revista : listaRevistas) {
+            if (revista.getTitulo().equals(titulo)){
+                System.out.println("\nRevista encontrada: \n\n" + revista.toString());
+            }
+            else{
+                System.out.println("\nRevista não encontrada\n");;
+            }            
+        }
+    }
+
+
+    public void buscarCd(String titulo){
+        for (Cd cd : listaCds) {
+            if (cd.getTitulo().equals(titulo)){
+                System.out.println("\nCd encontrado: \n\n" + cd.toString());
+            }
+            else{
+                System.out.println("\nCd não encontrado\n");;
+            }            
+        }
+    }
+
+
+    public void buscarDvd(String titulo){
+        for (Dvd dvd : listaDvds) {
+            if (dvd.getTitulo().equals(titulo)){
+                System.out.println("\nDvd encontrado: \n\n" + dvd.toString());
+            }
+            else{
+                System.out.println("\nDvd não encontrado\n");;
+            }            
+        }
+    }
     
 }
 

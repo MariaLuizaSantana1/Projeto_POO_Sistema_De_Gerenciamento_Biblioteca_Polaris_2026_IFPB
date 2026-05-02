@@ -66,8 +66,7 @@ public class GerenciadorDeUsuario {
             }
             else{
                 System.out.println("\nAluno não encontrado\n");;
-            }
-            
+            }            
         }
     }
 
@@ -79,8 +78,7 @@ public class GerenciadorDeUsuario {
             }
             else{
                 System.out.println("\nProfessor não encontrado\n");;
-            }
-            
+            }           
         }
     }
 
@@ -92,8 +90,7 @@ public class GerenciadorDeUsuario {
             }
             else{
                 System.out.println("\nPós Graduado não encontrado\n");;
-            }
-            
+            }           
         }
     }
 
@@ -105,8 +102,7 @@ public class GerenciadorDeUsuario {
             }
             else{
                 System.out.println("\nFuncionário Administrativo não encontrado\n");;
-            }
-            
+            }            
         }
     }
 
