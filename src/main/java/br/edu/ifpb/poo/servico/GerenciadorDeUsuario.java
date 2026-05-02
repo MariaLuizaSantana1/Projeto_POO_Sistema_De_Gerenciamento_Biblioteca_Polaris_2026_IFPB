@@ -59,7 +59,7 @@ public class GerenciadorDeUsuario {
         }
     }
 
-    public void BuscarAluno(String matricula){
+    public void buscarAluno(String matricula){
         for (Aluno aluno : listaAlunos) {
             if (aluno.getMatricula().equals(matricula)){
                 System.out.println("\nAluno encontrado: \n" + aluno.toString());
@@ -72,7 +72,7 @@ public class GerenciadorDeUsuario {
     }
 
 
-    public void BuscarProfessor(String matricula){
+    public void buscarProfessor(String matricula){
         for (Professor professor : listaProfessores) {
             if (professor.getMatricula().equals(matricula)){
                 System.out.println("\nProfessor encontrado: \n" + professor.toString());
@@ -85,7 +85,7 @@ public class GerenciadorDeUsuario {
     }
 
 
-    public void BuscarPosGraduado(String matricula){
+    public void buscarPosGraduado(String matricula){
         for (PosGraduado posGraduado : listaPosGraduados) {
             if (posGraduado.getMatricula().equals(matricula)){
                 System.out.println("\nPós Graduado encontrado: \n" + posGraduado.toString());
@@ -98,7 +98,7 @@ public class GerenciadorDeUsuario {
     }
 
 
-    public void BuscarFuncionario(String matricula){
+    public void buscarFuncionario(String matricula){
         for (FuncionarioAdministrativo funcionarioAdministrativo : listaFuncionariosAdministrativos) {
             if (funcionarioAdministrativo.getMatricula().equals(matricula)){
                 System.out.println("\nFuncionário Administrativo encontrado: \n" + funcionarioAdministrativo.toString());

@@ -99,7 +99,7 @@ public class Main {
                     itens.listarDvds();
                     break;
                 case 3:
-                    buscarBuscarUsuario(sc, usuarios);
+                    buscarUsuario(sc, usuarios);
                     break;
                 case 0:
                     break;
@@ -109,7 +109,7 @@ public class Main {
         }
     }
 
-    private static void buscarBuscarUsuario(Scanner sc, GerenciadorDeUsuario usuarios){
+    private static void buscarUsuario(Scanner sc, GerenciadorDeUsuario usuarios){
         int respcons = 1;
         while (respcons != 0) {
             System.out.println("""
@@ -124,14 +124,23 @@ public class Main {
             switch (respcons) {
                 case 1:
                     System.out.println("Digite a matricula do aluno que deseja buscar: ");
-                    String matricula = sc.nextLine();
-                    usuarios.BuscarAluno(matricula);
+                    String matriculaAluno = sc.nextLine();
+                    usuarios.buscarAluno(matriculaAluno);
                     break;
                 case 2:
+                    System.out.println("Digite a matricula do aluno que deseja buscar: ");
+                    String matriculaProfessor = sc.nextLine();
+                    usuarios.buscarProfessor(matriculaProfessor);
                     break;
                 case 3:
+                    System.out.println("Digite a matricula do Pós Graduado que deseja buscar: ");
+                    String matriculaPos = sc.nextLine();
+                    usuarios.buscarPosGraduado(matriculaPos);
                     break;
                 case 4:
+                    System.out.println("Digite a matricula do aluno que deseja buscar: ");
+                    String matriculaFuncionario = sc.nextLine();
+                    usuarios.buscarFuncionario(matriculaFuncionario);
                     break;
                 case 0:
                     break;
