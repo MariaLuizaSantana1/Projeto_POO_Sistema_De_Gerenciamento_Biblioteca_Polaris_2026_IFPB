@@ -26,7 +26,7 @@ public class Main {
          1100, "Frodo Bolseiro embarca numa missão com seu seus amigos hobbits,\nseu guia Gandalf, elfos, um anão e humanos para levar o Um Anel para a\nMontanha da Perdição e salvar a Terra Média.");
         itens.addLivro(livroDefault);
 
-        Aluno alunoDefault = new Aluno("Anna", "2024137368", "Sistemas");
+        Aluno alunoDefault = new Aluno("Anna", "2024137300", "Sistemas");
         usuarios.addAluno(alunoDefault);
 
         while (resposta != 0) {
@@ -69,9 +69,11 @@ public class Main {
         int respconsult = 1;
         while (respconsult != 0) {
             System.out.println("""
-               O que você gostaria de consultar? 
-               [1] Usuários
-               [2] Itens do Acervo
+               O que você gostaria de Fazer? 
+               [1] Listar Usuários
+               [2] Listar Itens do Acervo
+               [3] Pesquisar Usuário
+               [4] Pesquisar Item do Acervo
                [0] Voltar
             """);
             respconsult = Integer.parseInt(sc.nextLine());
@@ -95,6 +97,41 @@ public class Main {
                     itens.listarCds();
                     System.out.println("\nDVDs cadastrados: ");
                     itens.listarDvds();
+                    break;
+                case 3:
+                    buscarBuscarUsuario(sc, usuarios);
+                    break;
+                case 0:
+                    break;
+                default:
+                    System.out.println("Opção inválida");
+            }
+        }
+    }
+
+    private static void buscarBuscarUsuario(Scanner sc, GerenciadorDeUsuario usuarios){
+        int respcons = 1;
+        while (respcons != 0) {
+            System.out.println("""
+               Que usuário você gostaria de buscar? 
+               [1] Pesquisar Aluno
+               [2] Pesquisar Professor
+               [3] Pesquisar Pós Graduado
+               [4] Pesquisar Funcionário Administrativo
+               [0] Voltar
+            """);
+            respcons = Integer.parseInt(sc.nextLine());
+            switch (respcons) {
+                case 1:
+                    System.out.println("Digite a matricula do aluno que deseja buscar: ");
+                    String matricula = sc.nextLine();
+                    usuarios.BuscarAluno(matricula);
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
                     break;
                 case 0:
                     break;

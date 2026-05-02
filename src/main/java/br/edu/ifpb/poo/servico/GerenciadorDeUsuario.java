@@ -59,8 +59,53 @@ public class GerenciadorDeUsuario {
         }
     }
 
-    public void BuscarAluno(){
-        for (int i = 0; i < 10; i++) {
+    public void BuscarAluno(String matricula){
+        for (Aluno aluno : listaAlunos) {
+            if (aluno.getMatricula().equals(matricula)){
+                System.out.println("\nAluno encontrado: \n" + aluno.toString());
+            }
+            else{
+                System.out.println("\nAluno não encontrado\n");;
+            }
+            
+        }
+    }
+
+
+    public void BuscarProfessor(String matricula){
+        for (Professor professor : listaProfessores) {
+            if (professor.getMatricula().equals(matricula)){
+                System.out.println("\nProfessor encontrado: \n" + professor.toString());
+            }
+            else{
+                System.out.println("\nProfessor não encontrado\n");;
+            }
+            
+        }
+    }
+
+
+    public void BuscarPosGraduado(String matricula){
+        for (PosGraduado posGraduado : listaPosGraduados) {
+            if (posGraduado.getMatricula().equals(matricula)){
+                System.out.println("\nPós Graduado encontrado: \n" + posGraduado.toString());
+            }
+            else{
+                System.out.println("\nPós Graduado não encontrado\n");;
+            }
+            
+        }
+    }
+
+
+    public void BuscarFuncionario(String matricula){
+        for (FuncionarioAdministrativo funcionarioAdministrativo : listaFuncionariosAdministrativos) {
+            if (funcionarioAdministrativo.getMatricula().equals(matricula)){
+                System.out.println("\nFuncionário Administrativo encontrado: \n" + funcionarioAdministrativo.toString());
+            }
+            else{
+                System.out.println("\nFuncionário Administrativo não encontrado\n");;
+            }
             
         }
     }
