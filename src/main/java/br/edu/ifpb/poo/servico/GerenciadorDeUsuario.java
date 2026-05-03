@@ -59,15 +59,12 @@ public class GerenciadorDeUsuario {
         }
     }
 
-    public void buscarAluno(String matricula){
+    public Aluno buscarAluno(String matricula){
         for (Aluno aluno : listaAlunos) {
             if (aluno.getMatricula().equals(matricula)){
-                System.out.println("\nAluno encontrado: \n" + aluno.toString());
-            }
-            else{
-                System.out.println("\nAluno não encontrado\n");;
-            }            
-        }
+                return aluno;
+            }                  
+        }return null; 
     }
 
 

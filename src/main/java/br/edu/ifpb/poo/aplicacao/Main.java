@@ -12,6 +12,7 @@ import br.edu.ifpb.poo.modelo.Professor;
 import br.edu.ifpb.poo.modelo.Revista;
 import br.edu.ifpb.poo.servico.GerenciadorDeItens;
 import br.edu.ifpb.poo.servico.GerenciadorDeUsuario;
+import br.edu.ifpb.poo.servico.GerenciadorEmprestimos;
 
 public class Main {
 
@@ -20,8 +21,9 @@ public class Main {
         int resposta = 1;
         GerenciadorDeUsuario usuarios = new GerenciadorDeUsuario();
         GerenciadorDeItens itens = new GerenciadorDeItens();
+        GerenciadorEmprestimos emprestimos = new GerenciadorEmprestimos();
         
-        Livro livroDefault = new Livro("13768126382", "O Senhor dos Anéis",
+        Livro livroDefault = new Livro("37910000194500", "O Senhor dos Aneis",
          "J.R.R.Tolkien", "Harper Collins", 2020, "Fantasia",
          1100, "Frodo Bolseiro embarca numa missão com seu seus amigos hobbits,\nseu guia Gandalf, elfos, um anão e humanos para levar o Um Anel para a\nMontanha da Perdição e salvar a Terra Média.");
         itens.addLivro(livroDefault);
@@ -49,7 +51,7 @@ public class Main {
                     gerenciarUsuarios(sc, usuarios);
                     break;
                 case 3:
-                    realizarEmprestimos();
+                    realizarEmprestimos(sc, usuarios, itens, emprestimos);
                     break;
                 case 4:
                     consultar(sc, usuarios, itens);
@@ -128,7 +130,13 @@ public class Main {
                 case 1:
                     System.out.println("Digite a matricula do aluno que deseja buscar: ");
                     String matriculaAluno = sc.nextLine();
-                    usuarios.buscarAluno(matriculaAluno);
+                    Aluno alunoEncontrado = usuarios.buscarAluno(matriculaAluno);
+                    if(alunoEncontrado == null){
+                        System.out.println("Aluno não encontrado");
+                    }
+                    else{
+                        System.out.println(alunoEncontrado.toString());
+                    }
                     break;
                 case 2:
                     System.out.println("Digite a matricula do Professor que deseja buscar: ");
@@ -198,8 +206,27 @@ public class Main {
 
 
 
-    private static void realizarEmprestimos() {
-        System.out.println("Sem operações disponíveis");
+    private static void realizarEmprestimos(Scanner sc, GerenciadorDeUsuario usuarios, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos) {
+        System.out.println("Digite a Matricula do Aluno que desseja emprestar");
+        String matriculaAluno = sc.nextLine();
+        Aluno alunoEncontrado = usuarios.buscarAluno(matriculaAluno);
+        if(alunoEncontrado != null){
+            System.out.println("Digite o titulo do livro que desseja emprestar");
+            String tituloLivro = sc.nextLine();
+            Livro livroEncontrado = itens.buscarLivro(tituloLivro);
+            if(livroEncontrado != null){
+                emprestimos.emprestarParaAluno(alunoEncontrado, livroEncontrado);
+                System.out.println("\n Empréstimo realizado com sucesso!\n");
+                emprestimos.listaEmprestimos();
+                
+            }
+            else{
+                System.out.println("Livro não encontrado");
+            }
+        }
+        else{
+            System.out.println("Aluno não encontrado");
+        }
     }
 
 

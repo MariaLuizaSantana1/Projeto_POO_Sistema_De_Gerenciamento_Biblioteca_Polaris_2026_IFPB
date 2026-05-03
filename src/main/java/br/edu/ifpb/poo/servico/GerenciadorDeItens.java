@@ -61,15 +61,12 @@ public class GerenciadorDeItens {
         }
     }
 
-    public void buscarLivro(String titulo){
+    public Livro buscarLivro(String titulo){
         for (Livro livros : listaLivros) {
             if (livros.getTitulo().equals(titulo)){
-                System.out.println("\nLivro encontrado: \n\n" + livros.toString());
-            }
-            else{
-                System.out.println("\nLivro não encontrado\n");;
-            }            
-        }
+                return livros;
+            }           
+        } return null;
     }
 
     public void buscarRevista(String titulo){
