@@ -3,6 +3,7 @@ package br.edu.ifpb.poo.modelo;
 public class FuncionarioAdministrativo {
     private String nome;
     private String matricula;
+    private int itensEmprestados = 0;
     private String ativo = "ativo";
 
     public FuncionarioAdministrativo(String nome, String matricula){
@@ -25,6 +26,13 @@ public class FuncionarioAdministrativo {
         return matricula;
     }
 
+    public void setItensEmprestados(int itensEmprestados) {
+        this.itensEmprestados = itensEmprestados;
+    }
+    public int getItensEmprestados() {
+        return itensEmprestados;
+    }
+
 
     public void setAtivo(String ativo) {
         this.ativo = ativo;
@@ -34,6 +42,6 @@ public class FuncionarioAdministrativo {
     }
 
     public String toString(){
-        return "Nome: " + nome + "\nMatricula: " + matricula + "\nStatus: " + ativo;
+        return "Nome: " + nome + "\nMatricula: " + matricula +"\nItens emprestados:"+ itensEmprestados + "\nStatus: " + ativo;
     }
 }

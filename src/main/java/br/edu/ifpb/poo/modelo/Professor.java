@@ -3,6 +3,7 @@ package br.edu.ifpb.poo.modelo;
 public class Professor {
     private String nome;
     private String matricula;
+    private int itensEmprestados = 0;
     private String ativo = "ativo";
 
 
@@ -26,6 +27,13 @@ public class Professor {
         return matricula;
     }
 
+    public void setItensEmprestados(int itensEmprestados) {
+        this.itensEmprestados = itensEmprestados;
+    }
+    public int getItensEmprestados() {
+        return itensEmprestados;
+    }
+
 
     public void setAtivo(String ativo) {
         this.ativo = ativo;
@@ -35,6 +43,6 @@ public class Professor {
     }
 
     public String toString(){
-        return "Nome: " + nome + "\nMatricula: " + matricula + "\nStatus: " + ativo;
+        return "Nome: " + nome + "\nMatricula: " + matricula +"\nItens emprestados:"+ itensEmprestados + "\nStatus: " + ativo;
     }
 }

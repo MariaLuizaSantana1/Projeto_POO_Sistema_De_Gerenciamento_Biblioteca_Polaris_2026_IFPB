@@ -27,11 +27,18 @@ public class GerenciadorEmprestimos {
     }
 
     public void emprestarParaAluno(Aluno aluno, Livro livro){
-        LocalDate hoje = LocalDate.now();
-        LocalDate devolucao = hoje.plusDays(7);
-        Emprestimo emprestimo = new Emprestimo(aluno.getNome(), livro.getIsbn(), hoje, devolucao);
-        listaEmprestimos.add(emprestimo);
+        if(aluno.getItensEmprestados() == 3){
+            LocalDate hoje = LocalDate.now();
+            LocalDate devolucao = hoje.plusDays(7);
+            Emprestimo emprestimo = new Emprestimo(aluno.getNome(), livro.getIsbn(), hoje, devolucao);
+            aluno.setItensEmprestados(+1);
+            listaEmprestimos.add(emprestimo);
 
+        }
+        else{
+            System.out.println("Usuário de matricula " + aluno.getMatricula() + "já atingiu o limite máximo de 5 itens");
+        }
+        
     }
 
     public void emprestarParaProfessor(){

@@ -4,6 +4,7 @@ public class Aluno {
     private String nome;
     private String matricula;
     private String curso;
+    private int itensEmprestados = 0;
     private String ativo = "ativo";
 
 
@@ -36,6 +37,13 @@ public class Aluno {
         return curso;
     }
 
+    public void setItensEmprestados(int itensEmprestados) {
+        this.itensEmprestados = itensEmprestados;
+    }
+    public int getItensEmprestados() {
+        return itensEmprestados;
+    }
+
 
     public void setAtivo(String ativo) {
         this.ativo = ativo;
@@ -45,6 +53,6 @@ public class Aluno {
     }
 
     public String toString(){
-        return "Nome: " + nome + "\nMatricula: " + matricula + "\nCurso: " + curso + "\nStatus: " + ativo;
+        return "Nome: " + nome + "\nMatricula: " + matricula + "\nCurso: " + curso +"\nItens emprestados:"+ itensEmprestados + "\nStatus: " + ativo;
     }
 }
