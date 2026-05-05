@@ -46,8 +46,7 @@ public class GerenciadorEmprestimos {
         }
         else{
             System.out.println("Aluno de matricula " + aluno.getMatricula() + " Não está ativo no sistema");
-        }
-        
+        }   
     }
 
     public void emprestarRevistaParaAluno(Aluno aluno, Revista revista){
@@ -63,8 +62,7 @@ public class GerenciadorEmprestimos {
         }
         else{
             System.out.println("Aluno de matricula " + aluno.getMatricula() + " Não está ativo no sistema");
-        }
-        
+        }        
     }
 
     public void emprestarCdParaAluno(Aluno aluno, Cd cd){
@@ -80,8 +78,7 @@ public class GerenciadorEmprestimos {
         }
         else{
             System.out.println("Aluno de matricula " + aluno.getMatricula() + " Não está ativo no sistema");
-        }
-        
+        }       
     }
 
     public void emprestarDvdParaAluno(Aluno aluno, Dvd dvd){
@@ -97,8 +94,7 @@ public class GerenciadorEmprestimos {
         }
         else{
             System.out.println("Aluno de matricula " + aluno.getMatricula() + " Não está ativo no sistema");
-        }
-        
+        }       
     }
 
 

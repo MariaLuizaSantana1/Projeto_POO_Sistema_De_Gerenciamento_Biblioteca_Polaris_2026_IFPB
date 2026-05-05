@@ -215,7 +215,7 @@ public class Main {
             resp = Integer.parseInt(sc.nextLine());
             switch (resp) {
                 case 1: {
-                    System.out.println("Digite a Matricula do Aluno que desseja emprestar");
+                    System.out.println("Digite a Matricula do Aluno que deseja emprestar");
                     String matriculaAluno = sc.nextLine();
                     Aluno alunoEncontrado = usuarios.buscarAluno(matriculaAluno);
                     if (alunoEncontrado == null) {
