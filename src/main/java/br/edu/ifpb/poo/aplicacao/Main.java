@@ -269,12 +269,45 @@ public class Main {
                     } break;
                 }
                 
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
+                case 2:{
+                    System.out.println("Digite o titulo da revista que desseja emprestar");
+                    String tituloRevista = sc.nextLine();
+                    Revista revistaEncontrada = itens.buscarRevista(tituloRevista);
+                    if (revistaEncontrada == null) {
+                        System.out.println("Revista não encontrada");
+                        break;
+                    } else {
+                        emprestimos.emprestarRevistaParaAluno(alunoEncontrado, revistaEncontrada);
+                        System.out.println("\n Empréstimo realizado com sucesso!\n");
+                        emprestimos.listaEmprestimos();
+                    } break;
+                }
+                case 3:{
+                    System.out.println("Digite o titulo do cd que desseja emprestar");
+                    String tituloCd = sc.nextLine();
+                    Cd cdEncontrado = itens.buscarCd(tituloCd);
+                    if (cdEncontrado == null) {
+                        System.out.println("Cd não encontrada");
+                        break;
+                    } else {
+                        emprestimos.emprestarCdParaAluno(alunoEncontrado, cdEncontrado);
+                        System.out.println("\n Empréstimo realizado com sucesso!\n");
+                        emprestimos.listaEmprestimos();
+                    } break;
+                }
+                case 4:{
+                    System.out.println("Digite o titulo do dvd que desseja emprestar");
+                    String tituloDvd = sc.nextLine();
+                    Dvd dvdEncontrada = itens.buscarDvd(tituloDvd);
+                    if (dvdEncontrada == null) {
+                        System.out.println("Dvd não encontrada");
+                        break;
+                    } else {
+                        emprestimos.emprestarDvdParaAluno(alunoEncontrado, dvdEncontrada);
+                        System.out.println("\n Empréstimo realizado com sucesso!\n");
+                        emprestimos.listaEmprestimos();
+                    } break;
+                }
                 case 0:
                     break;
                 default:
