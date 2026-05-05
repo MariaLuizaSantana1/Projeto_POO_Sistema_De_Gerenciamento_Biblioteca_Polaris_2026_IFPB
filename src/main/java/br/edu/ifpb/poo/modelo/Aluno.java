@@ -14,6 +14,13 @@ public class Aluno {
         this.curso = curso;
     }
 
+    public Aluno(String nome, String matricula, String curso, String ativo){
+        this.nome = nome;
+        this.matricula = matricula;
+        this.curso = curso;
+        this.ativo = ativo;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }

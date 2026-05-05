@@ -30,6 +30,8 @@ public class Main {
 
         Aluno alunoDefault = new Aluno("Anna", "2024137300", "Sistemas");
         usuarios.addAluno(alunoDefault);
+        Aluno alunoDefault2 = new Aluno("Harry", "2024137100", "Redes", "inativo");
+        usuarios.addAluno(alunoDefault2);
 
         while (resposta != 0) {
             System.out.println("""
