@@ -221,7 +221,9 @@ public class Main {
                     String matriculaAluno = sc.nextLine();
                     Aluno alunoEncontrado = usuarios.buscarAluno(matriculaAluno);
                     if (alunoEncontrado == null) {
-                        System.out.println("Aluno não encontrado");
+                        System.out.println("\nAluno não encontrado\n");
+                    }else if (!alunoEncontrado.getAtivo().equals("ativo")) {
+                        System.out.println("\nAluno não pode fazer empréstimo pois está inativo\n");
                     } else {
                         EmprestimosEscolherItemAluno(sc, itens, usuarios, emprestimos, alunoEncontrado);
                     } break;
@@ -267,7 +269,6 @@ public class Main {
                     } else {
                         emprestimos.emprestarLivroParaAluno(alunoEncontrado, livroEncontrado);
                         System.out.println("\n Empréstimo realizado com sucesso!\n");
-                        emprestimos.listaEmprestimos();
                     } break;
                 }
                 
