@@ -66,18 +66,18 @@ public class GerenciadorEmprestimos {
     }
 
     public void emprestarCdParaAluno(Aluno aluno, Cd cd){
-        if(aluno.getItensEmprestados() < 3 && aluno.getAtivo().equals("ativo")){
+        if(!aluno.getAtivo().equals("ativo")){
+            System.out.println("Aluno de matricula " + aluno.getMatricula() + " Não está ativo no sistema");
+        }
+        else if(aluno.getItensEmprestados() >= 3 && aluno.getAtivo().equals("ativo")){
+            System.out.println("Usuário de matricula " + aluno.getMatricula() + "já atingiu o limite máximo de 3 itens");
+        }
+        else{
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(7);
             Emprestimo emprestimo = new Emprestimo(aluno.getNome(), cd.getTitulo(), hoje, devolucao);
             aluno.setItensEmprestados(aluno.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
-        }
-        else if(aluno.getItensEmprestados() == 3 && aluno.getAtivo().equals("ativo")){
-            System.out.println("Usuário de matricula " + aluno.getMatricula() + "já atingiu o limite máximo de 3 itens");
-        }
-        else{
-            System.out.println("Aluno de matricula " + aluno.getMatricula() + " Não está ativo no sistema");
         }       
     }
 
