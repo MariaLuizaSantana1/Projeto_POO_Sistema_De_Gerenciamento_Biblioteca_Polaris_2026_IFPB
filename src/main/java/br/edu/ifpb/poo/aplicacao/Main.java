@@ -28,10 +28,25 @@ public class Main {
                 1100, "Frodo Bolseiro embarca numa missão com seu seus amigos hobbits,\nseu guia Gandalf, elfos, um anão e humanos para levar o Um Anel para a\nMontanha da Perdição e salvar a Terra Média.");
         itens.addLivro(livroDefault);
 
+        Livro livroDefault2 = new Livro("18900000197700", "Sherlock Holmes",
+                "Arthur Conan Doyler", "Harper Collins", 2021, "Romance Policial",
+                220, "O Dr. Watson acompanha a resolução dos mistérios por seu amigo\nSherlock Holmes Detetive de Londres.");
+        itens.addLivro(livroDefault2);
+        Livro livroDefault3 = new Livro("17000000198400", "1984",
+                "George Orwell", "Darkside", 1983, "Ficção Distopica",
+                336, "Winston Smith desafia o Partido e o Grande Irmão, buscando \nliberdade e amor em um mundo vigiado de controle absoluto.");
+        itens.addLivro(livroDefault2);
+        Revista revistaDefault = new Revista("1001002003004", "Veja", 1, "Abril", "11/08/2019");
+        itens.addRevista(revistaDefault);
+
+
         Aluno alunoDefault = new Aluno("Anna", "2024137300", "Sistemas");
         usuarios.addAluno(alunoDefault);
         Aluno alunoDefault2 = new Aluno("Harry", "2024137100", "Redes", "inativo");
         usuarios.addAluno(alunoDefault2);
+        Professor professorDefault2 = new Professor("Rafael", "2024137000");
+        usuarios.addProfessor(professorDefault2);
+        
 
         while (resposta != 0) {
             System.out.println("""
