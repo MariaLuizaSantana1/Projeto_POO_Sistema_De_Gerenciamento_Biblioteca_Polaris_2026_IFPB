@@ -218,10 +218,10 @@ public class Main {
                     System.out.println("Digite a Matricula do Aluno que desseja emprestar");
                     String matriculaAluno = sc.nextLine();
                     Aluno alunoEncontrado = usuarios.buscarAluno(matriculaAluno);
-                    if (alunoEncontrado != null) {
-                        EmprestimosEscolherItemAluno(sc, itens, usuarios, emprestimos, alunoEncontrado);
-                    } else {
+                    if (alunoEncontrado == null) {
                         System.out.println("Aluno não encontrado");
+                    } else {
+                        EmprestimosEscolherItemAluno(sc, itens, usuarios, emprestimos, alunoEncontrado);
                     } break;
                 }
                 case 2:
@@ -259,12 +259,13 @@ public class Main {
                     System.out.println("Digite o titulo do livro que desseja emprestar");
                     String tituloLivro = sc.nextLine();
                     Livro livroEncontrado = itens.buscarLivro(tituloLivro);
-                    if (livroEncontrado != null) {
+                    if (livroEncontrado == null) {
+                        System.out.println("Livro não encontrado");
+                        break;
+                    } else {
                         emprestimos.emprestarLivroParaAluno(alunoEncontrado, livroEncontrado);
                         System.out.println("\n Empréstimo realizado com sucesso!\n");
                         emprestimos.listaEmprestimos();
-                    } else {
-                        System.out.println("Livro não encontrado");
                     } break;
                 }
                 
