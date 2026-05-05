@@ -6,6 +6,7 @@ public class Cd {
     private String titulo;
     private String artista;
     private String[] listaFaixas;
+    private String disponibilidade = "Disponivel";
 
 
     public Cd(String titulo, String artista, String[] listaFaixas){
@@ -36,7 +37,15 @@ public class Cd {
         return listaFaixas;
     }
 
+
+    public String getDisponibilidade(){
+        return disponibilidade;
+    }
+    public void setDisponibilidade(String disponibilidade) {
+        this.disponibilidade = disponibilidade;
+    }
+
     public String toString(){
-        return "\nTitulo: " + titulo + "\nArtista: " + artista + "\nFaixas: " + Arrays.toString(listaFaixas);
+        return "\nTitulo: " + titulo + "\nArtista: " + artista + "\nFaixas: " + Arrays.toString(listaFaixas) + "\nDisponibilidade: " + disponibilidade;
     }
 }

@@ -37,7 +37,7 @@ public class GerenciadorEmprestimos {
         if(aluno.getItensEmprestados() < 3 && aluno.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(7);
-            Emprestimo emprestimo = new Emprestimo(aluno.getNome(), livro.getIsbn(), hoje, devolucao);
+            Emprestimo emprestimo = new Emprestimo(aluno.getNome(), livro.getTitulo(), hoje, devolucao);
             aluno.setItensEmprestados(aluno.getItensEmprestados()+1);
             listaEmprestimos.add(emprestimo);
         }
@@ -53,7 +53,7 @@ public class GerenciadorEmprestimos {
         if(aluno.getItensEmprestados() < 3 && aluno.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(7);
-            Emprestimo emprestimo = new Emprestimo(aluno.getNome(), revista.getIssn(), hoje, devolucao);
+            Emprestimo emprestimo = new Emprestimo(aluno.getNome(), revista.getTitulo(), hoje, devolucao);
             aluno.setItensEmprestados(aluno.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
         }
@@ -102,7 +102,7 @@ public class GerenciadorEmprestimos {
         if(professor.getItensEmprestados() < 5 && professor.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(14);
-            Emprestimo emprestimo = new Emprestimo(professor.getNome(), livro.getIsbn(), hoje, devolucao);
+            Emprestimo emprestimo = new Emprestimo(professor.getNome(), livro.getTitulo(), hoje, devolucao);
             professor.setItensEmprestados(professor.getItensEmprestados()+1);
             listaEmprestimos.add(emprestimo);
         }
@@ -119,7 +119,7 @@ public class GerenciadorEmprestimos {
         if(professor.getItensEmprestados() < 5 && professor.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(7);
-            Emprestimo emprestimo = new Emprestimo(professor.getNome(), revista.getIssn(), hoje, devolucao);
+            Emprestimo emprestimo = new Emprestimo(professor.getNome(), revista.getTitulo(), hoje, devolucao);
             professor.setItensEmprestados(professor.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
         }
@@ -170,7 +170,7 @@ public class GerenciadorEmprestimos {
         if(posGraduado.getItensEmprestados() < 5 && posGraduado.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(14);
-            Emprestimo emprestimo = new Emprestimo(posGraduado.getNome(), livro.getIsbn(), hoje, devolucao);
+            Emprestimo emprestimo = new Emprestimo(posGraduado.getNome(), livro.getTitulo(), hoje, devolucao);
             posGraduado.setItensEmprestados(posGraduado.getItensEmprestados()+1);
             listaEmprestimos.add(emprestimo);
         }
@@ -186,7 +186,7 @@ public class GerenciadorEmprestimos {
         if(posGraduado.getItensEmprestados() < 5 && posGraduado.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(7);
-            Emprestimo emprestimo = new Emprestimo(posGraduado.getNome(), revista.getIssn(), hoje, devolucao);
+            Emprestimo emprestimo = new Emprestimo(posGraduado.getNome(), revista.getTitulo(), hoje, devolucao);
             posGraduado.setItensEmprestados(posGraduado.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
         }
@@ -236,7 +236,7 @@ public class GerenciadorEmprestimos {
         if(funcionarioAdministrativo.getItensEmprestados() < 2 && funcionarioAdministrativo.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(10);
-            Emprestimo emprestimo = new Emprestimo(funcionarioAdministrativo.getNome(), livro.getIsbn(), hoje, devolucao);
+            Emprestimo emprestimo = new Emprestimo(funcionarioAdministrativo.getNome(), livro.getTitulo(), hoje, devolucao);
             funcionarioAdministrativo.setItensEmprestados(funcionarioAdministrativo.getItensEmprestados()+1);
             listaEmprestimos.add(emprestimo);
         }
@@ -252,7 +252,7 @@ public class GerenciadorEmprestimos {
         if(funcionarioAdministrativo.getItensEmprestados() < 2 && funcionarioAdministrativo.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(7);
-            Emprestimo emprestimo = new Emprestimo(funcionarioAdministrativo.getNome(), revista.getIssn(), hoje, devolucao);
+            Emprestimo emprestimo = new Emprestimo(funcionarioAdministrativo.getNome(), revista.getTitulo(), hoje, devolucao);
             funcionarioAdministrativo.setItensEmprestados(funcionarioAdministrativo.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
         }
@@ -294,6 +294,16 @@ public class GerenciadorEmprestimos {
         else{
             System.out.println("Aluno de matricula " + funcionarioAdministrativo.getMatricula() + " Não está ativo no sistema");
         }       
+    }
+
+
+
+    public Emprestimo registrarDevolução(String tituloItem){
+        for(Emprestimo emprestimo : this.listaEmprestimos){
+            if (emprestimo.getItem().equals(tituloItem)) {
+                return emprestimo;
+            }
+        } return null;
     }
 
 }

@@ -5,6 +5,7 @@ public class Dvd {
     private String diretor;
     private int duracao;
     private String classificacaoIndicativa;
+    private String disponibilidade = "Disponivel";
 
     public Dvd(String titulo, String diretor, int duracao, String classificacaoIndicativa){
         this.titulo = titulo;
@@ -45,8 +46,17 @@ public class Dvd {
         return classificacaoIndicativa;
     }
 
+    public String getDisponibilidade(){
+        return disponibilidade;
+    }
+    public void setDisponibilidade(String disponibilidade) {
+        this.disponibilidade = disponibilidade;
+    }
+
+
+
     public String toString(){
-        return "\nTitulo: " + titulo + "\nDiretor: " + diretor + "\nDuração: " + duracao +"min" + "\nClassificação indicativa: " + classificacaoIndicativa;
+        return "\nTitulo: " + titulo + "\nDiretor: " + diretor + "\nDuração: " + duracao +"min" + "\nClassificação indicativa: " + classificacaoIndicativa + "\nDisponibilidade: " + disponibilidade;
     }
 
 

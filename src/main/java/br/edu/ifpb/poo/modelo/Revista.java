@@ -6,6 +6,7 @@ public class Revista {
     private int volume;
     private String editora;
     private String dataPublicacao;
+    private String disponibilidade = "Disponivel";
 
     public Revista(String issn, String titulo,int volume, String editora, String dataPublicacao){
         this.issn = issn;
@@ -54,9 +55,16 @@ public class Revista {
         this.dataPublicacao = dataPublicacao;
     }
 
+    public String getDisponibilidade(){
+        return disponibilidade;
+    }
+    public void setDisponibilidade(String disponibilidade) {
+        this.disponibilidade = disponibilidade;
+    }
+
 
     public String toString(){
-        return "\nISSN " + issn + "\nTitulo: " + titulo + "\nEditora: " + editora;
+        return "\nISSN " + issn + "\nTitulo: " + titulo + "\nEditora: " + editora + "\nDisponibilidade: " + disponibilidade;
     }
 
 

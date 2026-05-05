@@ -282,7 +282,7 @@ public class Main {
                     }else if (alunoEncontrado.getItensEmprestados()== 3) {
                         System.out.println("Usuário de matricula já atingiu o limite máximo de 3 itens");
                     } else {
-                        EmprestimosEscolherItemAluno(sc, itens, usuarios, emprestimos, alunoEncontrado);
+                        EmprestimosEscolherItemAluno(sc, itens, emprestimos, alunoEncontrado);
                     } break;
                 }
                 case 2:{
@@ -333,7 +333,7 @@ public class Main {
     
 
 
-    private static void EmprestimosEscolherItemAluno(Scanner sc, GerenciadorDeItens itens, GerenciadorDeUsuario usuarios, GerenciadorEmprestimos emprestimos, Aluno alunoEncontrado) {
+    private static void EmprestimosEscolherItemAluno(Scanner sc, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos, Aluno alunoEncontrado) {
         int resp = 1;
         while (resp != 0) {
             System.out.println("""

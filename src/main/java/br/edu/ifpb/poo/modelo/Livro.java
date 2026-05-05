@@ -9,6 +9,7 @@ public class Livro {
     private String generoLiterario;
     private int numeroPaginas;
     private String sinopse;
+    private String disponibilidade = "Disponivel";
 
     public Livro(String isbn, String titulo, String autor, String editora, int anoPublicacao, String generoLiterario, int numeroPaginas, String sinopse){
         this.isbn = isbn;
@@ -85,9 +86,16 @@ public class Livro {
         this.sinopse = sinopse;
     }
 
+    public String getDisponibilidade(){
+        return disponibilidade;
+    }
+    public void setDisponibilidade(String disponibilidade) {
+        this.disponibilidade = disponibilidade;
+    }
+
 
     public String toString(){
-        return "Titulo: " + titulo + "\nAutor: " + autor + "\nAno de Publicação: " + anoPublicacao + "\nSinopse: " + sinopse;
+        return "Titulo: " + titulo + "\nAutor: " + autor + "\nAno de Publicação: " + anoPublicacao + "\nSinopse: " + sinopse + "\nDisponibilidade: " + disponibilidade;
     }
 
 }
