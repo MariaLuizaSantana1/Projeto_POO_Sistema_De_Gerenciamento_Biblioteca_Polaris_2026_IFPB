@@ -228,12 +228,42 @@ public class Main {
                         EmprestimosEscolherItemAluno(sc, itens, usuarios, emprestimos, alunoEncontrado);
                     } break;
                 }
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
+                case 2:{
+                    System.out.println("Digite a Matricula do Professor que deseja emprestar");
+                    String matriculaProfessor = sc.nextLine();
+                    Professor professorEncontrado = usuarios.buscarProfessor(matriculaProfessor);
+                    if (professorEncontrado == null) {
+                        System.out.println("\nProfessor não encontrado\n");
+                    }else if (!professorEncontrado.getAtivo().equals("ativo")) {
+                        System.out.println("\nProfessor não pode fazer empréstimo pois está inativo\n");
+                    } else {
+                        EmprestimosEscolherItemProfessor(sc, itens, usuarios, emprestimos, professorEncontrado);
+                    } break;
+                }
+                case 3:{
+                    System.out.println("Digite a Matricula do Pós Graduado que deseja emprestar");
+                    String matriculaAluno = sc.nextLine();
+                    PosGraduado posGraduadoEncontrado = usuarios.buscarPosGraduado(matriculaAluno);
+                    if (posGraduadoEncontrado == null) {
+                        System.out.println("\nPós Graduado não encontrado\n");
+                    }else if (!posGraduadoEncontrado.getAtivo().equals("ativo")) {
+                        System.out.println("\nPós Graduado não pode fazer empréstimo pois está inativo\n");
+                    } else {
+                        EmprestimosEscolherItemPosGraduado(sc, itens, usuarios, emprestimos, posGraduadoEncontrado);
+                    } break;
+                }
+                case 4:{
+                    System.out.println("Digite a Matricula do Funcionário que deseja emprestar");
+                    String matriculaFuncionario = sc.nextLine();
+                    FuncionarioAdministrativo funcionarioEncontrado = usuarios.buscarFuncionario(matriculaFuncionario);
+                    if (funcionarioEncontrado == null) {
+                        System.out.println("\nFuncionario não encontrado\n");
+                    }else if (!funcionarioEncontrado.getAtivo().equals("ativo")) {
+                        System.out.println("\nFuncionario não pode fazer empréstimo pois está inativo\n");
+                    } else {
+                        EmprestimosEscolherItemFuncionario(sc, itens, usuarios, emprestimos, funcionarioEncontrado);
+                    } break;
+                }
                 case 0:
                     break;
                 default:
@@ -320,6 +350,231 @@ public class Main {
 
     }
 
+
+    private static void EmprestimosEscolherItemProfessor(Scanner sc, GerenciadorDeItens itens, GerenciadorDeUsuario usuarios, GerenciadorEmprestimos emprestimos, Professor professorEncontrado) {
+        int resp = 1;
+        while (resp != 0) {
+            System.out.println("""
+                Qual item você deseja pegar emprestado 
+                [1] Livro
+                [2] Revista
+                [3] Cd
+                [4] Dvd
+                [0] Voltar
+            """);
+            resp = Integer.parseInt(sc.nextLine());
+            switch (resp) {
+                case 1: {
+                    System.out.println("Digite o titulo do livro que desseja emprestar");
+                    String tituloLivro = sc.nextLine();
+                    Livro livroEncontrado = itens.buscarLivro(tituloLivro);
+                    if (livroEncontrado == null) {
+                        System.out.println("Livro não encontrado");
+                        break;
+                    } else {
+                        emprestimos.emprestarLivroParaProfessor(professorEncontrado, livroEncontrado);
+                        System.out.println("\n Empréstimo realizado com sucesso!\n");
+                    } break;
+                }
+                
+                case 2:{
+                    System.out.println("Digite o titulo da revista que desseja emprestar");
+                    String tituloRevista = sc.nextLine();
+                    Revista revistaEncontrada = itens.buscarRevista(tituloRevista);
+                    if (revistaEncontrada == null) {
+                        System.out.println("Revista não encontrada");
+                        break;
+                    } else {
+                        emprestimos.emprestarRevistaParaProfessor(professorEncontrado, revistaEncontrada);
+                        System.out.println("\n Empréstimo realizado com sucesso!\n");
+                        emprestimos.listaEmprestimos();
+                    } break;
+                }
+                case 3:{
+                    System.out.println("Digite o titulo do cd que desseja emprestar");
+                    String tituloCd = sc.nextLine();
+                    Cd cdEncontrado = itens.buscarCd(tituloCd);
+                    if (cdEncontrado == null) {
+                        System.out.println("Cd não encontrada");
+                        break;
+                    } else {
+                        emprestimos.emprestarCdParaProfessor(professorEncontrado, cdEncontrado);
+                        System.out.println("\n Empréstimo realizado com sucesso!\n");
+                        emprestimos.listaEmprestimos();
+                    } break;
+                }
+                case 4:{
+                    System.out.println("Digite o titulo do dvd que desseja emprestar");
+                    String tituloDvd = sc.nextLine();
+                    Dvd dvdEncontrada = itens.buscarDvd(tituloDvd);
+                    if (dvdEncontrada == null) {
+                        System.out.println("Dvd não encontrada");
+                        break;
+                    } else {
+                        emprestimos.emprestarDvdParaProfessor(professorEncontrado, dvdEncontrada);
+                        System.out.println("\n Empréstimo realizado com sucesso!\n");
+                        emprestimos.listaEmprestimos();
+                    } break;
+                }
+                case 0:
+                    break;
+                default:
+                    System.out.println("Opção inválida");
+            }
+        }
+
+    }
+
+
+
+    private static void EmprestimosEscolherItemPosGraduado(Scanner sc, GerenciadorDeItens itens, GerenciadorDeUsuario usuarios, GerenciadorEmprestimos emprestimos, PosGraduado posGraduadoEncontrado) {
+        int resp = 1;
+        while (resp != 0) {
+            System.out.println("""
+                Qual item você deseja pegar emprestado 
+                [1] Livro
+                [2] Revista
+                [3] Cd
+                [4] Dvd
+                [0] Voltar
+            """);
+            resp = Integer.parseInt(sc.nextLine());
+            switch (resp) {
+                case 1: {
+                    System.out.println("Digite o titulo do livro que desseja emprestar");
+                    String tituloLivro = sc.nextLine();
+                    Livro livroEncontrado = itens.buscarLivro(tituloLivro);
+                    if (livroEncontrado == null) {
+                        System.out.println("Livro não encontrado");
+                        break;
+                    } else {
+                        emprestimos.emprestarLivroParaPosGraduado(posGraduadoEncontrado, livroEncontrado);
+                        System.out.println("\n Empréstimo realizado com sucesso!\n");
+                    } break;
+                }
+                
+                case 2:{
+                    System.out.println("Digite o titulo da revista que desseja emprestar");
+                    String tituloRevista = sc.nextLine();
+                    Revista revistaEncontrada = itens.buscarRevista(tituloRevista);
+                    if (revistaEncontrada == null) {
+                        System.out.println("Revista não encontrada");
+                        break;
+                    } else {
+                        emprestimos.emprestarRevistaParaPosGraduado(posGraduadoEncontrado, revistaEncontrada);
+                        System.out.println("\n Empréstimo realizado com sucesso!\n");
+                        emprestimos.listaEmprestimos();
+                    } break;
+                }
+                case 3:{
+                    System.out.println("Digite o titulo do cd que desseja emprestar");
+                    String tituloCd = sc.nextLine();
+                    Cd cdEncontrado = itens.buscarCd(tituloCd);
+                    if (cdEncontrado == null) {
+                        System.out.println("Cd não encontrada");
+                        break;
+                    } else {
+                        emprestimos.emprestarCdParaPosGraduado(posGraduadoEncontrado, cdEncontrado);
+                        System.out.println("\n Empréstimo realizado com sucesso!\n");
+                        emprestimos.listaEmprestimos();
+                    } break;
+                }
+                case 4:{
+                    System.out.println("Digite o titulo do dvd que desseja emprestar");
+                    String tituloDvd = sc.nextLine();
+                    Dvd dvdEncontrada = itens.buscarDvd(tituloDvd);
+                    if (dvdEncontrada == null) {
+                        System.out.println("Dvd não encontrada");
+                        break;
+                    } else {
+                        emprestimos.emprestarDvdParaPosGraduado(posGraduadoEncontrado, dvdEncontrada);
+                        System.out.println("\n Empréstimo realizado com sucesso!\n");
+                        emprestimos.listaEmprestimos();
+                    } break;
+                }
+                case 0:
+                    break;
+                default:
+                    System.out.println("Opção inválida");
+            }
+        }
+
+    }
+
+
+    private static void EmprestimosEscolherItemFuncionario(Scanner sc, GerenciadorDeItens itens, GerenciadorDeUsuario usuarios, GerenciadorEmprestimos emprestimos, FuncionarioAdministrativo funcionarioEncontrado) {
+        int resp = 1;
+        while (resp != 0) {
+            System.out.println("""
+                Qual item você deseja pegar emprestado 
+                [1] Livro
+                [2] Revista
+                [3] Cd
+                [4] Dvd
+                [0] Voltar
+            """);
+            resp = Integer.parseInt(sc.nextLine());
+            switch (resp) {
+                case 1: {
+                    System.out.println("Digite o titulo do livro que desseja emprestar");
+                    String tituloLivro = sc.nextLine();
+                    Livro livroEncontrado = itens.buscarLivro(tituloLivro);
+                    if (livroEncontrado == null) {
+                        System.out.println("Livro não encontrado");
+                        break;
+                    } else {
+                        emprestimos.emprestarLivroParaFuncionario(funcionarioEncontrado, livroEncontrado);
+                        System.out.println("\n Empréstimo realizado com sucesso!\n");
+                    } break;
+                }
+                
+                case 2:{
+                    System.out.println("Digite o titulo da revista que desseja emprestar");
+                    String tituloRevista = sc.nextLine();
+                    Revista revistaEncontrada = itens.buscarRevista(tituloRevista);
+                    if (revistaEncontrada == null) {
+                        System.out.println("Revista não encontrada");
+                        break;
+                    } else {
+                        emprestimos.emprestarRevistaParaFuncionario(funcionarioEncontrado, revistaEncontrada);
+                        System.out.println("\n Empréstimo realizado com sucesso!\n");
+                        emprestimos.listaEmprestimos();
+                    } break;
+                }
+                case 3:{
+                    System.out.println("Digite o titulo do cd que desseja emprestar");
+                    String tituloCd = sc.nextLine();
+                    Cd cdEncontrado = itens.buscarCd(tituloCd);
+                    if (cdEncontrado == null) {
+                        System.out.println("Cd não encontrada");
+                        break;
+                    } else {
+                        emprestimos.emprestarCdParaFuncionario(funcionarioEncontrado, cdEncontrado);
+                        System.out.println("\n Empréstimo realizado com sucesso!\n");
+                        emprestimos.listaEmprestimos();
+                    } break;
+                }
+                case 4:{
+                    System.out.println("Digite o titulo do dvd que desseja emprestar");
+                    String tituloDvd = sc.nextLine();
+                    Dvd dvdEncontrada = itens.buscarDvd(tituloDvd);
+                    if (dvdEncontrada == null) {
+                        System.out.println("Dvd não encontrada");
+                        break;
+                    } else {
+                        emprestimos.emprestarDvdParaFuncionario(funcionarioEncontrado, dvdEncontrada);
+                        System.out.println("\n Empréstimo realizado com sucesso!\n");
+                        emprestimos.listaEmprestimos();
+                    } break;
+                }
+                case 0:
+                    break;
+                default:
+                    System.out.println("Opção inválida");
+            }
+        }
+
+    }
 
 
 

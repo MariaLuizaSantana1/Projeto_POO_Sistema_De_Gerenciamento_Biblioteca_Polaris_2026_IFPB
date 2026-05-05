@@ -182,7 +182,7 @@ public class GerenciadorEmprestimos {
         }
     }
 
-    public void emprestarRevistaParaPosGraduador(PosGraduado posGraduado, Revista revista){
+    public void emprestarRevistaParaPosGraduado(PosGraduado posGraduado, Revista revista){
         if(posGraduado.getItensEmprestados() < 5 && posGraduado.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(7);

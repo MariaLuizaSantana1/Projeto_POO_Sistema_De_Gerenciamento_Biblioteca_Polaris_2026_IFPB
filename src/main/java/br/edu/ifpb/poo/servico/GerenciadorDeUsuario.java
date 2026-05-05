@@ -68,39 +68,30 @@ public class GerenciadorDeUsuario {
     }
 
 
-    public void buscarProfessor(String matricula){
+    public Professor buscarProfessor(String matricula){
         for (Professor professor : listaProfessores) {
             if (professor.getMatricula().equals(matricula)){
-                System.out.println("\nProfessor encontrado: \n" + professor.toString());
-            }
-            else{
-                System.out.println("\nProfessor não encontrado\n");;
-            }           
-        }
+                return professor;
+            }          
+        }return null;
     }
 
 
-    public void buscarPosGraduado(String matricula){
+    public PosGraduado buscarPosGraduado(String matricula){
         for (PosGraduado posGraduado : listaPosGraduados) {
             if (posGraduado.getMatricula().equals(matricula)){
-                System.out.println("\nPós Graduado encontrado: \n" + posGraduado.toString());
-            }
-            else{
-                System.out.println("\nPós Graduado não encontrado\n");;
+                return posGraduado;
             }           
-        }
+        }return null;
     }
 
 
-    public void buscarFuncionario(String matricula){
+    public FuncionarioAdministrativo buscarFuncionario(String matricula){
         for (FuncionarioAdministrativo funcionarioAdministrativo : listaFuncionariosAdministrativos) {
             if (funcionarioAdministrativo.getMatricula().equals(matricula)){
-                System.out.println("\nFuncionário Administrativo encontrado: \n" + funcionarioAdministrativo.toString());
-            }
-            else{
-                System.out.println("\nFuncionário Administrativo não encontrado\n");;
-            }            
-        }
+                return funcionarioAdministrativo;
+            }          
+        }return null;
     }
 
     
