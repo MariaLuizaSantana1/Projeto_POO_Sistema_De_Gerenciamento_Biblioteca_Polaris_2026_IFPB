@@ -353,7 +353,11 @@ public class Main {
                     if (livroEncontrado == null) {
                         System.out.println("Livro não encontrado");
                         break;
-                    } else {
+                    } else if (!livroEncontrado.getDisponibilidade().equals("Disponivel")) {
+                        System.out.println("Este item não está disponível para empréstimo.");
+                        break; 
+                    } 
+                    else {
                         emprestimos.emprestarLivroParaAluno(alunoEncontrado, livroEncontrado);
                         System.out.println("\n Empréstimo realizado com sucesso!\n");
                     } break;

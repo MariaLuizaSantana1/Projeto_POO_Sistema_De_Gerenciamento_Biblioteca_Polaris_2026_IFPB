@@ -39,6 +39,7 @@ public class GerenciadorEmprestimos {
             LocalDate devolucao = hoje.plusDays(7);
             Emprestimo emprestimo = new Emprestimo(aluno.getNome(), livro.getTitulo(), hoje, devolucao);
             aluno.setItensEmprestados(aluno.getItensEmprestados()+1);
+            livro.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
         }
         else if(aluno.getItensEmprestados() == 3 && aluno.getAtivo().equals("ativo")){
