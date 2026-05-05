@@ -22,10 +22,10 @@ public class Main {
         GerenciadorDeUsuario usuarios = new GerenciadorDeUsuario();
         GerenciadorDeItens itens = new GerenciadorDeItens();
         GerenciadorEmprestimos emprestimos = new GerenciadorEmprestimos();
-        
+
         Livro livroDefault = new Livro("37910000194500", "O Senhor dos Aneis",
-         "J.R.R.Tolkien", "Harper Collins", 2020, "Fantasia",
-         1100, "Frodo Bolseiro embarca numa missão com seu seus amigos hobbits,\nseu guia Gandalf, elfos, um anão e humanos para levar o Um Anel para a\nMontanha da Perdição e salvar a Terra Média.");
+                "J.R.R.Tolkien", "Harper Collins", 2020, "Fantasia",
+                1100, "Frodo Bolseiro embarca numa missão com seu seus amigos hobbits,\nseu guia Gandalf, elfos, um anão e humanos para levar o Um Anel para a\nMontanha da Perdição e salvar a Terra Média.");
         itens.addLivro(livroDefault);
 
         Aluno alunoDefault = new Aluno("Anna", "2024137300", "Sistemas");
@@ -114,7 +114,7 @@ public class Main {
         }
     }
 
-    private static void buscarUsuario(Scanner sc, GerenciadorDeUsuario usuarios){
+    private static void buscarUsuario(Scanner sc, GerenciadorDeUsuario usuarios) {
         int respcons = 1;
         while (respcons != 0) {
             System.out.println("""
@@ -131,10 +131,9 @@ public class Main {
                     System.out.println("Digite a matricula do aluno que deseja buscar: ");
                     String matriculaAluno = sc.nextLine();
                     Aluno alunoEncontrado = usuarios.buscarAluno(matriculaAluno);
-                    if(alunoEncontrado == null){
+                    if (alunoEncontrado == null) {
                         System.out.println("Aluno não encontrado");
-                    }
-                    else{
+                    } else {
                         System.out.println(alunoEncontrado.toString());
                     }
                     break;
@@ -161,9 +160,7 @@ public class Main {
         }
     }
 
-
-
-    private static void buscarItem(Scanner sc, GerenciadorDeItens itens){
+    private static void buscarItem(Scanner sc, GerenciadorDeItens itens) {
         int respco = 1;
         while (respco != 0) {
             System.out.println("""
@@ -204,30 +201,88 @@ public class Main {
         }
     }
 
-
-
     private static void realizarEmprestimos(Scanner sc, GerenciadorDeUsuario usuarios, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos) {
-        System.out.println("Digite a Matricula do Aluno que desseja emprestar");
-        String matriculaAluno = sc.nextLine();
-        Aluno alunoEncontrado = usuarios.buscarAluno(matriculaAluno);
-        if(alunoEncontrado != null){
-            System.out.println("Digite o titulo do livro que desseja emprestar");
-            String tituloLivro = sc.nextLine();
-            Livro livroEncontrado = itens.buscarLivro(tituloLivro);
-            if(livroEncontrado != null){
-                emprestimos.emprestarParaAluno(alunoEncontrado, livroEncontrado);
-                System.out.println("\n Empréstimo realizado com sucesso!\n");
-                emprestimos.listaEmprestimos();
-                
-            }
-            else{
-                System.out.println("Livro não encontrado");
+        int resp = 1;
+        while (resp != 0) {
+            System.out.println("""
+                Para qual tipo de usuário você deseja realizar um empréstimo? 
+                [1] Aluno
+                [2] Professor
+                [3] Pós Graduado
+                [4] Funcionário Administrativo
+                [0] Voltar
+            """);
+            resp = Integer.parseInt(sc.nextLine());
+            switch (resp) {
+                case 1: {
+                    System.out.println("Digite a Matricula do Aluno que desseja emprestar");
+                    String matriculaAluno = sc.nextLine();
+                    Aluno alunoEncontrado = usuarios.buscarAluno(matriculaAluno);
+                    if (alunoEncontrado != null) {
+                        EmprestimosEscolherItemAluno(sc, itens, usuarios, emprestimos, alunoEncontrado);
+                    } else {
+                        System.out.println("Aluno não encontrado");
+                    } break;
+                }
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 0:
+                    break;
+                default:
+                    System.out.println("Opção inválida");
             }
         }
-        else{
-            System.out.println("Aluno não encontrado");
-        }
+
     }
+
+    
+
+
+    private static void EmprestimosEscolherItemAluno(Scanner sc, GerenciadorDeItens itens, GerenciadorDeUsuario usuarios, GerenciadorEmprestimos emprestimos, Aluno alunoEncontrado) {
+        int resp = 1;
+        while (resp != 0) {
+            System.out.println("""
+                Qual item você deseja pegar emprestado 
+                [1] Livro
+                [2] Revista
+                [3] Cd
+                [4] Dvd
+                [0] Voltar
+            """);
+            resp = Integer.parseInt(sc.nextLine());
+            switch (resp) {
+                case 1: {
+                    System.out.println("Digite o titulo do livro que desseja emprestar");
+                    String tituloLivro = sc.nextLine();
+                    Livro livroEncontrado = itens.buscarLivro(tituloLivro);
+                    if (livroEncontrado != null) {
+                        emprestimos.emprestarLivroParaAluno(alunoEncontrado, livroEncontrado);
+                        System.out.println("\n Empréstimo realizado com sucesso!\n");
+                        emprestimos.listaEmprestimos();
+                    } else {
+                        System.out.println("Livro não encontrado");
+                    } break;
+                }
+                
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 0:
+                    break;
+                default:
+                    System.out.println("Opção inválida");
+            }
+        }
+
+    }
+
 
 
 
@@ -293,12 +348,11 @@ public class Main {
                     int numFaixas = Integer.parseInt(sc.nextLine());
                     String[] faixas = new String[numFaixas];
                     System.out.println("Digite o nome das faixas do Cd: ");
-                    for (int i=0; i < numFaixas; i++) {
+                    for (int i = 0; i < numFaixas; i++) {
                         String faixa = sc.nextLine();
                         faixas[i] = faixa;
-                        
+
                     }
-                    
 
                     Cd cds = new Cd(titulo, artista, faixas);
                     itens.addCd(cds);
@@ -327,8 +381,6 @@ public class Main {
             }
         }
     }
-
-
 
     private static void gerenciarUsuarios(Scanner sc, GerenciadorDeUsuario usuarios) {
         int resp = 1;
