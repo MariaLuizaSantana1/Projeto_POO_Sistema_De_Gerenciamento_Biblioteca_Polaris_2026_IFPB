@@ -35,7 +35,7 @@ public class Main {
         Livro livroDefault3 = new Livro("17000000198400", "1984",
                 "George Orwell", "Darkside", 1983, "Ficção Distopica",
                 336, "Winston Smith desafia o Partido e o Grande Irmão, buscando \nliberdade e amor em um mundo vigiado de controle absoluto.");
-        itens.addLivro(livroDefault2);
+        itens.addLivro(livroDefault3);
         Revista revistaDefault = new Revista("1001002003004", "Veja", 1, "Abril", "11/08/2019");
         itens.addRevista(revistaDefault);
 
@@ -157,17 +157,32 @@ public class Main {
                 case 2:
                     System.out.println("Digite a matricula do Professor que deseja buscar: ");
                     String matriculaProfessor = sc.nextLine();
-                    usuarios.buscarProfessor(matriculaProfessor);
+                    Professor professorEncontrado = usuarios.buscarProfessor(matriculaProfessor);
+                    if (professorEncontrado == null) {
+                        System.out.println("Professor não encontrado");
+                    } else {
+                        System.out.println(professorEncontrado.toString());
+                    }
                     break;
                 case 3:
                     System.out.println("Digite a matricula do Pós Graduado que deseja buscar: ");
                     String matriculaPos = sc.nextLine();
-                    usuarios.buscarPosGraduado(matriculaPos);
+                    PosGraduado posGraduadoEncontrado = usuarios.buscarPosGraduado(matriculaPos);
+                    if (posGraduadoEncontrado == null) {
+                        System.out.println("PosGraduado não encontrado");
+                    } else {
+                        System.out.println(posGraduadoEncontrado.toString());
+                    }
                     break;
                 case 4:
                     System.out.println("Digite a matricula do Funcionário Administrativo que deseja buscar: ");
                     String matriculaFuncionario = sc.nextLine();
-                    usuarios.buscarFuncionario(matriculaFuncionario);
+                    FuncionarioAdministrativo funcionarioEncontrado = usuarios.buscarFuncionario(matriculaFuncionario);
+                    if (funcionarioEncontrado == null) {
+                        System.out.println("Funcionario não encontrado");
+                    } else {
+                        System.out.println(funcionarioEncontrado.toString());
+                    }
                     break;
                 case 0:
                     break;
@@ -193,22 +208,42 @@ public class Main {
                 case 1:
                     System.out.println("Digite o título do livro que deseja buscar: ");
                     String tituloLivro = sc.nextLine();
-                    itens.buscarLivro(tituloLivro);
+                    Livro livroEncontrado = itens.buscarLivro(tituloLivro);
+                    if (livroEncontrado == null) {
+                        System.out.println("Livro não encontrado");
+                    } else {
+                        System.out.println(livroEncontrado.toString());
+                    }
                     break;
                 case 2:
                     System.out.println("Digite o título da revista que deseja buscar: ");
                     String tituloRevista = sc.nextLine();
-                    itens.buscarRevista(tituloRevista);
+                    Revista revistaEncontrada = itens.buscarRevista(tituloRevista);
+                    if (revistaEncontrada == null) {
+                        System.out.println("Revista não encontrado");
+                    } else {
+                        System.out.println(revistaEncontrada.toString());
+                    }
                     break;
                 case 3:
                     System.out.println("Digite o título do cd que deseja buscar: ");
                     String tituloCd = sc.nextLine();
-                    itens.buscarCd(tituloCd);
+                    Cd cdEncontrado = itens.buscarCd(tituloCd);
+                    if (cdEncontrado == null) {
+                        System.out.println("Cd não encontrado");
+                    } else {
+                        System.out.println(cdEncontrado.toString());
+                    }
                     break;
                 case 4:
                     System.out.println("Digite o título do dvd que deseja buscar: ");
                     String tituloDvd = sc.nextLine();
-                    itens.buscarDvd(tituloDvd);
+                    Dvd dvdEncontrado = itens.buscarDvd(tituloDvd);
+                    if (dvdEncontrado == null) {
+                        System.out.println("Dvd não encontrado");
+                    } else {
+                        System.out.println(dvdEncontrado.toString());
+                    }
                     break;
                 case 0:
                     break;
@@ -239,6 +274,8 @@ public class Main {
                         System.out.println("\nAluno não encontrado\n");
                     }else if (!alunoEncontrado.getAtivo().equals("ativo")) {
                         System.out.println("\nAluno não pode fazer empréstimo pois está inativo\n");
+                    }else if (alunoEncontrado.getItensEmprestados()== 3) {
+                        System.out.println("Usuário de matricula já atingiu o limite máximo de 3 itens");
                     } else {
                         EmprestimosEscolherItemAluno(sc, itens, usuarios, emprestimos, alunoEncontrado);
                     } break;
@@ -305,7 +342,7 @@ public class Main {
             resp = Integer.parseInt(sc.nextLine());
             switch (resp) {
                 case 1: {
-                    System.out.println("Digite o titulo do livro que desseja emprestar");
+                    System.out.println("Digite o titulo do livro que deseja emprestar");
                     String tituloLivro = sc.nextLine();
                     Livro livroEncontrado = itens.buscarLivro(tituloLivro);
                     if (livroEncontrado == null) {
@@ -318,7 +355,7 @@ public class Main {
                 }
                 
                 case 2:{
-                    System.out.println("Digite o titulo da revista que desseja emprestar");
+                    System.out.println("Digite o titulo da revista que deseja emprestar");
                     String tituloRevista = sc.nextLine();
                     Revista revistaEncontrada = itens.buscarRevista(tituloRevista);
                     if (revistaEncontrada == null) {
@@ -327,11 +364,10 @@ public class Main {
                     } else {
                         emprestimos.emprestarRevistaParaAluno(alunoEncontrado, revistaEncontrada);
                         System.out.println("\n Empréstimo realizado com sucesso!\n");
-                        emprestimos.listaEmprestimos();
                     } break;
                 }
                 case 3:{
-                    System.out.println("Digite o titulo do cd que desseja emprestar");
+                    System.out.println("Digite o titulo do cd que deseja emprestar");
                     String tituloCd = sc.nextLine();
                     Cd cdEncontrado = itens.buscarCd(tituloCd);
                     if (cdEncontrado == null) {
@@ -340,11 +376,10 @@ public class Main {
                     } else {
                         emprestimos.emprestarCdParaAluno(alunoEncontrado, cdEncontrado);
                         System.out.println("\n Empréstimo realizado com sucesso!\n");
-                        emprestimos.listaEmprestimos();
                     } break;
                 }
                 case 4:{
-                    System.out.println("Digite o titulo do dvd que desseja emprestar");
+                    System.out.println("Digite o titulo do dvd que deseja emprestar");
                     String tituloDvd = sc.nextLine();
                     Dvd dvdEncontrada = itens.buscarDvd(tituloDvd);
                     if (dvdEncontrada == null) {
@@ -353,7 +388,6 @@ public class Main {
                     } else {
                         emprestimos.emprestarDvdParaAluno(alunoEncontrado, dvdEncontrada);
                         System.out.println("\n Empréstimo realizado com sucesso!\n");
-                        emprestimos.listaEmprestimos();
                     } break;
                 }
                 case 0:
