@@ -71,7 +71,7 @@ public class Main {
                     realizarEmprestimos(sc, usuarios, itens, emprestimos);
                     break;
                 case 4:
-                    consultar(sc, usuarios, itens);
+                    consultar(sc, usuarios, itens, emprestimos);
                     break;
                 case 0:
                     System.out.println("Você saiu.");
@@ -83,7 +83,7 @@ public class Main {
         sc.close();
     }
 
-    private static void consultar(Scanner sc, GerenciadorDeUsuario usuarios, GerenciadorDeItens itens) {
+    private static void consultar(Scanner sc, GerenciadorDeUsuario usuarios, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos) {
 
         int respconsult = 1;
         while (respconsult != 0) {
@@ -91,8 +91,9 @@ public class Main {
                O que você gostaria de Fazer? 
                [1] Listar Usuários
                [2] Listar Itens do Acervo
-               [3] Pesquisar Usuário
-               [4] Pesquisar Item do Acervo
+               [3] Listar Empréstimos
+               [4] Pesquisar Usuário
+               [5] Pesquisar Item do Acervo
                [0] Voltar
             """);
             respconsult = Integer.parseInt(sc.nextLine());
@@ -118,9 +119,13 @@ public class Main {
                     itens.listarDvds();
                     break;
                 case 3:
-                    buscarUsuario(sc, usuarios);
+                    System.out.println("Empréstimos Cadastrados: ");
+                    emprestimos.listaEmprestimos();
                     break;
                 case 4:
+                    buscarUsuario(sc, usuarios);
+                    break;
+                case 5:
                     buscarItem(sc, itens);
                     break;
                 case 0:
