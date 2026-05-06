@@ -279,8 +279,6 @@ public class Main {
                         System.out.println("\nAluno não encontrado\n");
                     }else if (!alunoEncontrado.getAtivo().equals("ativo")) {
                         System.out.println("\nAluno não pode fazer empréstimo pois está inativo\n");
-                    }else if (alunoEncontrado.getItensEmprestados()== 3) {
-                        System.out.println("Usuário de matricula já atingiu o limite máximo de 3 itens");
                     } else {
                         EmprestimosEscolherItemAluno(sc, itens, emprestimos, alunoEncontrado);
                     } break;
@@ -353,9 +351,6 @@ public class Main {
                     if (livroEncontrado == null) {
                         System.out.println("Livro não encontrado");
                         break;
-                    } else if (!livroEncontrado.getDisponibilidade().equals("Disponivel")) {
-                        System.out.println("Este item não está disponível para empréstimo.");
-                        break; 
                     } 
                     else {
                         emprestimos.emprestarLivroParaAluno(alunoEncontrado, livroEncontrado);

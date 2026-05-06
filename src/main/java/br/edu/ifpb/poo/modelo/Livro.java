@@ -95,7 +95,7 @@ public class Livro {
 
 
     public String toString(){
-        return "Titulo: " + titulo + "\nAutor: " + autor + "\nAno de Publicação: " + anoPublicacao + "\nSinopse: " + sinopse + "\nDisponibilidade: " + disponibilidade;
+        return "\nTitulo: " + titulo + "\nAutor: " + autor + "\nAno de Publicação: " + anoPublicacao + "\nSinopse: " + sinopse + "\nDisponibilidade: " + disponibilidade;
     }
 
 }
