@@ -25,6 +25,7 @@ public class Emprestimo {
         this.dataDevolucao = dataDevolucao;
     }
 
+
     public void setUsuario(Object usuario) {
         this.usuario = usuario;
     }

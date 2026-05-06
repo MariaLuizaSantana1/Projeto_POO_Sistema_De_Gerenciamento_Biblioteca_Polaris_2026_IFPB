@@ -325,15 +325,39 @@ public class GerenciadorEmprestimos {
                 }
                 if (usuario instanceof Aluno aluno) {
                     aluno.setItensEmprestados(aluno.getItensEmprestados() -1);
+                    double multa = dias * Aluno.VALOR_MULTA;
+                    if (multa > 0){
+                        System.out.println("Devolução Concluída com sucesso! Multa de: R$" + multa);
+                    } else{
+                        System.out.println("Devolução em dia concluída com sucesso!");
+                    }break;
                 }
                 else if (usuario instanceof Professor professor) {
                     professor.setItensEmprestados(professor.getItensEmprestados() -1);
+                    double multa = dias * Professor.VALOR_MULTA;
+                    if (multa > 0){
+                        System.out.println("Devolução Concluída com sucesso! Multa de: R$" + multa);
+                    } else{
+                        System.out.println("Devolução em dia concluída com sucesso!");
+                    }break;
                 }
                 else if (usuario instanceof PosGraduado posGraduado) {
                     posGraduado.setItensEmprestados(posGraduado.getItensEmprestados() -1);
+                    double multa = dias * PosGraduado.VALOR_MULTA;
+                    if (multa > 0){
+                        System.out.println("Devolução Concluída com sucesso! Multa de: R$" + multa);
+                    } else{
+                        System.out.println("Devolução em dia concluída com sucesso!");
+                    }break;
                 }
                 else if (usuario instanceof FuncionarioAdministrativo funcionarioAdministrativo) {
                     funcionarioAdministrativo.setItensEmprestados(funcionarioAdministrativo.getItensEmprestados() -1);
+                    double multa = dias * FuncionarioAdministrativo.VALOR_MULTA;
+                    if (multa > 0){
+                        System.out.println("Devolução Concluída com sucesso! Multa de: R$" + multa);
+                    } else{
+                        System.out.println("Devolução em dia concluída com sucesso!");
+                    }break;
                 }
             } System.out.println("Empréstimo não encontrado");
         }
