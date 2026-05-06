@@ -12,7 +12,6 @@ import br.edu.ifpb.poo.modelo.Livro;
 import br.edu.ifpb.poo.modelo.PosGraduado;
 import br.edu.ifpb.poo.modelo.Professor;
 import br.edu.ifpb.poo.modelo.Revista;
-import br.edu.ifpb.poo.servico.GerenciadorDeUsuario;
 
 
 public class GerenciadorEmprestimos {
@@ -37,7 +36,7 @@ public class GerenciadorEmprestimos {
     
 
     public void emprestarLivroParaAluno(Aluno aluno, Livro livro){
-        if(aluno.getItensEmprestados() < Aluno.MAX_ITENS_ALUNO && aluno.getAtivo().equals("ativo")){
+        if(aluno.getItensEmprestados() < Aluno.MAX_ITENS_ALUNO){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(Aluno.PRAZO_ITENS_ALUNO);
             Emprestimo emprestimo = new Emprestimo(aluno, livro, hoje, devolucao);
@@ -45,16 +44,13 @@ public class GerenciadorEmprestimos {
             livro.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
         }
-        else if(aluno.getItensEmprestados() == Aluno.MAX_ITENS_ALUNO && aluno.getAtivo().equals("ativo")){
-            System.out.println("Usuário de matricula " + aluno.getMatricula() + "já atingiu o limite máximo de 3 itens");
-        }
         else{
-            System.out.println("Aluno de matricula " + aluno.getMatricula() + " Não está ativo no sistema");
+            System.out.println("Usuário de matricula " + aluno.getMatricula() + "já atingiu o limite máximo de 3 itens");
         }   
     }
 
     public void emprestarRevistaParaAluno(Aluno aluno, Revista revista){
-        if(aluno.getItensEmprestados() < Aluno.MAX_ITENS_ALUNO && aluno.getAtivo().equals("ativo")){
+        if(aluno.getItensEmprestados() < Aluno.MAX_ITENS_ALUNO){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(Aluno.PRAZO_ITENS_ALUNO);
             Emprestimo emprestimo = new Emprestimo(aluno, revista, hoje, devolucao);
@@ -62,11 +58,8 @@ public class GerenciadorEmprestimos {
             revista.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
         }
-        else if(aluno.getItensEmprestados() == Aluno.MAX_ITENS_ALUNO && aluno.getAtivo().equals("ativo")){
-            System.out.println("Usuário de matricula " + aluno.getMatricula() + "já atingiu o limite máximo de 3 itens");
-        }
         else{
-            System.out.println("Aluno de matricula " + aluno.getMatricula() + " Não está ativo no sistema");
+            System.out.println("Usuário de matricula " + aluno.getMatricula() + "já atingiu o limite máximo de 3 itens");
         }        
     }
 
