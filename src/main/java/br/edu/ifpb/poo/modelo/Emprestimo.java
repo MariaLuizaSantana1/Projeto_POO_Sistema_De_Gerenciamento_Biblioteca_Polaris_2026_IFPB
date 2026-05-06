@@ -78,7 +78,7 @@ public class Emprestimo {
 
 
 
-    
+
     public void setStatusPrazo(String statusPrazo) {
         this.statusPrazo = statusPrazo;
     }
@@ -90,7 +90,7 @@ public class Emprestimo {
     
     public long calcularAtraso(){
         LocalDate hoje = LocalDate.now();
-        long diasAtrasados = ChronoUnit.DAYS.between(dataEmprestimo, hoje);
+        long diasAtrasados = ChronoUnit.DAYS.between(dataDevolucao, hoje);
         if (diasAtrasados > 0) {
             return diasAtrasados;
         }

@@ -9,6 +9,7 @@ public class Aluno {
 
     public static final int MAX_ITENS_ALUNO = 3;
     public static final int PRAZO_ITENS_ALUNO = 7;
+    public static final double VALOR_MULTA = 2.0;
 
 
     public Aluno(String nome, String matricula, String curso){
