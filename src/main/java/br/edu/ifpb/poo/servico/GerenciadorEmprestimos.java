@@ -36,7 +36,7 @@ public class GerenciadorEmprestimos {
     public void emprestarLivroParaAluno(Aluno aluno, Livro livro){
         if(aluno.getItensEmprestados() < Aluno.MAX_ITENS_ALUNO && aluno.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
-            LocalDate devolucao = hoje.plusDays(7);
+            LocalDate devolucao = hoje.plusDays(Aluno.PRAZO_ITENS_ALUNO);
             Emprestimo emprestimo = new Emprestimo(aluno, livro, hoje, devolucao);
             aluno.setItensEmprestados(aluno.getItensEmprestados()+1);
             livro.setDisponibilidade("Emprestado");
@@ -53,7 +53,7 @@ public class GerenciadorEmprestimos {
     public void emprestarRevistaParaAluno(Aluno aluno, Revista revista){
         if(aluno.getItensEmprestados() < Aluno.MAX_ITENS_ALUNO && aluno.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
-            LocalDate devolucao = hoje.plusDays(7);
+            LocalDate devolucao = hoje.plusDays(Aluno.PRAZO_ITENS_ALUNO);
             Emprestimo emprestimo = new Emprestimo(aluno, revista, hoje, devolucao);
             aluno.setItensEmprestados(aluno.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
@@ -75,7 +75,7 @@ public class GerenciadorEmprestimos {
         }
         else{
             LocalDate hoje = LocalDate.now();
-            LocalDate devolucao = hoje.plusDays(7);
+            LocalDate devolucao = hoje.plusDays(Aluno.PRAZO_ITENS_ALUNO);
             Emprestimo emprestimo = new Emprestimo(aluno, cd, hoje, devolucao);
             aluno.setItensEmprestados(aluno.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
@@ -85,7 +85,7 @@ public class GerenciadorEmprestimos {
     public void emprestarDvdParaAluno(Aluno aluno, Dvd dvd){
         if(aluno.getItensEmprestados() < Aluno.MAX_ITENS_ALUNO && aluno.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
-            LocalDate devolucao = hoje.plusDays(7);
+            LocalDate devolucao = hoje.plusDays(Aluno.PRAZO_ITENS_ALUNO);
             Emprestimo emprestimo = new Emprestimo(aluno, dvd, hoje, devolucao);
             aluno.setItensEmprestados(aluno.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
@@ -102,7 +102,7 @@ public class GerenciadorEmprestimos {
     public void emprestarLivroParaProfessor(Professor professor, Livro livro){
         if(professor.getItensEmprestados() < Professor.MAX_ITENS_PROFESSOR && professor.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
-            LocalDate devolucao = hoje.plusDays(14);
+            LocalDate devolucao = hoje.plusDays(Professor.PRAZO_LIVROS_PROFESSOR);
             Emprestimo emprestimo = new Emprestimo(professor, livro, hoje, devolucao);
             professor.setItensEmprestados(professor.getItensEmprestados()+1);
             listaEmprestimos.add(emprestimo);
@@ -119,7 +119,7 @@ public class GerenciadorEmprestimos {
     public void emprestarRevistaParaProfessor(Professor professor, Revista revista){
         if(professor.getItensEmprestados() < Professor.MAX_ITENS_PROFESSOR && professor.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
-            LocalDate devolucao = hoje.plusDays(7);
+            LocalDate devolucao = hoje.plusDays(Professor.PRAZO_OUTRAS_MIDIAS_PROFESSOR);
             Emprestimo emprestimo = new Emprestimo(professor, revista, hoje, devolucao);
             professor.setItensEmprestados(professor.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
@@ -141,7 +141,7 @@ public class GerenciadorEmprestimos {
         }
         else{
             LocalDate hoje = LocalDate.now();
-            LocalDate devolucao = hoje.plusDays(7);
+            LocalDate devolucao = hoje.plusDays(Professor.PRAZO_OUTRAS_MIDIAS_PROFESSOR);
             Emprestimo emprestimo = new Emprestimo(professor, cd, hoje, devolucao);
             professor.setItensEmprestados(professor.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
@@ -151,7 +151,7 @@ public class GerenciadorEmprestimos {
     public void emprestarDvdParaProfessor(Professor professor, Dvd dvd){
         if(professor.getItensEmprestados() < Professor.MAX_ITENS_PROFESSOR && professor.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
-            LocalDate devolucao = hoje.plusDays(7);
+            LocalDate devolucao = hoje.plusDays(Professor.PRAZO_OUTRAS_MIDIAS_PROFESSOR);
             Emprestimo emprestimo = new Emprestimo(professor, dvd, hoje, devolucao);
             professor.setItensEmprestados(professor.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
@@ -160,7 +160,7 @@ public class GerenciadorEmprestimos {
             System.out.println("Usuário de matricula " + professor.getMatricula() + "já atingiu o limite máximo de 5 itens");
         }
         else{
-            System.out.println("Aluno de matricula " + professor.getMatricula() + " Não está ativo no sistema");
+            System.out.println("Professor de matricula " + professor.getMatricula() + " Não está ativo no sistema");
         }       
     }
 
@@ -170,7 +170,7 @@ public class GerenciadorEmprestimos {
     public void emprestarLivroParaPosGraduado(PosGraduado posGraduado, Livro livro){
         if(posGraduado.getItensEmprestados() < PosGraduado.MAX_ITENS_POS_GRADUADO && posGraduado.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
-            LocalDate devolucao = hoje.plusDays(14);
+            LocalDate devolucao = hoje.plusDays(PosGraduado.PRAZO_LIVROS_POS_GRADUADO);
             Emprestimo emprestimo = new Emprestimo(posGraduado, livro, hoje, devolucao);
             posGraduado.setItensEmprestados(posGraduado.getItensEmprestados()+1);
             listaEmprestimos.add(emprestimo);
@@ -186,7 +186,7 @@ public class GerenciadorEmprestimos {
     public void emprestarRevistaParaPosGraduado(PosGraduado posGraduado, Revista revista){
         if(posGraduado.getItensEmprestados() < PosGraduado.MAX_ITENS_POS_GRADUADO && posGraduado.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
-            LocalDate devolucao = hoje.plusDays(7);
+            LocalDate devolucao = hoje.plusDays(PosGraduado.PRAZO_OUTRAS_MIDIAS_POS_GRADUADO);
             Emprestimo emprestimo = new Emprestimo(posGraduado, revista, hoje, devolucao);
             posGraduado.setItensEmprestados(posGraduado.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
@@ -208,7 +208,7 @@ public class GerenciadorEmprestimos {
         }
         else{
             LocalDate hoje = LocalDate.now();
-            LocalDate devolucao = hoje.plusDays(7);
+            LocalDate devolucao = hoje.plusDays(PosGraduado.PRAZO_OUTRAS_MIDIAS_POS_GRADUADO);
             Emprestimo emprestimo = new Emprestimo(posGraduado, cd, hoje, devolucao);
             posGraduado.setItensEmprestados(posGraduado.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
@@ -218,7 +218,7 @@ public class GerenciadorEmprestimos {
     public void emprestarDvdParaPosGraduado(PosGraduado posGraduado, Dvd dvd){
         if(posGraduado.getItensEmprestados() < PosGraduado.MAX_ITENS_POS_GRADUADO && posGraduado.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
-            LocalDate devolucao = hoje.plusDays(7);
+            LocalDate devolucao = hoje.plusDays(PosGraduado.PRAZO_OUTRAS_MIDIAS_POS_GRADUADO);
             Emprestimo emprestimo = new Emprestimo(posGraduado, dvd, hoje, devolucao);
             posGraduado.setItensEmprestados(posGraduado.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
@@ -236,7 +236,7 @@ public class GerenciadorEmprestimos {
     public void emprestarLivroParaFuncionario(FuncionarioAdministrativo funcionarioAdministrativo, Livro livro){
         if(funcionarioAdministrativo.getItensEmprestados() < FuncionarioAdministrativo.MAX_ITENS_FUNCIONARIO && funcionarioAdministrativo.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
-            LocalDate devolucao = hoje.plusDays(10);
+            LocalDate devolucao = hoje.plusDays(FuncionarioAdministrativo.PRAZO_ITENS_FUNCIONARIO);
             Emprestimo emprestimo = new Emprestimo(funcionarioAdministrativo, livro, hoje, devolucao);
             funcionarioAdministrativo.setItensEmprestados(funcionarioAdministrativo.getItensEmprestados()+1);
             listaEmprestimos.add(emprestimo);
@@ -252,7 +252,7 @@ public class GerenciadorEmprestimos {
     public void emprestarRevistaParaFuncionario(FuncionarioAdministrativo funcionarioAdministrativo, Revista revista){
         if(funcionarioAdministrativo.getItensEmprestados() < FuncionarioAdministrativo.MAX_ITENS_FUNCIONARIO && funcionarioAdministrativo.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
-            LocalDate devolucao = hoje.plusDays(7);
+            LocalDate devolucao = hoje.plusDays(FuncionarioAdministrativo.PRAZO_ITENS_FUNCIONARIO);
             Emprestimo emprestimo = new Emprestimo(funcionarioAdministrativo.getNome(), revista, hoje, devolucao);
             funcionarioAdministrativo.setItensEmprestados(funcionarioAdministrativo.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
@@ -274,7 +274,7 @@ public class GerenciadorEmprestimos {
         }
         else{
             LocalDate hoje = LocalDate.now();
-            LocalDate devolucao = hoje.plusDays(7);
+            LocalDate devolucao = hoje.plusDays(FuncionarioAdministrativo.PRAZO_ITENS_FUNCIONARIO);
             Emprestimo emprestimo = new Emprestimo(funcionarioAdministrativo, cd, hoje, devolucao);
             funcionarioAdministrativo.setItensEmprestados(funcionarioAdministrativo.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
@@ -284,7 +284,7 @@ public class GerenciadorEmprestimos {
     public void emprestarDvdParaFuncionario(FuncionarioAdministrativo funcionarioAdministrativo, Dvd dvd){
         if(funcionarioAdministrativo.getItensEmprestados() < FuncionarioAdministrativo.MAX_ITENS_FUNCIONARIO && funcionarioAdministrativo.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
-            LocalDate devolucao = hoje.plusDays(7);
+            LocalDate devolucao = hoje.plusDays(FuncionarioAdministrativo.PRAZO_ITENS_FUNCIONARIO);
             Emprestimo emprestimo = new Emprestimo(funcionarioAdministrativo, dvd, hoje, devolucao);
             funcionarioAdministrativo.setItensEmprestados(funcionarioAdministrativo.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
