@@ -232,6 +232,7 @@ public class GerenciadorEmprestimos {
     }
 
 
+    
 
     public void emprestarLivroParaFuncionario(FuncionarioAdministrativo funcionarioAdministrativo, Livro livro){
         if(funcionarioAdministrativo.getItensEmprestados() < FuncionarioAdministrativo.MAX_ITENS_FUNCIONARIO && funcionarioAdministrativo.getAtivo().equals("ativo")){
