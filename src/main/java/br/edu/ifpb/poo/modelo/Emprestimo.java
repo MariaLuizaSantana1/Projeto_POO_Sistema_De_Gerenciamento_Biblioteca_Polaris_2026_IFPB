@@ -1,6 +1,7 @@
 package br.edu.ifpb.poo.modelo;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 
 public class Emprestimo {
@@ -10,7 +11,9 @@ public class Emprestimo {
     private String nomeUsuario;
     private LocalDate dataEmprestimo;
     private LocalDate dataDevolucao;
+    private long diasAtraso = 0;
     private String statusEmprestimo = "Ativo";
+    private String statusPrazo = "Em Dia";
 
 
     public Emprestimo(Object usuario, Object item, String nomeUsuario, String tituloItem, LocalDate dataEmprestimo, LocalDate dataDevolucao){
@@ -70,6 +73,35 @@ public class Emprestimo {
     public String getStatusEmprestimo() {
         return statusEmprestimo;
     }
+
+
+
+
+
+    
+    public void setStatusPrazo(String statusPrazo) {
+        this.statusPrazo = statusPrazo;
+    }
+    public String getStatusPrazo() {
+        return statusPrazo;
+    }
+
+
+    
+    public long calcularAtraso(){
+        LocalDate hoje = LocalDate.now();
+        long diasAtrasados = ChronoUnit.DAYS.between(dataEmprestimo, hoje);
+        if (diasAtrasados > 0) {
+            return diasAtrasados;
+        }
+        else{
+             return 0;
+        }
+        
+    }
+
+    
+
 
     public String toString(){
         return "Nome do Usuário do Impréstimo: " + nomeUsuario + "\nItem emprestado: " + tituloItem + "\nData de Empréstimo: " + dataEmprestimo + "\nData de Devolução: " + dataDevolucao + "\nStatus do Empréstimo: " + statusEmprestimo;

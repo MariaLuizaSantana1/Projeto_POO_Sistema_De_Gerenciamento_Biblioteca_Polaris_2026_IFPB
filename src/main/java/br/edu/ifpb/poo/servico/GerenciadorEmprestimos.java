@@ -300,6 +300,8 @@ public class GerenciadorEmprestimos {
         }      
     }
 
+    
+
 
 
     public void registrarDevolução(String tituloItem){
@@ -307,6 +309,7 @@ public class GerenciadorEmprestimos {
             if (emprestimo.getTituloItem().equals(tituloItem)) {
                 Object item = emprestimo.getItem();
                 Object usuario = emprestimo.getUsuario();
+                long dias = emprestimo.calcularAtraso();
                 if (item instanceof Livro livro) {
                        livro.setDisponibilidade("Disponivel");
                        emprestimo.setStatusEmprestimo("Devolvido");
