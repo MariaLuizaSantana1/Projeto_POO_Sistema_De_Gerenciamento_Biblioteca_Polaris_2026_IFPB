@@ -302,7 +302,7 @@ public class GerenciadorEmprestimos {
     public void registrarDevolução(String tituloItem){
         for(Emprestimo emprestimo : this.listaEmprestimos){
             if (emprestimo.getItem().equals(tituloItem)) {
-                
+                emprestimo.getItem();
             }
         }
     }

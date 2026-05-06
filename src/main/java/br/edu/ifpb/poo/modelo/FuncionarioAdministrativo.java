@@ -7,6 +7,7 @@ public class FuncionarioAdministrativo {
     private String ativo = "ativo";
 
     public static final int MAX_ITENS_FUNCIONARIO = 2;
+    public static final int PRAZO_ITENS_FUNCIONARIO = 10;
 
 
     public FuncionarioAdministrativo(String nome, String matricula){

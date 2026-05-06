@@ -7,6 +7,8 @@ public class PosGraduado {
     private String ativo = "ativo";
 
     public static final int MAX_ITENS_POS_GRADUADO = 5;
+    public static final int PRAZO_LIVROS_POS_GRADUADO = 14;
+    public static final int PRAZO_OUTRAS_MIDIAS_POS_GRADUADO = 7;
 
 
     public PosGraduado(String nome, String matricula){
