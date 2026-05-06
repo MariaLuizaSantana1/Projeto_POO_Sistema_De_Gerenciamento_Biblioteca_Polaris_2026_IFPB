@@ -7,6 +7,8 @@ public class Aluno {
     private int itensEmprestados = 0;
     private String ativo = "ativo";
 
+    public static final int MAX_ITENS_ALUNO = 3;
+
 
     public Aluno(String nome, String matricula, String curso){
         this.nome = nome;

@@ -6,6 +6,8 @@ public class PosGraduado {
     private int itensEmprestados = 0;
     private String ativo = "ativo";
 
+    public static final int MAX_ITENS_POS_GRADUADO = 5;
+
 
     public PosGraduado(String nome, String matricula){
         this.nome = nome;

@@ -34,7 +34,7 @@ public class GerenciadorEmprestimos {
     }
 
     public void emprestarLivroParaAluno(Aluno aluno, Livro livro){
-        if(aluno.getItensEmprestados() < 3 && aluno.getAtivo().equals("ativo")){
+        if(aluno.getItensEmprestados() < Aluno.MAX_ITENS_ALUNO && aluno.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(7);
             Emprestimo emprestimo = new Emprestimo(aluno, livro, hoje, devolucao);
@@ -42,7 +42,7 @@ public class GerenciadorEmprestimos {
             livro.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
         }
-        else if(aluno.getItensEmprestados() == 3 && aluno.getAtivo().equals("ativo")){
+        else if(aluno.getItensEmprestados() == Aluno.MAX_ITENS_ALUNO && aluno.getAtivo().equals("ativo")){
             System.out.println("Usuário de matricula " + aluno.getMatricula() + "já atingiu o limite máximo de 3 itens");
         }
         else{
@@ -51,14 +51,14 @@ public class GerenciadorEmprestimos {
     }
 
     public void emprestarRevistaParaAluno(Aluno aluno, Revista revista){
-        if(aluno.getItensEmprestados() < 3 && aluno.getAtivo().equals("ativo")){
+        if(aluno.getItensEmprestados() < Aluno.MAX_ITENS_ALUNO && aluno.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(7);
             Emprestimo emprestimo = new Emprestimo(aluno, revista, hoje, devolucao);
             aluno.setItensEmprestados(aluno.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
         }
-        else if(aluno.getItensEmprestados() == 3 && aluno.getAtivo().equals("ativo")){
+        else if(aluno.getItensEmprestados() == Aluno.MAX_ITENS_ALUNO && aluno.getAtivo().equals("ativo")){
             System.out.println("Usuário de matricula " + aluno.getMatricula() + "já atingiu o limite máximo de 3 itens");
         }
         else{
@@ -70,7 +70,7 @@ public class GerenciadorEmprestimos {
         if(!aluno.getAtivo().equals("ativo")){
             System.out.println("Aluno de matricula " + aluno.getMatricula() + " Não está ativo no sistema");
         }
-        else if(aluno.getItensEmprestados() >= 3 && aluno.getAtivo().equals("ativo")){
+        else if(aluno.getItensEmprestados() >= Aluno.MAX_ITENS_ALUNO && aluno.getAtivo().equals("ativo")){
             System.out.println("Usuário de matricula " + aluno.getMatricula() + "já atingiu o limite máximo de 3 itens");
         }
         else{
@@ -83,14 +83,14 @@ public class GerenciadorEmprestimos {
     }
 
     public void emprestarDvdParaAluno(Aluno aluno, Dvd dvd){
-        if(aluno.getItensEmprestados() < 3 && aluno.getAtivo().equals("ativo")){
+        if(aluno.getItensEmprestados() < Aluno.MAX_ITENS_ALUNO && aluno.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(7);
             Emprestimo emprestimo = new Emprestimo(aluno, dvd, hoje, devolucao);
             aluno.setItensEmprestados(aluno.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
         }
-        else if(aluno.getItensEmprestados() == 3 && aluno.getAtivo().equals("ativo")){
+        else if(aluno.getItensEmprestados() == Aluno.MAX_ITENS_ALUNO && aluno.getAtivo().equals("ativo")){
             System.out.println("Usuário de matricula " + aluno.getMatricula() + "já atingiu o limite máximo de 3 itens");
         }
         else{
@@ -100,14 +100,14 @@ public class GerenciadorEmprestimos {
 
 
     public void emprestarLivroParaProfessor(Professor professor, Livro livro){
-        if(professor.getItensEmprestados() < 5 && professor.getAtivo().equals("ativo")){
+        if(professor.getItensEmprestados() < Professor.MAX_ITENS_PROFESSOR && professor.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(14);
             Emprestimo emprestimo = new Emprestimo(professor, livro, hoje, devolucao);
             professor.setItensEmprestados(professor.getItensEmprestados()+1);
             listaEmprestimos.add(emprestimo);
         }
-        else if(professor.getItensEmprestados() == 5 && professor.getAtivo().equals("ativo")){
+        else if(professor.getItensEmprestados() == Professor.MAX_ITENS_PROFESSOR && professor.getAtivo().equals("ativo")){
             System.out.println("Usuário de matricula " + professor.getMatricula() + " já atingiu o limite máximo de 5 itens");
         }
         else{
@@ -117,14 +117,14 @@ public class GerenciadorEmprestimos {
 
 
     public void emprestarRevistaParaProfessor(Professor professor, Revista revista){
-        if(professor.getItensEmprestados() < 5 && professor.getAtivo().equals("ativo")){
+        if(professor.getItensEmprestados() < Professor.MAX_ITENS_PROFESSOR && professor.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(7);
             Emprestimo emprestimo = new Emprestimo(professor, revista, hoje, devolucao);
             professor.setItensEmprestados(professor.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
         }
-        else if(professor.getItensEmprestados() == 5 && professor.getAtivo().equals("ativo")){
+        else if(professor.getItensEmprestados() == Professor.MAX_ITENS_PROFESSOR && professor.getAtivo().equals("ativo")){
             System.out.println("Usuário de matricula " + professor.getMatricula() + "já atingiu o limite máximo de 5 itens");
         }
         else{
@@ -136,7 +136,7 @@ public class GerenciadorEmprestimos {
         if(!professor.getAtivo().equals("ativo")){
             System.out.println("Professor de matricula " + professor.getMatricula() + " Não está ativo no sistema");
         }
-        else if(professor.getItensEmprestados() >= 5 && professor.getAtivo().equals("ativo")){
+        else if(professor.getItensEmprestados() >= Professor.MAX_ITENS_PROFESSOR && professor.getAtivo().equals("ativo")){
             System.out.println("Usuário de matricula " + professor.getMatricula() + "já atingiu o limite máximo de 5 itens");
         }
         else{
@@ -149,14 +149,14 @@ public class GerenciadorEmprestimos {
     }
 
     public void emprestarDvdParaProfessor(Professor professor, Dvd dvd){
-        if(professor.getItensEmprestados() < 5 && professor.getAtivo().equals("ativo")){
+        if(professor.getItensEmprestados() < Professor.MAX_ITENS_PROFESSOR && professor.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(7);
             Emprestimo emprestimo = new Emprestimo(professor, dvd, hoje, devolucao);
             professor.setItensEmprestados(professor.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
         }
-        else if(professor.getItensEmprestados() == 5 && professor.getAtivo().equals("ativo")){
+        else if(professor.getItensEmprestados() == Professor.MAX_ITENS_PROFESSOR && professor.getAtivo().equals("ativo")){
             System.out.println("Usuário de matricula " + professor.getMatricula() + "já atingiu o limite máximo de 5 itens");
         }
         else{
@@ -168,14 +168,14 @@ public class GerenciadorEmprestimos {
 
 
     public void emprestarLivroParaPosGraduado(PosGraduado posGraduado, Livro livro){
-        if(posGraduado.getItensEmprestados() < 5 && posGraduado.getAtivo().equals("ativo")){
+        if(posGraduado.getItensEmprestados() < PosGraduado.MAX_ITENS_POS_GRADUADO && posGraduado.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(14);
             Emprestimo emprestimo = new Emprestimo(posGraduado, livro, hoje, devolucao);
             posGraduado.setItensEmprestados(posGraduado.getItensEmprestados()+1);
             listaEmprestimos.add(emprestimo);
         }
-        else if(posGraduado.getItensEmprestados() == 5 && posGraduado.getAtivo().equals("ativo")){
+        else if(posGraduado.getItensEmprestados() == PosGraduado.MAX_ITENS_POS_GRADUADO && posGraduado.getAtivo().equals("ativo")){
             System.out.println("Usuário de matricula " + posGraduado.getMatricula() + " já atingiu o limite máximo de 5 itens");
         }
         else{
@@ -184,14 +184,14 @@ public class GerenciadorEmprestimos {
     }
 
     public void emprestarRevistaParaPosGraduado(PosGraduado posGraduado, Revista revista){
-        if(posGraduado.getItensEmprestados() < 5 && posGraduado.getAtivo().equals("ativo")){
+        if(posGraduado.getItensEmprestados() < PosGraduado.MAX_ITENS_POS_GRADUADO && posGraduado.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(7);
             Emprestimo emprestimo = new Emprestimo(posGraduado, revista, hoje, devolucao);
             posGraduado.setItensEmprestados(posGraduado.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
         }
-        else if(posGraduado.getItensEmprestados() == 5 && posGraduado.getAtivo().equals("ativo")){
+        else if(posGraduado.getItensEmprestados() == PosGraduado.MAX_ITENS_POS_GRADUADO && posGraduado.getAtivo().equals("ativo")){
             System.out.println("Usuário de matricula " + posGraduado.getMatricula() + "já atingiu o limite máximo de 5 itens");
         }
         else{
@@ -203,7 +203,7 @@ public class GerenciadorEmprestimos {
         if(!posGraduado.getAtivo().equals("ativo")){
             System.out.println("PosGraduado de matricula " + posGraduado.getMatricula() + " Não está ativo no sistema");
         }
-        else if(posGraduado.getItensEmprestados() >= 5 && posGraduado.getAtivo().equals("ativo")){
+        else if(posGraduado.getItensEmprestados() >= PosGraduado.MAX_ITENS_POS_GRADUADO && posGraduado.getAtivo().equals("ativo")){
             System.out.println("Usuário de matricula " + posGraduado.getMatricula() + "já atingiu o limite máximo de 5 itens");
         }
         else{
@@ -216,14 +216,14 @@ public class GerenciadorEmprestimos {
     }
 
     public void emprestarDvdParaPosGraduado(PosGraduado posGraduado, Dvd dvd){
-        if(posGraduado.getItensEmprestados() < 5 && posGraduado.getAtivo().equals("ativo")){
+        if(posGraduado.getItensEmprestados() < PosGraduado.MAX_ITENS_POS_GRADUADO && posGraduado.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(7);
             Emprestimo emprestimo = new Emprestimo(posGraduado, dvd, hoje, devolucao);
             posGraduado.setItensEmprestados(posGraduado.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
         }
-        else if(posGraduado.getItensEmprestados() == 5 && posGraduado.getAtivo().equals("ativo")){
+        else if(posGraduado.getItensEmprestados() == PosGraduado.MAX_ITENS_POS_GRADUADO && posGraduado.getAtivo().equals("ativo")){
             System.out.println("Usuário de matricula " + posGraduado.getMatricula() + "já atingiu o limite máximo de 5 itens");
         }
         else{
@@ -234,14 +234,14 @@ public class GerenciadorEmprestimos {
 
 
     public void emprestarLivroParaFuncionario(FuncionarioAdministrativo funcionarioAdministrativo, Livro livro){
-        if(funcionarioAdministrativo.getItensEmprestados() < 2 && funcionarioAdministrativo.getAtivo().equals("ativo")){
+        if(funcionarioAdministrativo.getItensEmprestados() < FuncionarioAdministrativo.MAX_ITENS_FUNCIONARIO && funcionarioAdministrativo.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(10);
             Emprestimo emprestimo = new Emprestimo(funcionarioAdministrativo, livro, hoje, devolucao);
             funcionarioAdministrativo.setItensEmprestados(funcionarioAdministrativo.getItensEmprestados()+1);
             listaEmprestimos.add(emprestimo);
         }
-        else if(funcionarioAdministrativo.getItensEmprestados() == 2 && funcionarioAdministrativo.getAtivo().equals("ativo")){
+        else if(funcionarioAdministrativo.getItensEmprestados() == FuncionarioAdministrativo.MAX_ITENS_FUNCIONARIO && funcionarioAdministrativo.getAtivo().equals("ativo")){
             System.out.println("Usuário de matricula " + funcionarioAdministrativo.getMatricula() + " já atingiu o limite máximo de 2 itens");
         }
         else{
@@ -250,14 +250,14 @@ public class GerenciadorEmprestimos {
     }
 
     public void emprestarRevistaParaFuncionario(FuncionarioAdministrativo funcionarioAdministrativo, Revista revista){
-        if(funcionarioAdministrativo.getItensEmprestados() < 2 && funcionarioAdministrativo.getAtivo().equals("ativo")){
+        if(funcionarioAdministrativo.getItensEmprestados() < FuncionarioAdministrativo.MAX_ITENS_FUNCIONARIO && funcionarioAdministrativo.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(7);
             Emprestimo emprestimo = new Emprestimo(funcionarioAdministrativo.getNome(), revista, hoje, devolucao);
             funcionarioAdministrativo.setItensEmprestados(funcionarioAdministrativo.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
         }
-        else if(funcionarioAdministrativo.getItensEmprestados() == 2 && funcionarioAdministrativo.getAtivo().equals("ativo")){
+        else if(funcionarioAdministrativo.getItensEmprestados() == FuncionarioAdministrativo.MAX_ITENS_FUNCIONARIO && funcionarioAdministrativo.getAtivo().equals("ativo")){
             System.out.println("Usuário de matricula " + funcionarioAdministrativo.getMatricula() + "já atingiu o limite máximo de 2 itens");
         }
         else{
@@ -269,7 +269,7 @@ public class GerenciadorEmprestimos {
         if(!funcionarioAdministrativo.getAtivo().equals("ativo")){
             System.out.println("Funcionario de matricula " + funcionarioAdministrativo.getMatricula() + " Não está ativo no sistema");
         }
-        else if(funcionarioAdministrativo.getItensEmprestados() >= 2 && funcionarioAdministrativo.getAtivo().equals("ativo")){
+        else if(funcionarioAdministrativo.getItensEmprestados() >= FuncionarioAdministrativo.MAX_ITENS_FUNCIONARIO && funcionarioAdministrativo.getAtivo().equals("ativo")){
             System.out.println("Usuário de matricula " + funcionarioAdministrativo.getMatricula() + "já atingiu o limite máximo de 2 itens");
         }
         else{
@@ -282,14 +282,14 @@ public class GerenciadorEmprestimos {
     }
 
     public void emprestarDvdParaFuncionario(FuncionarioAdministrativo funcionarioAdministrativo, Dvd dvd){
-        if(funcionarioAdministrativo.getItensEmprestados() < 2 && funcionarioAdministrativo.getAtivo().equals("ativo")){
+        if(funcionarioAdministrativo.getItensEmprestados() < FuncionarioAdministrativo.MAX_ITENS_FUNCIONARIO && funcionarioAdministrativo.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(7);
             Emprestimo emprestimo = new Emprestimo(funcionarioAdministrativo, dvd, hoje, devolucao);
             funcionarioAdministrativo.setItensEmprestados(funcionarioAdministrativo.getItensEmprestados() +1);
             listaEmprestimos.add(emprestimo);
         }
-        else if(funcionarioAdministrativo.getItensEmprestados() == 2 && funcionarioAdministrativo.getAtivo().equals("ativo")){
+        else if(funcionarioAdministrativo.getItensEmprestados() == FuncionarioAdministrativo.MAX_ITENS_FUNCIONARIO && funcionarioAdministrativo.getAtivo().equals("ativo")){
             System.out.println("Usuário de matricula " + funcionarioAdministrativo.getMatricula() + "já atingiu o limite máximo de 2 itens");
         }
         else{

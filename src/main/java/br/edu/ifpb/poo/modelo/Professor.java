@@ -6,6 +6,8 @@ public class Professor {
     private int itensEmprestados = 0;
     private String ativo = "ativo";
 
+    public static final int MAX_ITENS_PROFESSOR = 5;
+
 
     public Professor(String nome, String matricula){
         this.nome = nome;

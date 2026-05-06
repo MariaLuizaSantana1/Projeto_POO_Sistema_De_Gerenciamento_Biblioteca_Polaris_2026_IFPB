@@ -6,6 +6,9 @@ public class FuncionarioAdministrativo {
     private int itensEmprestados = 0;
     private String ativo = "ativo";
 
+    public static final int MAX_ITENS_FUNCIONARIO = 2;
+
+
     public FuncionarioAdministrativo(String nome, String matricula){
         this.nome = nome;
         this.matricula = matricula;
