@@ -109,7 +109,7 @@ public class Main {
                     usuarios.listarFuncionariosAdministrativos();
                     break;
                 case 2:
-                    System.out.println("Livros cadastrados: ");
+                    System.out.println("\nLivros cadastrados: ");
                     itens.listarLivros();
                     System.out.println("\nRevistas cadastradas: ");
                     itens.listarRevistas();
@@ -119,7 +119,7 @@ public class Main {
                     itens.listarDvds();
                     break;
                 case 3:
-                    System.out.println("Empréstimos Cadastrados: ");
+                    System.out.println("\nEmpréstimos Cadastrados: ");
                     emprestimos.listaEmprestimos();
                     break;
                 case 4:
@@ -131,7 +131,7 @@ public class Main {
                 case 0:
                     break;
                 default:
-                    System.out.println("Opção inválida");
+                    System.out.println("\nOpção inválida\n");
             }
         }
     }
@@ -150,41 +150,41 @@ public class Main {
             respcons = Integer.parseInt(sc.nextLine());
             switch (respcons) {
                 case 1:
-                    System.out.println("Digite a matricula do aluno que deseja buscar: ");
+                    System.out.println("\nDigite a matricula do aluno que deseja buscar: ");
                     String matriculaAluno = sc.nextLine();
                     Aluno alunoEncontrado = usuarios.buscarAluno(matriculaAluno);
                     if (alunoEncontrado == null) {
-                        System.out.println("Aluno não encontrado");
+                        System.out.println("\nAluno não encontrado");
                     } else {
                         System.out.println(alunoEncontrado.toString());
                     }
                     break;
                 case 2:
-                    System.out.println("Digite a matricula do Professor que deseja buscar: ");
+                    System.out.println("\nDigite a matricula do Professor que deseja buscar: ");
                     String matriculaProfessor = sc.nextLine();
                     Professor professorEncontrado = usuarios.buscarProfessor(matriculaProfessor);
                     if (professorEncontrado == null) {
-                        System.out.println("Professor não encontrado");
+                        System.out.println("\nProfessor não encontrado");
                     } else {
                         System.out.println(professorEncontrado.toString());
                     }
                     break;
                 case 3:
-                    System.out.println("Digite a matricula do Pós Graduado que deseja buscar: ");
+                    System.out.println("\nDigite a matricula do Pós Graduado que deseja buscar: ");
                     String matriculaPos = sc.nextLine();
                     PosGraduado posGraduadoEncontrado = usuarios.buscarPosGraduado(matriculaPos);
                     if (posGraduadoEncontrado == null) {
-                        System.out.println("PosGraduado não encontrado");
+                        System.out.println("\nPosGraduado não encontrado");
                     } else {
                         System.out.println(posGraduadoEncontrado.toString());
                     }
                     break;
                 case 4:
-                    System.out.println("Digite a matricula do Funcionário Administrativo que deseja buscar: ");
+                    System.out.println("\nDigite a matricula do Funcionário Administrativo que deseja buscar: ");
                     String matriculaFuncionario = sc.nextLine();
                     FuncionarioAdministrativo funcionarioEncontrado = usuarios.buscarFuncionario(matriculaFuncionario);
                     if (funcionarioEncontrado == null) {
-                        System.out.println("Funcionario não encontrado");
+                        System.out.println("\nFuncionario não encontrado");
                     } else {
                         System.out.println(funcionarioEncontrado.toString());
                     }
@@ -192,7 +192,7 @@ public class Main {
                 case 0:
                     break;
                 default:
-                    System.out.println("Opção inválida");
+                    System.out.println("\nOpção inválida");
             }
         }
     }
@@ -211,41 +211,41 @@ public class Main {
             respco = Integer.parseInt(sc.nextLine());
             switch (respco) {
                 case 1:
-                    System.out.println("Digite o título do livro que deseja buscar: ");
+                    System.out.println("\nDigite o título do livro que deseja buscar: ");
                     String tituloLivro = sc.nextLine();
                     Livro livroEncontrado = itens.buscarLivro(tituloLivro);
                     if (livroEncontrado == null) {
-                        System.out.println("Livro não encontrado");
+                        System.out.println("\nLivro não encontrado");
                     } else {
                         System.out.println(livroEncontrado.toString());
                     }
                     break;
                 case 2:
-                    System.out.println("Digite o título da revista que deseja buscar: ");
+                    System.out.println("\nDigite o título da revista que deseja buscar: ");
                     String tituloRevista = sc.nextLine();
                     Revista revistaEncontrada = itens.buscarRevista(tituloRevista);
                     if (revistaEncontrada == null) {
-                        System.out.println("Revista não encontrado");
+                        System.out.println("\nRevista não encontrado");
                     } else {
                         System.out.println(revistaEncontrada.toString());
                     }
                     break;
                 case 3:
-                    System.out.println("Digite o título do cd que deseja buscar: ");
+                    System.out.println("\nDigite o título do cd que deseja buscar: ");
                     String tituloCd = sc.nextLine();
                     Cd cdEncontrado = itens.buscarCd(tituloCd);
                     if (cdEncontrado == null) {
-                        System.out.println("Cd não encontrado");
+                        System.out.println("\nCd não encontrado");
                     } else {
                         System.out.println(cdEncontrado.toString());
                     }
                     break;
                 case 4:
-                    System.out.println("Digite o título do dvd que deseja buscar: ");
+                    System.out.println("\nDigite o título do dvd que deseja buscar: ");
                     String tituloDvd = sc.nextLine();
                     Dvd dvdEncontrado = itens.buscarDvd(tituloDvd);
                     if (dvdEncontrado == null) {
-                        System.out.println("Dvd não encontrado");
+                        System.out.println("\nDvd não encontrado");
                     } else {
                         System.out.println(dvdEncontrado.toString());
                     }
@@ -253,7 +253,7 @@ public class Main {
                 case 0:
                     break;
                 default:
-                    System.out.println("Opção inválida");
+                    System.out.println("\nOpção inválida");
             }
         }
     }
@@ -335,6 +335,7 @@ public class Main {
         int resp = 1;
         while (resp != 0) {
             System.out.println("""
+
                 Qual item você deseja pegar emprestado 
                 [1] Livro
                 [2] Revista
@@ -408,6 +409,7 @@ public class Main {
         int resp = 1;
         while (resp != 0) {
             System.out.println("""
+
                 Qual item você deseja pegar emprestado 
                 [1] Livro
                 [2] Revista
@@ -481,6 +483,7 @@ public class Main {
         int resp = 1;
         while (resp != 0) {
             System.out.println("""
+
                 Qual item você deseja pegar emprestado 
                 [1] Livro
                 [2] Revista
@@ -553,6 +556,7 @@ public class Main {
         int resp = 1;
         while (resp != 0) {
             System.out.println("""
+
                 Qual item você deseja pegar emprestado 
                 [1] Livro
                 [2] Revista
@@ -636,21 +640,21 @@ public class Main {
             resp = Integer.parseInt(sc.nextLine());
             switch (resp) {
                 case 1: {
-                    System.out.println("Digite o isbn do livro: ");
+                    System.out.println("\nDigite o isbn do livro: ");
                     String isbn = sc.nextLine();
-                    System.out.println("Digite o titulo do livro: ");
+                    System.out.println("\nDigite o titulo do livro: ");
                     String titulo = sc.nextLine();
-                    System.out.println("Digite o nome do autor do livro: ");
+                    System.out.println("\nDigite o nome do autor do livro: ");
                     String autor = sc.nextLine();
-                    System.out.println("Digite o ano de Publicação do livro: ");
+                    System.out.println("\nDigite o ano de Publicação do livro: ");
                     int anoPublicacao = Integer.parseInt(sc.nextLine());
-                    System.out.println("Digite o nome da editora: ");
+                    System.out.println("\nDigite o nome da editora: ");
                     String editora = sc.nextLine();
-                    System.out.println("Digite o genero literário do livro: ");
+                    System.out.println("\nDigite o genero literário do livro: ");
                     String generoLiterario = sc.nextLine();
-                    System.out.println("Digite o numero de páginas do livro: ");
+                    System.out.println("\nDigite o numero de páginas do livro: ");
                     int numeroPaginas = Integer.parseInt(sc.nextLine());
-                    System.out.println("Digite a sinopse do livro: ");
+                    System.out.println("\nDigite a sinopse do livro: ");
                     String sinopse = sc.nextLine();
 
                     Livro livros = new Livro(isbn, titulo, autor, editora, anoPublicacao, generoLiterario, numeroPaginas, sinopse);
@@ -659,15 +663,15 @@ public class Main {
                 }
                 break;
                 case 2: {
-                    System.out.println("Digite o issn da revista: ");
+                    System.out.println("\nDigite o issn da revista: ");
                     String issn = sc.nextLine();
-                    System.out.println("Digite o nome da revista: ");
+                    System.out.println("\nDigite o nome da revista: ");
                     String titulo = sc.nextLine();
-                    System.out.println("Digite o volume do livro: ");
+                    System.out.println("\nDigite o volume do livro: ");
                     int volume = Integer.parseInt(sc.nextLine());
-                    System.out.println("Digite o nome da editora: ");
+                    System.out.println("\nDigite o nome da editora: ");
                     String editora = sc.nextLine();
-                    System.out.println("Digite a data de publicação da revista: ");
+                    System.out.println("\nDigite a data de publicação da revista: ");
                     String dataPublicacao = sc.next();
 
                     Revista revistas = new Revista(issn, titulo, volume, editora, dataPublicacao);
@@ -676,14 +680,14 @@ public class Main {
                 }
                 break;
                 case 3: {
-                    System.out.println("Digite o nome do Cd: ");
+                    System.out.println("\nDigite o nome do Cd: ");
                     String titulo = sc.nextLine();
-                    System.out.println("Digite o nome do artista do Cd: ");
+                    System.out.println("\nDigite o nome do artista do Cd: ");
                     String artista = sc.nextLine();
-                    System.out.println("Quantas faixas tem o Cd? ");
+                    System.out.println("\nQuantas faixas tem o Cd? ");
                     int numFaixas = Integer.parseInt(sc.nextLine());
                     String[] faixas = new String[numFaixas];
-                    System.out.println("Digite o nome das faixas do Cd: ");
+                    System.out.println("\nDigite o nome das faixas do Cd: ");
                     for (int i = 0; i < numFaixas; i++) {
                         String faixa = sc.nextLine();
                         faixas[i] = faixa;
@@ -696,13 +700,13 @@ public class Main {
                 }
                 break;
                 case 4: {
-                    System.out.println("Digite o nome do Dvd: ");
+                    System.out.println("\nDigite o nome do Dvd: ");
                     String titulo = sc.nextLine();
-                    System.out.println("Digite o nome do diretor: ");
+                    System.out.println("\nDigite o nome do diretor: ");
                     String diretor = sc.nextLine();
-                    System.out.println("Digite a duracao do Dvd(em minutos): ");
+                    System.out.println("\nDigite a duracao do Dvd(em minutos): ");
                     int duracao = Integer.parseInt(sc.nextLine());
-                    System.out.println("Digite a classificacao indicativa do Dvd: ");
+                    System.out.println("\nDigite a classificacao indicativa do Dvd: ");
                     String classificacaoIndicativa = sc.nextLine();
 
                     Dvd dvds = new Dvd(titulo, diretor, duracao, classificacaoIndicativa);
@@ -713,7 +717,7 @@ public class Main {
                 case 0:
                     break;
                 default:
-                    System.out.println("Opção inválida");
+                    System.out.println("\nOpção inválida\n");
             }
         }
     }
@@ -732,11 +736,11 @@ public class Main {
             resp = Integer.parseInt(sc.nextLine());
             switch (resp) {
                 case 1: {
-                    System.out.println("Digite o nome do aluno: ");
+                    System.out.println("\nDigite o nome do aluno: ");
                     String nome = sc.nextLine();
-                    System.out.println("Digite a matricula do aluno: ");
+                    System.out.println("\nDigite a matricula do aluno: ");
                     String matricula = sc.nextLine();
-                    System.out.println("Digite o curso do aluno: ");
+                    System.out.println("\nDigite o curso do aluno: ");
                     String curso = sc.nextLine();
 
                     Aluno alunos = new Aluno(nome, matricula, curso);
@@ -745,9 +749,9 @@ public class Main {
                 }
                 break;
                 case 2: {
-                    System.out.println("Digite o nome do professor: ");
+                    System.out.println("\nDigite o nome do professor: ");
                     String nome = sc.nextLine();
-                    System.out.println("Digite a matricula do professor: ");
+                    System.out.println("\nDigite a matricula do professor: ");
                     String matricula = sc.nextLine();
 
                     Professor professores = new Professor(nome, matricula);
@@ -756,9 +760,9 @@ public class Main {
                 }
                 break;
                 case 3: {
-                    System.out.println("Digite o nome do pós graduado: ");
+                    System.out.println("\nDigite o nome do pós graduado: ");
                     String nome = sc.nextLine();
-                    System.out.println("Digite a matricula do pós graduado: ");
+                    System.out.println("\nDigite a matricula do pós graduado: ");
                     String matricula = sc.nextLine();
 
                     PosGraduado posGraduados = new PosGraduado(nome, matricula);
@@ -767,9 +771,9 @@ public class Main {
                 }
                 break;
                 case 4: {
-                    System.out.println("Digite o nome do Funcionário Administrativo: ");
+                    System.out.println("\nDigite o nome do Funcionário Administrativo: ");
                     String nome = sc.nextLine();
-                    System.out.println("Digite a matricula do Funcionário Administrativo: ");
+                    System.out.println("\nDigite a matricula do Funcionário Administrativo: ");
                     String matricula = sc.nextLine();
 
                     FuncionarioAdministrativo funcionarios = new FuncionarioAdministrativo(nome, matricula);
@@ -780,7 +784,7 @@ public class Main {
                 case 0:
                     break;
                 default:
-                    System.out.println("Opção inválida");
+                    System.out.println("\nOpção inválida\n");
             }
         }
 
