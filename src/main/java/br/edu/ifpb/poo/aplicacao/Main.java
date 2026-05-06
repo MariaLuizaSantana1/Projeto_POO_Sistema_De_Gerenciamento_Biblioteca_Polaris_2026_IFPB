@@ -72,7 +72,7 @@ public class Main {
                     realizarEmprestimos(sc, usuarios, itens, emprestimos);
                     break;
                 case 4:
-                    realizarDevolucao(sc, usuarios, itens, emprestimos);
+                    realizarDevolucao(sc, emprestimos);
                     break;
                 case 5:
                     consultar(sc, usuarios, itens, emprestimos);
@@ -92,6 +92,7 @@ public class Main {
         int respconsult = 1;
         while (respconsult != 0) {
             System.out.println("""
+                
                O que você gostaria de Fazer? 
                [1] Listar Usuários
                [2] Listar Itens do Acervo
@@ -144,6 +145,7 @@ public class Main {
         int respcons = 1;
         while (respcons != 0) {
             System.out.println("""
+
                Que usuário você gostaria de buscar? 
                [1] Pesquisar Aluno
                [2] Pesquisar Professor
@@ -205,6 +207,7 @@ public class Main {
         int respco = 1;
         while (respco != 0) {
             System.out.println("""
+
                Que item do acervo você gostaria de buscar? 
                [1] Pesquisar Livro
                [2] Pesquisar Revista
@@ -266,6 +269,7 @@ public class Main {
         int resp = 1;
         while (resp != 0) {
             System.out.println("""
+
                 Para qual tipo de usuário você deseja realizar um empréstimo? 
                 [1] Aluno
                 [2] Professor
@@ -582,69 +586,10 @@ public class Main {
 
 
 
-    private static void realizarDevolucao(Scanner sc, GerenciadorDeUsuario usuarios, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos) {
-        int resp = 1;
-        while (resp != 0) {
-            System.out.println("""
-                Para qual tipo de usuário você deseja realizar a devolução? 
-                [1] Aluno
-                [2] Professor
-                [3] Pós Graduado
-                [4] Funcionário Administrativo
-                [0] Voltar
-            """);
-            resp = Integer.parseInt(sc.nextLine());
-            switch (resp) {
-                case 1:{ 
-                        System.out.println("Digite o titulo do livro que deseja devolver: ");
-                        String tituloDevolucao = sc.nextLine();
-                        emprestimos.registrarDevolução(tituloDevolucao);
-                        break;
-                
-                }
-                case 2:{
-                    System.out.println("Digite a Matricula do Professor que deseja emprestar");
-                    String matriculaProfessor = sc.nextLine();
-                    Professor professorEncontrado = usuarios.buscarProfessor(matriculaProfessor);
-                    if (professorEncontrado == null) {
-                        System.out.println("\nProfessor não encontrado\n");
-                    }else if (!professorEncontrado.getAtivo().equals("ativo")) {
-                        System.out.println("\nProfessor não pode fazer empréstimo pois está inativo\n");
-                    } else {
-                        EmprestimosEscolherItemProfessor(sc, itens, emprestimos, professorEncontrado);
-                    } break;
-                }
-                case 3:{
-                    System.out.println("Digite a Matricula do Pós Graduado que deseja emprestar");
-                    String matriculaAluno = sc.nextLine();
-                    PosGraduado posGraduadoEncontrado = usuarios.buscarPosGraduado(matriculaAluno);
-                    if (posGraduadoEncontrado == null) {
-                        System.out.println("\nPós Graduado não encontrado\n");
-                    }else if (!posGraduadoEncontrado.getAtivo().equals("ativo")) {
-                        System.out.println("\nPós Graduado não pode fazer empréstimo pois está inativo\n");
-                    } else {
-                        EmprestimosEscolherItemPosGraduado(sc, itens, emprestimos, posGraduadoEncontrado);
-                    } break;
-                }
-                case 4:{
-                    System.out.println("Digite a Matricula do Funcionário que deseja emprestar");
-                    String matriculaFuncionario = sc.nextLine();
-                    FuncionarioAdministrativo funcionarioEncontrado = usuarios.buscarFuncionario(matriculaFuncionario);
-                    if (funcionarioEncontrado == null) {
-                        System.out.println("\nFuncionario não encontrado\n");
-                    }else if (!funcionarioEncontrado.getAtivo().equals("ativo")) {
-                        System.out.println("\nFuncionario não pode fazer empréstimo pois está inativo\n");
-                    } else {
-                        EmprestimosEscolherItemFuncionario(sc, itens, emprestimos, funcionarioEncontrado);
-                    } break;
-                }
-                case 0:
-                    break;
-                default:
-                    System.out.println("Opção inválida");
-            }
-        }
-
+    private static void realizarDevolucao(Scanner sc, GerenciadorEmprestimos emprestimos) {
+        System.out.println("Digite o titulo do livro que deseja devolver: ");
+            String tituloDevolucao = sc.nextLine();
+            emprestimos.registrarDevolução(tituloDevolucao);
     }
 
 
@@ -653,6 +598,7 @@ public class Main {
         int resp = 1;
         while (resp != 0) {
             System.out.println("""
+
                 Qual tipo de item você gostaria de adicionar? 
                 [1] Livro
                 [2] Revista
@@ -749,6 +695,7 @@ public class Main {
         int resp = 1;
         while (resp != 0) {
             System.out.println("""
+
                 Qual tipo de usuário você gostaria de adcionar? 
                 [1] Aluno
                 [2] Professor

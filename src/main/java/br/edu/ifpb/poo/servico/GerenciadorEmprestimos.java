@@ -304,31 +304,35 @@ public class GerenciadorEmprestimos {
 
     public void registrarDevolução(String tituloItem){
         for(Emprestimo emprestimo : this.listaEmprestimos){
-            Object item = emprestimo.getItem();
-            Object usuario = emprestimo.getUsuario();
-            if (item instanceof Livro livro) {
-                if (livro.getTitulo().equals(tituloItem)) {
-                   livro.setDisponibilidade("Disponivel");
-                   emprestimo.setStatusEmprestimo("Devolvido");
+            if (emprestimo.getTituloItem().equals(tituloItem)) {
+                Object item = emprestimo.getItem();
+                Object usuario = emprestimo.getUsuario();
+                if (item instanceof Livro livro) {
+                       livro.setDisponibilidade("Disponivel");
+                       emprestimo.setStatusEmprestimo("Devolvido");
+                }else if (item instanceof Revista revista) {
+                        revista.setDisponibilidade("Disponivel");
+                        emprestimo.setStatusEmprestimo("Devolvido");
+                }else if (item instanceof Cd cd) {
+                        cd.setDisponibilidade("Disponivel");
+                        emprestimo.setStatusEmprestimo("Devolvido");
+                }else if (item instanceof Dvd dvd) {
+                        dvd.setDisponibilidade("Disponivel");
+                        emprestimo.setStatusEmprestimo("Devolvido");
                 }
-            }else if (item instanceof Revista revista) {
-                if (revista.getTitulo().equals(tituloItem)) {
-                    revista.setDisponibilidade("Disponivel");
-                    emprestimo.setStatusEmprestimo("Devolvido");
-                 }
-            }else if (item instanceof Cd cd) {
-                if (cd.getTitulo().equals(tituloItem)) {
-                    cd.setDisponibilidade("Disponivel");
-                    emprestimo.setStatusEmprestimo("Devolvido");
-                 }
-            }else if (item instanceof Dvd dvd) {
-                if (dvd.getTitulo().equals(tituloItem)) {
-                    dvd.setDisponibilidade("Disponivel");
-                    emprestimo.setStatusEmprestimo("Devolvido");
-                 }
-            }else{
-                System.out.println("Empréstimo não encontrado");
-            }
+                if (usuario instanceof Aluno aluno) {
+                    aluno.setItensEmprestados(aluno.getItensEmprestados() -1);
+                }
+                else if (usuario instanceof Professor professor) {
+                    professor.setItensEmprestados(professor.getItensEmprestados() -1);
+                }
+                else if (usuario instanceof PosGraduado posGraduado) {
+                    posGraduado.setItensEmprestados(posGraduado.getItensEmprestados() -1);
+                }
+                else if (usuario instanceof FuncionarioAdministrativo funcionarioAdministrativo) {
+                    funcionarioAdministrativo.setItensEmprestados(funcionarioAdministrativo.getItensEmprestados() -1);
+                }
+            } System.out.println("Empréstimo não encontrado");
         }
     }
 
