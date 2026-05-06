@@ -353,13 +353,11 @@ public class Main {
                     System.out.println("Digite o titulo do livro que deseja emprestar");
                     String tituloLivro = sc.nextLine();
                     Livro livroEncontrado = itens.buscarLivro(tituloLivro);
-                    if (livroEncontrado == null) {
-                        System.out.println("Livro não encontrado");
-                        break;
-                    } 
-                    else {
+                    if (itens.validarLivroParaEmpréstimo(tituloLivro) != null) {
                         emprestimos.emprestarLivroParaAluno(alunoEncontrado, livroEncontrado);
+                        break;
                     } break;
+                    
                 }
                 
                 case 2:{
