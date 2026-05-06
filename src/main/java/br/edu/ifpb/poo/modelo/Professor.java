@@ -49,4 +49,6 @@ public class Professor {
     public String toString(){
         return "Nome: " + nome + "\nMatricula: " + matricula +"\nItens emprestados:"+ itensEmprestados + "\nStatus: " + ativo;
     }
+
+    //teste
 }
