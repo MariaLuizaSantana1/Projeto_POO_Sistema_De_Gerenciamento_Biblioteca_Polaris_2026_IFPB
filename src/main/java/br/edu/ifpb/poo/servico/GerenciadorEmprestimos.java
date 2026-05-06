@@ -36,13 +36,15 @@ public class GerenciadorEmprestimos {
     
 
     public void emprestarLivroParaAluno(Aluno aluno, Livro livro){
-        if(aluno.getItensEmprestados() < Aluno.MAX_ITENS_ALUNO){
+        if(aluno.getItensEmprestados() < Aluno.MAX_ITENS_ALUNO && livro.getDisponibilidade().equals("Disponivel")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(Aluno.PRAZO_ITENS_ALUNO);
             Emprestimo emprestimo = new Emprestimo(aluno, livro, hoje, devolucao);
             aluno.setItensEmprestados(aluno.getItensEmprestados()+1);
             livro.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
+        } else if (aluno.getItensEmprestados() < Aluno.MAX_ITENS_ALUNO && !livro.getDisponibilidade().equals("Disponivel")) {
+            System.out.println("Item não pode ser escolhido pois já está emprestado");
         }
         else{
             System.out.println("Usuário de matricula " + aluno.getMatricula() + "já atingiu o limite máximo de 3 itens");
