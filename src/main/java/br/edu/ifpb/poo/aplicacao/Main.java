@@ -54,8 +54,9 @@ public class Main {
                 _____________Biblioteca Polaris____________
                 [1] Gerenciar Itens do Acervo
                 [2] Gerenciar Usuários
-                [3] Realizar Emprestimos
-                [4] Consultar
+                [3] Emprestimos
+                [4] Devoluções
+                [5] Consultar
                 [0] Sair
              """);
             resposta = sc.nextInt();
@@ -71,6 +72,9 @@ public class Main {
                     realizarEmprestimos(sc, usuarios, itens, emprestimos);
                     break;
                 case 4:
+                    realizarDevolucao(sc, usuarios, itens, emprestimos);
+                    break;
+                case 5:
                     consultar(sc, usuarios, itens, emprestimos);
                     break;
                 case 0:
@@ -613,6 +617,73 @@ public class Main {
                     } else {
                         emprestimos.emprestarDvdParaFuncionario(funcionarioEncontrado, dvdEncontrada);
                         System.out.println("\n Empréstimo realizado com sucesso!\n");
+                    } break;
+                }
+                case 0:
+                    break;
+                default:
+                    System.out.println("Opção inválida");
+            }
+        }
+
+    }
+
+
+
+    private static void realizarDevolucao(Scanner sc, GerenciadorDeUsuario usuarios, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos) {
+        int resp = 1;
+        while (resp != 0) {
+            System.out.println("""
+                Para qual tipo de usuário você deseja realizar a devolução? 
+                [1] Aluno
+                [2] Professor
+                [3] Pós Graduado
+                [4] Funcionário Administrativo
+                [0] Voltar
+            """);
+            resp = Integer.parseInt(sc.nextLine());
+            switch (resp) {
+                case 1:{ 
+                        System.out.println("Digite o titulo do livro que deseja devolver: ");
+                        String tituloDevolucao = sc.nextLine();
+                        emprestimos.registrarDevolução(tituloDevolucao);
+                        break;
+                
+                }
+                case 2:{
+                    System.out.println("Digite a Matricula do Professor que deseja emprestar");
+                    String matriculaProfessor = sc.nextLine();
+                    Professor professorEncontrado = usuarios.buscarProfessor(matriculaProfessor);
+                    if (professorEncontrado == null) {
+                        System.out.println("\nProfessor não encontrado\n");
+                    }else if (!professorEncontrado.getAtivo().equals("ativo")) {
+                        System.out.println("\nProfessor não pode fazer empréstimo pois está inativo\n");
+                    } else {
+                        EmprestimosEscolherItemProfessor(sc, itens, usuarios, emprestimos, professorEncontrado);
+                    } break;
+                }
+                case 3:{
+                    System.out.println("Digite a Matricula do Pós Graduado que deseja emprestar");
+                    String matriculaAluno = sc.nextLine();
+                    PosGraduado posGraduadoEncontrado = usuarios.buscarPosGraduado(matriculaAluno);
+                    if (posGraduadoEncontrado == null) {
+                        System.out.println("\nPós Graduado não encontrado\n");
+                    }else if (!posGraduadoEncontrado.getAtivo().equals("ativo")) {
+                        System.out.println("\nPós Graduado não pode fazer empréstimo pois está inativo\n");
+                    } else {
+                        EmprestimosEscolherItemPosGraduado(sc, itens, usuarios, emprestimos, posGraduadoEncontrado);
+                    } break;
+                }
+                case 4:{
+                    System.out.println("Digite a Matricula do Funcionário que deseja emprestar");
+                    String matriculaFuncionario = sc.nextLine();
+                    FuncionarioAdministrativo funcionarioEncontrado = usuarios.buscarFuncionario(matriculaFuncionario);
+                    if (funcionarioEncontrado == null) {
+                        System.out.println("\nFuncionario não encontrado\n");
+                    }else if (!funcionarioEncontrado.getAtivo().equals("ativo")) {
+                        System.out.println("\nFuncionario não pode fazer empréstimo pois está inativo\n");
+                    } else {
+                        EmprestimosEscolherItemFuncionario(sc, itens, usuarios, emprestimos, funcionarioEncontrado);
                     } break;
                 }
                 case 0:

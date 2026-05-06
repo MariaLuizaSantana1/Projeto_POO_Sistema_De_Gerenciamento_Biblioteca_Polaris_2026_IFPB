@@ -65,4 +65,6 @@ public class Aluno {
     public String toString(){
         return "Nome: " + nome + "\nMatricula: " + matricula + "\nCurso: " + curso +"\nItens emprestados:"+ itensEmprestados + "\nStatus: " + ativo;
     }
+
+    //teste
 }

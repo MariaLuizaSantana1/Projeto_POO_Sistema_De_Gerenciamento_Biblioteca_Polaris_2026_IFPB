@@ -232,7 +232,7 @@ public class GerenciadorEmprestimos {
     }
 
 
-    
+
 
     public void emprestarLivroParaFuncionario(FuncionarioAdministrativo funcionarioAdministrativo, Livro livro){
         if(funcionarioAdministrativo.getItensEmprestados() < FuncionarioAdministrativo.MAX_ITENS_FUNCIONARIO && funcionarioAdministrativo.getAtivo().equals("ativo")){
@@ -302,8 +302,12 @@ public class GerenciadorEmprestimos {
 
     public void registrarDevolução(String tituloItem){
         for(Emprestimo emprestimo : this.listaEmprestimos){
-            if (emprestimo.getItem().equals(tituloItem)) {
-                emprestimo.getItem();
+            Object item = emprestimo.getItem();
+            if (item instanceof Livro livro) {
+                if (livro.getTitulo().equals(tituloItem)) {
+                   livro.setDisponibilidade("Disponivel");
+                   emprestimo.setStatusEmprestimo("Devolvido");
+                }
             }
         }
     }
