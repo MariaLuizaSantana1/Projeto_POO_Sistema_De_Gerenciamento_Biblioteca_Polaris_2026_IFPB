@@ -8,6 +8,7 @@ public class Emprestimo {
     private String item;
     private LocalDate dataEmprestimo;
     private LocalDate dataDevolucao;
+    private String statusEmprestimo = "Ativo";
 
 
     public Emprestimo(String nomeUsuario, String item, LocalDate dataEmprestimo, LocalDate dataDevolucao){
@@ -45,7 +46,14 @@ public class Emprestimo {
         return dataDevolucao;
     }
 
+    public void setStatusEmprestimo(String statusEmprestimo) {
+        this.statusEmprestimo = statusEmprestimo;
+    }
+    public String getStatusEmprestimo() {
+        return statusEmprestimo;
+    }
+
     public String toString(){
-        return "Nome do Usuário do Impréstimo: " + nomeUsuario + "\nItem emprestado: " + item + "\nData de Empréstimo: " + dataEmprestimo + "\nData de Devolução: " + dataDevolucao;
+        return "Nome do Usuário do Impréstimo: " + nomeUsuario + "\nItem emprestado: " + item + "\nData de Empréstimo: " + dataEmprestimo + "\nData de Devolução: " + dataDevolucao + "\nStatus do Empréstimo: " + statusEmprestimo;
     }
 }
