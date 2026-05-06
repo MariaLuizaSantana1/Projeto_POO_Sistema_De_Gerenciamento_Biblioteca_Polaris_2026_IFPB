@@ -37,7 +37,7 @@ public class GerenciadorEmprestimos {
         if(aluno.getItensEmprestados() < 3 && aluno.getAtivo().equals("ativo")){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(7);
-            Emprestimo emprestimo = new Emprestimo(aluno.getNome(), livro.getTitulo(), hoje, devolucao);
+            Emprestimo emprestimo = new Emprestimo(aluno, livro, hoje, devolucao);
             aluno.setItensEmprestados(aluno.getItensEmprestados()+1);
             livro.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
@@ -299,12 +299,12 @@ public class GerenciadorEmprestimos {
 
 
 
-    public Emprestimo registrarDevolução(String tituloItem){
+    public void registrarDevolução(String tituloItem){
         for(Emprestimo emprestimo : this.listaEmprestimos){
             if (emprestimo.getItem().equals(tituloItem)) {
-                return emprestimo;
+                
             }
-        } return null;
+        }
     }
 
 }
