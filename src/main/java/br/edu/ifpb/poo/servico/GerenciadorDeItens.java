@@ -109,5 +109,47 @@ public class GerenciadorDeItens {
         return null;
     }
 
+    public Revista validarRevistaParaEmpréstimo(String titulo){
+        for (Revista revista : listaRevistas) {
+            if (revista.getTitulo().equals(titulo) && revista.getDisponibilidade().equals("Disponivel")){
+                return revista;
+            } 
+            else if (revista.getTitulo().equals(titulo) && !revista.getDisponibilidade().equals("Disponivel")) {
+                System.out.println("Revista não disponivel");
+                return null;
+            }
+        }
+        System.out.println("Revista não encontrado");
+        return null;
+    }
+
+    public Dvd validarDvdParaEmpréstimo(String titulo){
+        for (Dvd dvd : listaDvds) {
+            if (dvd.getTitulo().equals(titulo) && dvd.getDisponibilidade().equals("Disponivel")){
+                return dvd;
+            } 
+            else if (dvd.getTitulo().equals(titulo) && !dvd.getDisponibilidade().equals("Disponivel")) {
+                System.out.println("Dvd não disponivel");
+                return null;
+            }
+        }
+        System.out.println("Dvd não encontrado");
+        return null;
+    }
+
+    public Cd validarCdParaEmpréstimo(String titulo){
+        for (Cd cd : listaCds) {
+            if (cd.getTitulo().equals(titulo) && cd.getDisponibilidade().equals("Disponivel")){
+                return cd;
+            } 
+            else if (cd.getTitulo().equals(titulo) && !cd.getDisponibilidade().equals("Disponivel")) {
+                System.out.println("cd não disponivel");
+                return null;
+            }
+        }
+        System.out.println("Cd não encontrado");
+        return null;
+    }
+
 }
 
