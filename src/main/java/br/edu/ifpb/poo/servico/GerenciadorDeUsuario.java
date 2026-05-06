@@ -97,7 +97,7 @@ public class GerenciadorDeUsuario {
 
     public boolean validarAlunoParaEmpréstimo(String matricula){
         for (Aluno aluno : listaAlunos) {
-            if (aluno.getMatricula().equals(matricula)){
+            if (aluno.getMatricula().equals(matricula) && aluno.getAtivo().equals("ativo")){
                 return true;
             } 
         }return false;
@@ -105,7 +105,7 @@ public class GerenciadorDeUsuario {
 
     public boolean validarProfessorParaEmpréstimo(String matricula){
         for (Professor professor : listaProfessores) {
-            if (professor.getMatricula().equals(matricula)){
+            if (professor.getMatricula().equals(matricula) && professor.getAtivo().equals("ativo")){
                 return true;
             } 
         }return false;
@@ -113,7 +113,7 @@ public class GerenciadorDeUsuario {
 
     public boolean validarPosGraduadoParaEmpréstimo(String matricula){
         for (PosGraduado posGraduado : listaPosGraduados) {
-            if (posGraduado.getMatricula().equals(matricula)){
+            if (posGraduado.getMatricula().equals(matricula) && posGraduado.getAtivo().equals("ativo")){
                 return true;
             } 
         }return false;
@@ -121,7 +121,7 @@ public class GerenciadorDeUsuario {
 
     public boolean validarFuncionarioParaEmpréstimo(String matricula){
         for (FuncionarioAdministrativo funcionarioAdministrativo : listaFuncionariosAdministrativos) {
-            if (funcionarioAdministrativo.getMatricula().equals(matricula)){
+            if (funcionarioAdministrativo.getMatricula().equals(matricula) && funcionarioAdministrativo.getAtivo().equals("ativo")){
                 return true;
             } 
         }return false;

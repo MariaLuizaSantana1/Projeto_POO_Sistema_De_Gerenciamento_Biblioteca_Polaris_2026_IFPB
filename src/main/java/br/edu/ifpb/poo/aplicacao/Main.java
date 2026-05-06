@@ -281,7 +281,7 @@ public class Main {
                     Aluno alunoEncontrado = usuarios.buscarAluno(matriculaAluno);
                     if (alunoEncontrado == null) {
                         System.out.println("\nAluno não encontrado\n");
-                    }else if (!alunoEncontrado.getAtivo().equals("ativo")) {
+                    }else if (usuarios.validarAlunoParaEmpréstimo(matriculaAluno) == false) {
                         System.out.println("\nAluno não pode fazer empréstimo pois está inativo\n");
                     } else {
                         EmprestimosEscolherItemAluno(sc, itens, emprestimos, alunoEncontrado);
@@ -293,7 +293,7 @@ public class Main {
                     Professor professorEncontrado = usuarios.buscarProfessor(matriculaProfessor);
                     if (professorEncontrado == null) {
                         System.out.println("\nProfessor não encontrado\n");
-                    }else if (!professorEncontrado.getAtivo().equals("ativo")) {
+                    }else if (usuarios.validarProfessorParaEmpréstimo(matriculaProfessor) == false) {
                         System.out.println("\nProfessor não pode fazer empréstimo pois está inativo\n");
                     } else {
                         EmprestimosEscolherItemProfessor(sc, itens, emprestimos, professorEncontrado);
@@ -305,7 +305,7 @@ public class Main {
                     PosGraduado posGraduadoEncontrado = usuarios.buscarPosGraduado(matriculaAluno);
                     if (posGraduadoEncontrado == null) {
                         System.out.println("\nPós Graduado não encontrado\n");
-                    }else if (!posGraduadoEncontrado.getAtivo().equals("ativo")) {
+                    }else if (usuarios.validarPosGraduadoParaEmpréstimo(matriculaAluno) == false) {
                         System.out.println("\nPós Graduado não pode fazer empréstimo pois está inativo\n");
                     } else {
                         EmprestimosEscolherItemPosGraduado(sc, itens, emprestimos, posGraduadoEncontrado);
@@ -317,7 +317,7 @@ public class Main {
                     FuncionarioAdministrativo funcionarioEncontrado = usuarios.buscarFuncionario(matriculaFuncionario);
                     if (funcionarioEncontrado == null) {
                         System.out.println("\nFuncionario não encontrado\n");
-                    }else if (!funcionarioEncontrado.getAtivo().equals("ativo")) {
+                    }else if (usuarios.validarFuncionarioParaEmpréstimo(matriculaFuncionario) == false) {
                         System.out.println("\nFuncionario não pode fazer empréstimo pois está inativo\n");
                     } else {
                         EmprestimosEscolherItemFuncionario(sc, itens, emprestimos, funcionarioEncontrado);
