@@ -40,9 +40,9 @@ public class Main {
         itens.addRevista(revistaDefault);
 
 
-        Aluno alunoDefault = new Aluno("Anna", "2024137300", "Sistemas");
+        Aluno alunoDefault = new Aluno("Anna Silva", "2024137300", "Sistemas");
         usuarios.addAluno(alunoDefault);
-        Aluno alunoDefault2 = new Aluno("Harry", "2024137100", "Redes", "inativo");
+        Aluno alunoDefault2 = new Aluno("Harry Osborn", "2024137100", "Redes", "inativo");
         usuarios.addAluno(alunoDefault2);
         Professor professorDefault2 = new Professor("Rafael", "2024137000");
         usuarios.addProfessor(professorDefault2);
@@ -359,7 +359,6 @@ public class Main {
                     } 
                     else {
                         emprestimos.emprestarLivroParaAluno(alunoEncontrado, livroEncontrado);
-                        System.out.println("\n Empréstimo realizado com sucesso!\n");
                     } break;
                 }
                 
@@ -372,7 +371,6 @@ public class Main {
                         break;
                     } else {
                         emprestimos.emprestarRevistaParaAluno(alunoEncontrado, revistaEncontrada);
-                        System.out.println("\n Empréstimo realizado com sucesso!\n");
                     } break;
                 }
                 case 3:{
@@ -384,7 +382,6 @@ public class Main {
                         break;
                     } else {
                         emprestimos.emprestarCdParaAluno(alunoEncontrado, cdEncontrado);
-                        System.out.println("\n Empréstimo realizado com sucesso!\n");
                     } break;
                 }
                 case 4:{
@@ -396,7 +393,6 @@ public class Main {
                         break;
                     } else {
                         emprestimos.emprestarDvdParaAluno(alunoEncontrado, dvdEncontrada);
-                        System.out.println("\n Empréstimo realizado com sucesso!\n");
                     } break;
                 }
                 case 0:
@@ -432,7 +428,6 @@ public class Main {
                         break;
                     } else {
                         emprestimos.emprestarLivroParaProfessor(professorEncontrado, livroEncontrado);
-                        System.out.println("\n Empréstimo realizado com sucesso!\n");
                     } break;
                 }
                 
@@ -445,7 +440,6 @@ public class Main {
                         break;
                     } else {
                         emprestimos.emprestarRevistaParaProfessor(professorEncontrado, revistaEncontrada);
-                        System.out.println("\n Empréstimo realizado com sucesso!\n");
                     } break;
                 }
                 case 3:{
@@ -457,7 +451,6 @@ public class Main {
                         break;
                     } else {
                         emprestimos.emprestarCdParaProfessor(professorEncontrado, cdEncontrado);
-                        System.out.println("\n Empréstimo realizado com sucesso!\n");
                     } break;
                 }
                 case 4:{
@@ -469,7 +462,6 @@ public class Main {
                         break;
                     } else {
                         emprestimos.emprestarDvdParaProfessor(professorEncontrado, dvdEncontrada);
-                        System.out.println("\n Empréstimo realizado com sucesso!\n");
                     } break;
                 }
                 case 0:
@@ -506,7 +498,6 @@ public class Main {
                         break;
                     } else {
                         emprestimos.emprestarLivroParaPosGraduado(posGraduadoEncontrado, livroEncontrado);
-                        System.out.println("\n Empréstimo realizado com sucesso!\n");
                     } break;
                 }
                 
@@ -519,7 +510,6 @@ public class Main {
                         break;
                     } else {
                         emprestimos.emprestarRevistaParaPosGraduado(posGraduadoEncontrado, revistaEncontrada);
-                        System.out.println("\n Empréstimo realizado com sucesso!\n");
                     } break;
                 }
                 case 3:{
@@ -531,7 +521,6 @@ public class Main {
                         break;
                     } else {
                         emprestimos.emprestarCdParaPosGraduado(posGraduadoEncontrado, cdEncontrado);
-                        System.out.println("\n Empréstimo realizado com sucesso!\n");
                     } break;
                 }
                 case 4:{
@@ -543,7 +532,6 @@ public class Main {
                         break;
                     } else {
                         emprestimos.emprestarDvdParaPosGraduado(posGraduadoEncontrado, dvdEncontrada);
-                        System.out.println("\n Empréstimo realizado com sucesso!\n");
                     } break;
                 }
                 case 0:
@@ -579,7 +567,6 @@ public class Main {
                         break;
                     } else {
                         emprestimos.emprestarLivroParaFuncionario(funcionarioEncontrado, livroEncontrado);
-                        System.out.println("\n Empréstimo realizado com sucesso!\n");
                     } break;
                 }
                 
@@ -592,7 +579,6 @@ public class Main {
                         break;
                     } else {
                         emprestimos.emprestarRevistaParaFuncionario(funcionarioEncontrado, revistaEncontrada);
-                        System.out.println("\n Empréstimo realizado com sucesso!\n");
                     } break;
                 }
                 case 3:{
@@ -604,7 +590,6 @@ public class Main {
                         break;
                     } else {
                         emprestimos.emprestarCdParaFuncionario(funcionarioEncontrado, cdEncontrado);
-                        System.out.println("\n Empréstimo realizado com sucesso!\n");
                     } break;
                 }
                 case 4:{
@@ -616,7 +601,6 @@ public class Main {
                         break;
                     } else {
                         emprestimos.emprestarDvdParaFuncionario(funcionarioEncontrado, dvdEncontrada);
-                        System.out.println("\n Empréstimo realizado com sucesso!\n");
                     } break;
                 }
                 case 0:

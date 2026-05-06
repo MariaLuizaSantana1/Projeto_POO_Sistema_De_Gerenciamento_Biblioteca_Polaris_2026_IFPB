@@ -94,6 +94,38 @@ public class GerenciadorDeItens {
             }            
         }return null;
     }
+
+    public boolean validarLivroParaEmpréstimo(String titulo){
+        for (Livro livro : listaLivros) {
+            if (livro.getTitulo().equals(titulo) && livro.getDisponibilidade().equals("Disponivel")){
+                return true;
+            } 
+        }return false;
+    }
+
+    public boolean validarRevistaParaEmpréstimo(String titulo){
+        for (Revista revista : listaRevistas) {
+            if (revista.getTitulo().equals(titulo) && revista.getDisponibilidade().equals("Disponivel")){
+                return true;
+            } 
+        }return false;
+    }
+
+    public boolean validarCdParaEmpréstimo(String titulo){
+        for (Cd cd : listaCds) {
+            if (cd.getTitulo().equals(titulo) && cd.getDisponibilidade().equals("Disponivel")){
+                return true;
+            } 
+        }return false;
+    }
+
+    public boolean validarDvdParaEmpréstimo(String titulo){
+        for (Dvd dvd : listaDvds) {
+            if (dvd.getTitulo().equals(titulo) && dvd.getDisponibilidade().equals("Disponivel")){
+                return true;
+            } 
+        }return false;
+    }
     
 }
 
