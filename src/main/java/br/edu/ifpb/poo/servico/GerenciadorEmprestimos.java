@@ -33,12 +33,13 @@ public class GerenciadorEmprestimos {
         }
     }
 
-    
 
+    
     public void emprestarLivroParaAluno(Aluno aluno, Livro livro){
         if(aluno.getItensEmprestados() < Aluno.MAX_ITENS_ALUNO){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(Aluno.PRAZO_ITENS_ALUNO);
+            String tituloLivro = livro.getTitulo();
             Emprestimo emprestimo = new Emprestimo(aluno, livro, hoje, devolucao);
             aluno.setItensEmprestados(aluno.getItensEmprestados()+1);
             livro.setDisponibilidade("Emprestado");
@@ -273,6 +274,7 @@ public class GerenciadorEmprestimos {
     public void registrarDevolução(String tituloItem){
         for(Emprestimo emprestimo : this.listaEmprestimos){
             Object item = emprestimo.getItem();
+            Object usuario = emprestimo.getUsuario();
             if (item instanceof Livro livro) {
                 if (livro.getTitulo().equals(tituloItem)) {
                    livro.setDisponibilidade("Disponivel");

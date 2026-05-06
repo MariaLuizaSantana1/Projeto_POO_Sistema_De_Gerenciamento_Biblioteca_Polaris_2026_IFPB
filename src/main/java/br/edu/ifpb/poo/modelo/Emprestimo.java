@@ -6,6 +6,8 @@ import java.time.LocalDate;
 public class Emprestimo {
     private Object usuario;
     private Object item;
+    private String tituloItem;
+    private String nomeUsuario;
     private LocalDate dataEmprestimo;
     private LocalDate dataDevolucao;
     private String statusEmprestimo = "Ativo";
@@ -32,6 +34,20 @@ public class Emprestimo {
         return item;
     }
 
+    public void setNomeUsuario(String nomeUsuario) {
+        this.nomeUsuario = nomeUsuario;
+    }
+    public String getNomeUsuario() {
+        return nomeUsuario;
+    }
+
+    public void setTituloItem(String tituloItem) {
+        this.tituloItem = tituloItem;
+    }
+    public String getTituloItem() {
+        return tituloItem;
+    }
+
     public void setDataEmprestimo(LocalDate dataEmprestimo) {
         this.dataEmprestimo = dataEmprestimo;
     }
@@ -54,6 +70,6 @@ public class Emprestimo {
     }
 
     public String toString(){
-        return "Nome do Usuário do Impréstimo: " + usuario + "\nItem emprestado: " + item + "\nData de Empréstimo: " + dataEmprestimo + "\nData de Devolução: " + dataDevolucao + "\nStatus do Empréstimo: " + statusEmprestimo;
+        return "Nome do Usuário do Impréstimo: " + nomeUsuario + "\nItem emprestado: " + tituloItem + "\nData de Empréstimo: " + dataEmprestimo + "\nData de Devolução: " + dataDevolucao + "\nStatus do Empréstimo: " + statusEmprestimo;
     }
 }
