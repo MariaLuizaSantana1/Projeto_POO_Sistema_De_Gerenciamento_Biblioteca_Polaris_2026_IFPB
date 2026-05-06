@@ -308,6 +308,23 @@ public class GerenciadorEmprestimos {
                    livro.setDisponibilidade("Disponivel");
                    emprestimo.setStatusEmprestimo("Devolvido");
                 }
+            }else if (item instanceof Revista revista) {
+                if (revista.getTitulo().equals(tituloItem)) {
+                    revista.setDisponibilidade("Disponivel");
+                    emprestimo.setStatusEmprestimo("Devolvido");
+                 }
+            }else if (item instanceof Cd cd) {
+                if (cd.getTitulo().equals(tituloItem)) {
+                    cd.setDisponibilidade("Disponivel");
+                    emprestimo.setStatusEmprestimo("Devolvido");
+                 }
+            }else if (item instanceof Dvd dvd) {
+                if (dvd.getTitulo().equals(tituloItem)) {
+                    dvd.setDisponibilidade("Disponivel");
+                    emprestimo.setStatusEmprestimo("Devolvido");
+                 }
+            }else{
+                System.out.println("Empréstimo não encontrado");
             }
         }
     }

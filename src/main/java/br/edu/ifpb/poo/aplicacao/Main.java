@@ -296,7 +296,7 @@ public class Main {
                     }else if (!professorEncontrado.getAtivo().equals("ativo")) {
                         System.out.println("\nProfessor não pode fazer empréstimo pois está inativo\n");
                     } else {
-                        EmprestimosEscolherItemProfessor(sc, itens, usuarios, emprestimos, professorEncontrado);
+                        EmprestimosEscolherItemProfessor(sc, itens, emprestimos, professorEncontrado);
                     } break;
                 }
                 case 3:{
@@ -308,7 +308,7 @@ public class Main {
                     }else if (!posGraduadoEncontrado.getAtivo().equals("ativo")) {
                         System.out.println("\nPós Graduado não pode fazer empréstimo pois está inativo\n");
                     } else {
-                        EmprestimosEscolherItemPosGraduado(sc, itens, usuarios, emprestimos, posGraduadoEncontrado);
+                        EmprestimosEscolherItemPosGraduado(sc, itens, emprestimos, posGraduadoEncontrado);
                     } break;
                 }
                 case 4:{
@@ -320,7 +320,7 @@ public class Main {
                     }else if (!funcionarioEncontrado.getAtivo().equals("ativo")) {
                         System.out.println("\nFuncionario não pode fazer empréstimo pois está inativo\n");
                     } else {
-                        EmprestimosEscolherItemFuncionario(sc, itens, usuarios, emprestimos, funcionarioEncontrado);
+                        EmprestimosEscolherItemFuncionario(sc, itens, emprestimos, funcionarioEncontrado);
                     } break;
                 }
                 case 0:
@@ -409,7 +409,7 @@ public class Main {
     }
 
 
-    private static void EmprestimosEscolherItemProfessor(Scanner sc, GerenciadorDeItens itens, GerenciadorDeUsuario usuarios, GerenciadorEmprestimos emprestimos, Professor professorEncontrado) {
+    private static void EmprestimosEscolherItemProfessor(Scanner sc, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos, Professor professorEncontrado) {
         int resp = 1;
         while (resp != 0) {
             System.out.println("""
@@ -483,7 +483,7 @@ public class Main {
 
 
 
-    private static void EmprestimosEscolherItemPosGraduado(Scanner sc, GerenciadorDeItens itens, GerenciadorDeUsuario usuarios, GerenciadorEmprestimos emprestimos, PosGraduado posGraduadoEncontrado) {
+    private static void EmprestimosEscolherItemPosGraduado(Scanner sc, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos, PosGraduado posGraduadoEncontrado) {
         int resp = 1;
         while (resp != 0) {
             System.out.println("""
@@ -556,7 +556,7 @@ public class Main {
     }
 
 
-    private static void EmprestimosEscolherItemFuncionario(Scanner sc, GerenciadorDeItens itens, GerenciadorDeUsuario usuarios, GerenciadorEmprestimos emprestimos, FuncionarioAdministrativo funcionarioEncontrado) {
+    private static void EmprestimosEscolherItemFuncionario(Scanner sc, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos, FuncionarioAdministrativo funcionarioEncontrado) {
         int resp = 1;
         while (resp != 0) {
             System.out.println("""
@@ -659,7 +659,7 @@ public class Main {
                     }else if (!professorEncontrado.getAtivo().equals("ativo")) {
                         System.out.println("\nProfessor não pode fazer empréstimo pois está inativo\n");
                     } else {
-                        EmprestimosEscolherItemProfessor(sc, itens, usuarios, emprestimos, professorEncontrado);
+                        EmprestimosEscolherItemProfessor(sc, itens, emprestimos, professorEncontrado);
                     } break;
                 }
                 case 3:{
@@ -671,7 +671,7 @@ public class Main {
                     }else if (!posGraduadoEncontrado.getAtivo().equals("ativo")) {
                         System.out.println("\nPós Graduado não pode fazer empréstimo pois está inativo\n");
                     } else {
-                        EmprestimosEscolherItemPosGraduado(sc, itens, usuarios, emprestimos, posGraduadoEncontrado);
+                        EmprestimosEscolherItemPosGraduado(sc, itens, emprestimos, posGraduadoEncontrado);
                     } break;
                 }
                 case 4:{
@@ -683,7 +683,7 @@ public class Main {
                     }else if (!funcionarioEncontrado.getAtivo().equals("ativo")) {
                         System.out.println("\nFuncionario não pode fazer empréstimo pois está inativo\n");
                     } else {
-                        EmprestimosEscolherItemFuncionario(sc, itens, usuarios, emprestimos, funcionarioEncontrado);
+                        EmprestimosEscolherItemFuncionario(sc, itens, emprestimos, funcionarioEncontrado);
                     } break;
                 }
                 case 0:
