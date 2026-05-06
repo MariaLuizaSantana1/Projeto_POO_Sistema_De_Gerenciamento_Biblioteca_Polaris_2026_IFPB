@@ -13,9 +13,11 @@ public class Emprestimo {
     private String statusEmprestimo = "Ativo";
 
 
-    public Emprestimo(Object usuario, Object item, LocalDate dataEmprestimo, LocalDate dataDevolucao){
+    public Emprestimo(Object usuario, Object item, String nomeUsuario, String tituloItem, LocalDate dataEmprestimo, LocalDate dataDevolucao){
         this.usuario = usuario;
         this.item = item;
+        this.nomeUsuario = nomeUsuario;
+        this.tituloItem = tituloItem;
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucao = dataDevolucao;
     }
