@@ -94,6 +94,39 @@ public class GerenciadorDeUsuario {
         }return null;
     }
 
+
+    public boolean validarAlunoParaEmpréstimo(String matricula){
+        for (Aluno aluno : listaAlunos) {
+            if (aluno.getMatricula().equals(matricula)){
+                return true;
+            } 
+        }return false;
+    }
+
+    public boolean validarProfessorParaEmpréstimo(String matricula){
+        for (Professor professor : listaProfessores) {
+            if (professor.getMatricula().equals(matricula)){
+                return true;
+            } 
+        }return false;
+    }
+
+    public boolean validarPosGraduadoParaEmpréstimo(String matricula){
+        for (PosGraduado posGraduado : listaPosGraduados) {
+            if (posGraduado.getMatricula().equals(matricula)){
+                return true;
+            } 
+        }return false;
+    }
+
+    public boolean validarFuncionarioParaEmpréstimo(String matricula){
+        for (FuncionarioAdministrativo funcionarioAdministrativo : listaFuncionariosAdministrativos) {
+            if (funcionarioAdministrativo.getMatricula().equals(matricula)){
+                return true;
+            } 
+        }return false;
+    }
+
     
     
 }

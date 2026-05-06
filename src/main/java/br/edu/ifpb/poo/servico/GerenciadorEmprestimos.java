@@ -12,6 +12,7 @@ import br.edu.ifpb.poo.modelo.Livro;
 import br.edu.ifpb.poo.modelo.PosGraduado;
 import br.edu.ifpb.poo.modelo.Professor;
 import br.edu.ifpb.poo.modelo.Revista;
+import br.edu.ifpb.poo.servico.GerenciadorDeUsuario;
 
 
 public class GerenciadorEmprestimos {
@@ -32,6 +33,8 @@ public class GerenciadorEmprestimos {
             System.out.println(emprestimo.toString());
         }
     }
+
+    
 
     public void emprestarLivroParaAluno(Aluno aluno, Livro livro){
         if(aluno.getItensEmprestados() < Aluno.MAX_ITENS_ALUNO && aluno.getAtivo().equals("ativo")){
