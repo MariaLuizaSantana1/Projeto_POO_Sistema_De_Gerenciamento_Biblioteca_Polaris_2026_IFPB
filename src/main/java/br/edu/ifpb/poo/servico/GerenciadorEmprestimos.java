@@ -377,7 +377,7 @@ public class GerenciadorEmprestimos {
                     double multa = dias * Aluno.VALOR_MULTA;
                     if (multa > 0){
                         emprestimo.setStatusMulta("Pendente");
-                        System.out.println("Devolução Concluída com sucesso! Multa de: R$" + multa);
+                        System.out.println("Devolução Concluída com sucesso!\nAtraso de " + dias+" dias\n Multa de: R$" + multa);
                     } else{
                         System.out.println("Devolução em dia concluída com sucesso!");
                     }break;
