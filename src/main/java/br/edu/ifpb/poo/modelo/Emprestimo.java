@@ -9,6 +9,7 @@ public class Emprestimo {
     private Object item;
     private String tituloItem;
     private String nomeUsuario;
+    private String matriculaUsuario;
     private LocalDate dataEmprestimo;
     private LocalDate dataDevolucao;
     private long diasAtraso = 0;
@@ -20,6 +21,15 @@ public class Emprestimo {
         this.usuario = usuario;
         this.item = item;
         this.nomeUsuario = nomeUsuario;
+        this.tituloItem = tituloItem;
+        this.dataEmprestimo = dataEmprestimo;
+        this.dataDevolucao = dataDevolucao;
+    }
+    public Emprestimo(Object usuario, Object item, String nomeUsuario, String matriculaUsuario, String tituloItem, LocalDate dataEmprestimo, LocalDate dataDevolucao){
+        this.usuario = usuario;
+        this.item = item;
+        this.nomeUsuario = nomeUsuario;
+        this.matriculaUsuario = matriculaUsuario;
         this.tituloItem = tituloItem;
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucao = dataDevolucao;
@@ -45,6 +55,13 @@ public class Emprestimo {
     }
     public String getNomeUsuario() {
         return nomeUsuario;
+    }
+
+    public void setMatriculaUsuario(String matriculaUsuario) {
+        this.matriculaUsuario = matriculaUsuario;
+    }
+    public String getMatriculaUsuario() {
+        return matriculaUsuario;
     }
 
     public void setTituloItem(String tituloItem) {

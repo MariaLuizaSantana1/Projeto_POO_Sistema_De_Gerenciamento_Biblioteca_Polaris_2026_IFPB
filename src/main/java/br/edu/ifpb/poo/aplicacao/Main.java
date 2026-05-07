@@ -128,8 +128,7 @@ public class Main {
                     itens.listarDvds();
                     break;
                 case 3:
-                    System.out.println("\nEmpréstimos Cadastrados: ");
-                    emprestimos.listaEmprestimos();
+                    consultarEmprestimosOpcoes(sc, emprestimos);
                     break;
                 case 4:
                     buscarUsuario(sc, usuarios);
@@ -144,6 +143,43 @@ public class Main {
             }
         }
     }
+
+
+    private static void consultarEmprestimosOpcoes(Scanner sc, GerenciadorEmprestimos emprestimos) {
+        int respcons = 1;
+        while (respcons != 0) {
+            System.out.println("""
+
+               Como você gostaria de listar os empréstimos? 
+               [1] Listar todos os empréstimos
+               [2] Listar por Item
+               [3] Listar por Usuário
+               [0] Voltar
+            """);
+            respcons = Integer.parseInt(sc.nextLine());
+            switch (respcons) {
+                case 1:
+                    System.out.println("\nEmpréstimos Cadastrados: ");
+                    emprestimos.listaEmprestimos();
+                    break;
+                case 2:
+                    System.out.println("Digite o item que deseja pesquisar histórico de empréstimos: ");
+                    String nomeItem = sc.nextLine();
+                    emprestimos.listarEmprestimosPorItem(nomeItem);
+                    break;
+                case 3:
+                    System.out.println("Digite a matricula do usuário que deseja pesquisar histórico de empréstimos: ");
+                    String matriculaUsuario = sc.nextLine();
+                    emprestimos.listarEmprestimosPorUsuario(matriculaUsuario);
+                    break;
+                case 0:
+                    break;
+                default:
+                    System.out.println("\nOpção Inválida");
+            }
+        }
+    }
+
 
     private static void buscarUsuario(Scanner sc, GerenciadorDeUsuario usuarios) {
         int respcons = 1;
