@@ -376,6 +376,7 @@ public class GerenciadorEmprestimos {
                     aluno.setItensEmprestados(aluno.getItensEmprestados() -1);
                     double multa = dias * Aluno.VALOR_MULTA;
                     if (multa > 0){
+                        emprestimo.setStatusMulta("Pendente");
                         System.out.println("Devolução Concluída com sucesso! Multa de: R$" + multa);
                     } else{
                         System.out.println("Devolução em dia concluída com sucesso!");
@@ -386,6 +387,7 @@ public class GerenciadorEmprestimos {
                     double multa = dias * Professor.VALOR_MULTA;
                     if (multa > 0){
                         System.out.println("Devolução Concluída com sucesso! Multa de: R$" + multa);
+                        emprestimo.setStatusMulta("Pendente");
                     } else{
                         System.out.println("Devolução em dia concluída com sucesso!");
                     }break;
@@ -395,6 +397,7 @@ public class GerenciadorEmprestimos {
                     double multa = dias * PosGraduado.VALOR_MULTA;
                     if (multa > 0){
                         System.out.println("Devolução Concluída com sucesso! Multa de: R$" + multa);
+                        emprestimo.setStatusMulta("Pendente");
                     } else{
                         System.out.println("Devolução em dia concluída com sucesso!");
                     }break;
@@ -403,6 +406,7 @@ public class GerenciadorEmprestimos {
                     funcionarioAdministrativo.setItensEmprestados(funcionarioAdministrativo.getItensEmprestados() -1);
                     double multa = dias * FuncionarioAdministrativo.VALOR_MULTA;
                     if (multa > 0){
+                        emprestimo.setStatusMulta("Pendente");
                         System.out.println("Devolução Concluída com sucesso! Multa de: R$" + multa);
                     } else{
                         System.out.println("Devolução em dia concluída com sucesso!");
@@ -411,6 +415,14 @@ public class GerenciadorEmprestimos {
             } else{
                 System.out.println("Emprestimo não encontrado");
 
+            }
+        }
+    }
+
+    public void pagarMulta(String tituloItem){
+        for(Emprestimo emprestimo : this.listaEmprestimos){
+            if (emprestimo.getTituloItem().equals(tituloItem) && emprestimo.getStatusMulta().equals("Pendente") ) {
+                emprestimo.setStatusMulta("Pago");
             }
         }
     }

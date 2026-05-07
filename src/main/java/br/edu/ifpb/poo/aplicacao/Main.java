@@ -30,6 +30,11 @@ public class Main {
                 1100, "Frodo Bolseiro embarca numa missão com seu seus amigos hobbits,\nseu guia Gandalf, elfos, um anão e humanos para levar o Um Anel para a\nMontanha da Perdição e salvar a Terra Média.");
         itens.addLivro(livroDefault);
 
+        Livro livroDefault4 = new Livro("37910000194400", "O Silmarillion",
+                "J.R.R.Tolkien", "Harper Collins", 2020, "Fantasia",
+                1100, "O épico narra a criação do universo de Tolkien, as joias lendárias\n chamadas Silmarils e as guerras ancestrais entre elfos e o primeiro\n Senhor Sombrio.");
+        itens.addLivro(livroDefault4);
+
         Livro livroDefault2 = new Livro("18900000197700", "Sherlock Holmes",
                 "Arthur Conan Doyler", "Harper Collins", 2021, "Romance Policial",
                 220, "O Dr. Watson acompanha a resolução dos mistérios por seu amigo\nSherlock Holmes Detetive de Londres.");
@@ -46,10 +51,14 @@ public class Main {
         usuarios.addAluno(alunoDefault);
         Aluno alunoDefault2 = new Aluno("Harry Osborn", "2024137100", "Redes", "inativo");
         usuarios.addAluno(alunoDefault2);
-        Professor professorDefault2 = new Professor("Rafael", "2024137000");
-        usuarios.addProfessor(professorDefault2);
+        Professor professorDefault = new Professor("Rafael", "2024137000");
+        usuarios.addProfessor(professorDefault);
+        FuncionarioAdministrativo funcionarioDefault = new FuncionarioAdministrativo("Maria Janette Jonnes", "2024137001");
+        usuarios.addFuncionarioAdministrativo(funcionarioDefault);
 
         Emprestimo emprestimoDefault = new Emprestimo(alunoDefault, livroDefault3, "Anna Silva", "1984", LocalDate.of(2026,04,21), LocalDate.of(2026,04,28));
+        alunoDefault.setItensEmprestados(1);
+        livroDefault3.setDisponibilidade("Emprestado");
         emprestimos.addEmprestimo(emprestimoDefault);
 
         while (resposta != 0) {
@@ -630,6 +639,29 @@ public class Main {
         System.out.println("Digite o titulo do livro que deseja devolver: ");
             String tituloDevolucao = sc.nextLine();
             emprestimos.registrarDevolução(tituloDevolucao);
+        System.out.println("Usuário tinha multa?(S/N) ");
+        String respMulta = sc.nextLine().toUpperCase();
+        switch (respMulta){
+            case "S":{
+                System.out.println("Usuário pagou a multa?(S/N) ");
+                String respPagou = sc.nextLine().toUpperCase();
+                switch (respPagou){
+                    case "S":{
+                        emprestimos.pagarMulta(tituloDevolucao);
+                        System.out.println("Pagamento de multa confirmado!");  
+                        break;}
+                    case "n":
+                        break;
+                    default:
+                        System.out.println("Opção inválida");
+                        break;
+                }
+            }
+            case "N":
+                break;
+            default:
+                System.out.println("Opção inválida");
+        }
     }
 
 

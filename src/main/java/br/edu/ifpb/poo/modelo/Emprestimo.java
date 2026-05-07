@@ -7,14 +7,15 @@ import java.time.temporal.ChronoUnit;
 public class Emprestimo {
     private Object usuario;
     private Object item;
-    private String tituloItem;
     private String nomeUsuario;
     private String matriculaUsuario;
+    private String tituloItem;
     private LocalDate dataEmprestimo;
     private LocalDate dataDevolucao;
     private long diasAtraso = 0;
     private String statusEmprestimo = "Ativo";
     private String statusPrazo = "Em Dia";
+    private String statusMulta = "Sem multa";
 
 
     public Emprestimo(Object usuario, Object item, String nomeUsuario, String tituloItem, LocalDate dataEmprestimo, LocalDate dataDevolucao){
@@ -104,6 +105,13 @@ public class Emprestimo {
         return statusPrazo;
     }
 
+    public void setStatusMulta(String statusMulta) {
+        this.statusMulta = statusMulta;
+    }
+    public String getStatusMulta() {
+        return statusMulta;
+    }
+
 
     
     public long calcularAtraso(){
@@ -122,6 +130,6 @@ public class Emprestimo {
 
 
     public String toString(){
-        return "Nome do Usuário do Impréstimo: " + nomeUsuario + "\nItem emprestado: " + tituloItem + "\nData de Empréstimo: " + dataEmprestimo + "\nData de Devolução: " + dataDevolucao + "\nStatus do Empréstimo: " + statusEmprestimo;
+        return "Nome do Usuário do Impréstimo: " + nomeUsuario + "\nItem emprestado: " + tituloItem + "\nData de Empréstimo: " + dataEmprestimo + "\nData de Devolução: " + dataDevolucao +"\nStatus: "+ statusPrazo + "\nMulta: " + statusMulta+ "\nStatus do Empréstimo: " + statusEmprestimo;
     }
 }
