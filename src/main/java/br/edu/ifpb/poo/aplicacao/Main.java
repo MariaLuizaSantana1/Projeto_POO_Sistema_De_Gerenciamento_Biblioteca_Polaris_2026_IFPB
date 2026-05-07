@@ -176,7 +176,6 @@ public class Main {
                Como você gostaria de listar os empréstimos? 
                [1] Listar todos os empréstimos
                [2] Listar por Item
-               [3] Listar por Usuário
                [0] Voltar
             """);
             respcons = Integer.parseInt(sc.nextLine());
@@ -189,11 +188,6 @@ public class Main {
                     System.out.println("Digite o item que deseja pesquisar histórico de empréstimos: ");
                     String nomeItem = sc.nextLine();
                     emprestimos.listarEmprestimosPorItem(nomeItem);
-                    break;
-                case 3:
-                    System.out.println("Digite a matricula do usuário que deseja pesquisar histórico de empréstimos: ");
-                    String matriculaUsuario = sc.nextLine();
-                    emprestimos.listarEmprestimosPorUsuario(matriculaUsuario);
                     break;
                 case 0:
                     break;

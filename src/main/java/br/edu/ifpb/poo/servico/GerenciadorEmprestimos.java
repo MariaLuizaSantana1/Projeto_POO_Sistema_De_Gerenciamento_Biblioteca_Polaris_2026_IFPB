@@ -33,15 +33,6 @@ public class GerenciadorEmprestimos {
         }
     }
 
-    public void listarEmprestimosPorUsuario(String matricula){
-        for(Emprestimo emprestimo : this.listaEmprestimos){
-            if (emprestimo.getMatriculaUsuario().equals(matricula)) {
-                System.out.println("-----------------");
-                System.out.println(emprestimo.toString());
-            }
-        }
-    }
-
     public void listarEmprestimosPorItem(String titulo){
         for(Emprestimo emprestimo : this.listaEmprestimos){
             if (emprestimo.getTituloItem().equals(titulo)) {
