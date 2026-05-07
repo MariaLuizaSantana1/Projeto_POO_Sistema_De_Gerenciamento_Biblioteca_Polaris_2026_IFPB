@@ -321,7 +321,7 @@ public class GerenciadorEmprestimos {
 
     public void registrarDevolução(String tituloItem){
         for(Emprestimo emprestimo : this.listaEmprestimos){
-            if (emprestimo.getTituloItem().equals(tituloItem)) {
+            if (emprestimo.getTituloItem().equals(tituloItem) && emprestimo.getStatusEmprestimo().equals("Ativo") ) {
                 Object item = emprestimo.getItem();
                 Object usuario = emprestimo.getUsuario();
                 long dias = emprestimo.calcularAtraso();
@@ -373,8 +373,11 @@ public class GerenciadorEmprestimos {
                     } else{
                         System.out.println("Devolução em dia concluída com sucesso!");
                     }break;
-                }
-            } 
+                } 
+            } else{
+                System.out.println("Emprestimo não encontrado");
+
+            }
         }
     }
 
