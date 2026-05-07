@@ -1,10 +1,12 @@
 package br.edu.ifpb.poo.aplicacao;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 import br.edu.ifpb.poo.modelo.Aluno;
 import br.edu.ifpb.poo.modelo.Cd;
 import br.edu.ifpb.poo.modelo.Dvd;
+import br.edu.ifpb.poo.modelo.Emprestimo;
 import br.edu.ifpb.poo.modelo.FuncionarioAdministrativo;
 import br.edu.ifpb.poo.modelo.Livro;
 import br.edu.ifpb.poo.modelo.PosGraduado;
@@ -46,7 +48,9 @@ public class Main {
         usuarios.addAluno(alunoDefault2);
         Professor professorDefault2 = new Professor("Rafael", "2024137000");
         usuarios.addProfessor(professorDefault2);
-        
+
+        Emprestimo emprestimoDefault = new Emprestimo(alunoDefault, livroDefault3, "Anna Silva", "1984", LocalDate.of(2026,04,21), LocalDate.of(2026,04,28));
+        emprestimos.addEmprestimo(emprestimoDefault);
 
         while (resposta != 0) {
             System.out.println("""
@@ -92,7 +96,7 @@ public class Main {
         int respconsult = 1;
         while (respconsult != 0) {
             System.out.println("""
-                
+
                O que você gostaria de Fazer? 
                [1] Listar Usuários
                [2] Listar Itens do Acervo
