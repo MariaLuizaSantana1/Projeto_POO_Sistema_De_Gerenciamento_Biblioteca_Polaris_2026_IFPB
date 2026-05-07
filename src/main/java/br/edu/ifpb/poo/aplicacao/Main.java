@@ -32,7 +32,7 @@ public class Main {
 
         Livro livroDefault4 = new Livro("37910000194400", "O Silmarillion",
                 "J.R.R.Tolkien", "Harper Collins", 2020, "Fantasia",
-                1100, "O épico narra a criação do universo de Tolkien, as joias lendárias\n chamadas Silmarils e as guerras ancestrais entre elfos e o primeiro\n Senhor Sombrio.");
+                1100, "O épico narra a criação do universo de Tolkien, as joias lendárias\nchamadas Silmarils e as guerras ancestrais entre elfos e o primeiro\n Senhor Sombrio.");
         itens.addLivro(livroDefault4);
 
         Livro livroDefault2 = new Livro("18900000197700", "Sherlock Holmes",
@@ -41,10 +41,24 @@ public class Main {
         itens.addLivro(livroDefault2);
         Livro livroDefault3 = new Livro("17000000198400", "1984",
                 "George Orwell", "Darkside", 1983, "Ficção Distopica",
-                336, "Winston Smith desafia o Partido e o Grande Irmão, buscando \nliberdade e amor em um mundo vigiado de controle absoluto.");
+                336, "Winston Smith desafia o Partido e o Grande Irmão, buscando\nliberdade e amor em um mundo vigiado de controle absoluto.");
         itens.addLivro(livroDefault3);
+        Livro livroDefault5 = new Livro("18900000197100", "Hamlet",
+                "Willian Shakespeare", "Penguin", 2018, "Drama",
+                220, "O Príncipe Hamlet busca vingar a morte de seu pai, assassinado\npelo tio que usurpou o trono e casou-se com sua mãe, simulando loucura\nenquanto pondera sobre a existência");
+        itens.addLivro(livroDefault5);
+        Livro livroDefault6 = new Livro("18900000197000", "Dom Casmurro",
+                "Machado de Assis", "Principis", 2018, "Romance",
+                208, "Bento narra sua paixão juvenil por Capitu e o ciúme doentio\nque o faz suspeitar de traição com seu melhor amigo. Capitu traiu ou foi\napenas obsessão?");
+        itens.addLivro(livroDefault6);
+
+
         Revista revistaDefault = new Revista("1001002003004", "Veja", 1, "Abril", "11/08/2019");
         itens.addRevista(revistaDefault);
+        Dvd dvdDefault = new Dvd("Titanic", "James Cameron", 194, "12+");
+        itens.addDvd(dvdDefault);
+        Dvd dvdDefault2 = new Dvd("De Volta Para O Futuro", "Robert Zemeckis", 116, "12+");
+        itens.addDvd(dvdDefault2);
 
 
         Aluno alunoDefault = new Aluno("Anna Silva", "2024137300", "Sistemas");
