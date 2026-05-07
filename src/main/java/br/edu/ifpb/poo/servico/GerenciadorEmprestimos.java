@@ -386,7 +386,7 @@ public class GerenciadorEmprestimos {
                     professor.setItensEmprestados(professor.getItensEmprestados() -1);
                     double multa = dias * Professor.VALOR_MULTA;
                     if (multa > 0){
-                        System.out.println("Devolução Concluída com sucesso! Multa de: R$" + multa);
+                        System.out.println("Devolução Concluída com sucesso!\nAtraso de " + dias+" dias\n Multa de: R$" + multa);
                         emprestimo.setStatusMulta("Pendente");
                     } else{
                         System.out.println("Devolução em dia concluída com sucesso!");
@@ -396,7 +396,7 @@ public class GerenciadorEmprestimos {
                     posGraduado.setItensEmprestados(posGraduado.getItensEmprestados() -1);
                     double multa = dias * PosGraduado.VALOR_MULTA;
                     if (multa > 0){
-                        System.out.println("Devolução Concluída com sucesso! Multa de: R$" + multa);
+                        System.out.println("Devolução Concluída com sucesso!\nAtraso de " + dias+" dias\n Multa de: R$" + multa);
                         emprestimo.setStatusMulta("Pendente");
                     } else{
                         System.out.println("Devolução em dia concluída com sucesso!");
@@ -407,7 +407,7 @@ public class GerenciadorEmprestimos {
                     double multa = dias * FuncionarioAdministrativo.VALOR_MULTA;
                     if (multa > 0){
                         emprestimo.setStatusMulta("Pendente");
-                        System.out.println("Devolução Concluída com sucesso! Multa de: R$" + multa);
+                        System.out.println("Devolução Concluída com sucesso!\nAtraso de " + dias+" dias\n Multa de: R$" + multa);
                     } else{
                         System.out.println("Devolução em dia concluída com sucesso!");
                     }break;
