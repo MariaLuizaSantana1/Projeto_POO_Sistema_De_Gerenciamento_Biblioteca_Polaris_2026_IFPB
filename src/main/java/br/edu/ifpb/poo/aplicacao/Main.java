@@ -120,7 +120,7 @@ public class Main {
         while (respconsult != 0) {
             System.out.println("""
 
-               O que você gostaria de Fazer? 
+               O que você gostaria de fazer? 
                [1] Listar Usuários
                [2] Listar Itens do Acervo
                [3] Listar Empréstimos
@@ -325,6 +325,7 @@ public class Main {
     private static void realizarEmprestimos(Scanner sc, GerenciadorDeUsuario usuarios, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos) {
         int resp = 1;
         while (resp != 0) {
+            System.out.println("---------------------Empréstimo de item---------------------------");
             System.out.println("""
 
                 Para qual tipo de usuário você deseja realizar um empréstimo? 
@@ -337,6 +338,7 @@ public class Main {
             resp = Integer.parseInt(sc.nextLine());
             switch (resp) {
                 case 1: {
+                    System.out.println("---------------------Empréstimo de item---------------------------");
                     System.out.println("Digite a Matricula do Aluno que deseja emprestar");
                     String matriculaAluno = sc.nextLine();
                     Aluno alunoEncontrado = usuarios.buscarAluno(matriculaAluno);
@@ -349,6 +351,7 @@ public class Main {
                     } break;
                 }
                 case 2:{
+                    System.out.println("---------------------Empréstimo de item---------------------------");
                     System.out.println("Digite a Matricula do Professor que deseja emprestar");
                     String matriculaProfessor = sc.nextLine();
                     Professor professorEncontrado = usuarios.buscarProfessor(matriculaProfessor);
@@ -361,6 +364,7 @@ public class Main {
                     } break;
                 }
                 case 3:{
+                    System.out.println("---------------------Empréstimo de item---------------------------");
                     System.out.println("Digite a Matricula do Pós Graduado que deseja emprestar");
                     String matriculaAluno = sc.nextLine();
                     PosGraduado posGraduadoEncontrado = usuarios.buscarPosGraduado(matriculaAluno);
@@ -373,6 +377,7 @@ public class Main {
                     } break;
                 }
                 case 4:{
+                    System.out.println("---------------------Empréstimo de item---------------------------");
                     System.out.println("Digite a Matricula do Funcionário que deseja emprestar");
                     String matriculaFuncionario = sc.nextLine();
                     FuncionarioAdministrativo funcionarioEncontrado = usuarios.buscarFuncionario(matriculaFuncionario);
@@ -658,7 +663,7 @@ public class Main {
                         emprestimos.pagarMulta(tituloDevolucao);
                         System.out.println("Pagamento de multa confirmado!");  
                         break;}
-                    case "n":
+                    case "N":
                         break;
                     default:
                         System.out.println("Opção inválida");
@@ -776,7 +781,7 @@ public class Main {
         while (resp != 0) {
             System.out.println("""
 
-                Qual tipo de usuário você gostaria de adcionar? 
+                Qual tipo de usuário você gostaria de adicionar? 
                 [1] Aluno
                 [2] Professor
                 [3] Pos Graduado

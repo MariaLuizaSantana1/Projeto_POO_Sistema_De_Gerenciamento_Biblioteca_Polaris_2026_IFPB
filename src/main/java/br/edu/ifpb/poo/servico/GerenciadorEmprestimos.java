@@ -81,7 +81,7 @@ public class GerenciadorEmprestimos {
 
     public void emprestarCdParaAluno(Aluno aluno, Cd cd){
         if(aluno.getItensEmprestados() >= Aluno.MAX_ITENS_ALUNO){
-            System.out.println("Usuário de matricula " + aluno.getMatricula() + "já atingiu o limite máximo de 3 itens");
+            System.out.println("Usuário de matricula " + aluno.getMatricula() + " já atingiu o limite máximo de 3 itens");
         }
         else{
             LocalDate hoje = LocalDate.now();
@@ -111,7 +111,7 @@ public class GerenciadorEmprestimos {
             System.out.println("Empréstimo do dvd " + dvd.getTitulo() +" realizado com sucesso para aluno " + aluno.getNome() + " de matricula " + aluno.getMatricula());
         }
         else{
-            System.out.println("Usuário de matricula " + aluno.getMatricula() + "já atingiu o limite máximo de 3 itens");
+            System.out.println("Usuário de matricula " + aluno.getMatricula() + " já atingiu o limite máximo de 3 itens");
         }      
     }
 
@@ -127,7 +127,7 @@ public class GerenciadorEmprestimos {
             professor.setItensEmprestados(professor.getItensEmprestados()+1);
             livro.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
-            System.out.println("Empréstimo do livro " + livro.getTitulo() +" realizado com sucesso para aluno " + professor.getNome() + " de matricula " + professor.getMatricula());
+            System.out.println("Empréstimo do livro " + livro.getTitulo() +" realizado com sucesso para professor " + professor.getNome() + " de matricula " + professor.getMatricula());
         }
         else{
             System.out.println("Usuário de matricula " + professor.getMatricula() + " já atingiu o limite máximo de 5 itens");
@@ -146,16 +146,16 @@ public class GerenciadorEmprestimos {
             professor.setItensEmprestados(professor.getItensEmprestados() +1);
             revista.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
-            System.out.println("Empréstimo da revista " + revista.getTitulo() +" realizado com sucesso para aluno " + professor.getNome() + " de matricula " + professor.getMatricula());
+            System.out.println("Empréstimo da revista " + revista.getTitulo() +" realizado com sucesso para professor " + professor.getNome() + " de matricula " + professor.getMatricula());
         }
         else {
-            System.out.println("Usuário de matricula " + professor.getMatricula() + "já atingiu o limite máximo de 5 itens");
+            System.out.println("Usuário de matricula " + professor.getMatricula() + " já atingiu o limite máximo de 5 itens");
         }       
     }
 
     public void emprestarCdParaProfessor(Professor professor, Cd cd){
         if(professor.getItensEmprestados() >= Professor.MAX_ITENS_PROFESSOR){
-            System.out.println("Usuário de matricula " + professor.getMatricula() + "já atingiu o limite máximo de 5 itens");
+            System.out.println("Usuário de matricula " + professor.getMatricula() + " já atingiu o limite máximo de 5 itens");
         }
         else{
             LocalDate hoje = LocalDate.now();
@@ -167,7 +167,7 @@ public class GerenciadorEmprestimos {
             professor.setItensEmprestados(professor.getItensEmprestados() +1);
             cd.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
-            System.out.println("Empréstimo do cd " + cd.getTitulo() +" realizado com sucesso para aluno " + professor.getNome() + " de matricula " + professor.getMatricula());
+            System.out.println("Empréstimo do cd " + cd.getTitulo() +" realizado com sucesso para professor " + professor.getNome() + " de matricula " + professor.getMatricula());
         }       
     }
 
@@ -182,10 +182,10 @@ public class GerenciadorEmprestimos {
             professor.setItensEmprestados(professor.getItensEmprestados() +1);
             dvd.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
-            System.out.println("Empréstimo do dvd " + dvd.getTitulo() +" realizado com sucesso para aluno " + professor.getNome() + " de matricula " + professor.getMatricula());
+            System.out.println("Empréstimo do dvd " + dvd.getTitulo() +" realizado com sucesso para professor " + professor.getNome() + " de matricula " + professor.getMatricula());
         }
         else {
-            System.out.println("Usuário de matricula " + professor.getMatricula() + "já atingiu o limite máximo de 5 itens");
+            System.out.println("Usuário de matricula " + professor.getMatricula() + " já atingiu o limite máximo de 5 itens");
         }       
     }
 
@@ -203,7 +203,7 @@ public class GerenciadorEmprestimos {
             posGraduado.setItensEmprestados(posGraduado.getItensEmprestados()+1);
             livro.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
-            System.out.println("Empréstimo do livro " + livro.getTitulo() +" realizado com sucesso para aluno " + posGraduado.getNome() + " de matricula " + posGraduado.getMatricula());
+            System.out.println("Empréstimo do livro " + livro.getTitulo() +" realizado com sucesso para pós graduado " + posGraduado.getNome() + " de matricula " + posGraduado.getMatricula());
         }
         else{
             System.out.println("Usuário de matricula " + posGraduado.getMatricula() + " já atingiu o limite máximo de 5 itens");
@@ -221,7 +221,7 @@ public class GerenciadorEmprestimos {
             posGraduado.setItensEmprestados(posGraduado.getItensEmprestados() +1);
             revista.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
-            System.out.println("Empréstimo da revista " + revista.getTitulo() +" realizado com sucesso para aluno " + posGraduado.getNome() + " de matricula " + posGraduado.getMatricula());
+            System.out.println("Empréstimo da revista " + revista.getTitulo() +" realizado com sucesso para pós graduado " + posGraduado.getNome() + " de matricula " + posGraduado.getMatricula());
         }
         else {
             System.out.println("Usuário de matricula " + posGraduado.getMatricula() + "já atingiu o limite máximo de 5 itens");
@@ -230,7 +230,7 @@ public class GerenciadorEmprestimos {
 
     public void emprestarCdParaPosGraduado(PosGraduado posGraduado, Cd cd){
         if(posGraduado.getItensEmprestados() >= PosGraduado.MAX_ITENS_POS_GRADUADO ){
-            System.out.println("Usuário de matricula " + posGraduado.getMatricula() + "já atingiu o limite máximo de 5 itens");
+            System.out.println("Usuário de matricula " + posGraduado.getMatricula() + " já atingiu o limite máximo de 5 itens");
         }
         else{
             LocalDate hoje = LocalDate.now();
@@ -242,7 +242,7 @@ public class GerenciadorEmprestimos {
             posGraduado.setItensEmprestados(posGraduado.getItensEmprestados() +1);
             cd.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
-            System.out.println("Empréstimo do cd " + cd.getTitulo() +" realizado com sucesso para aluno " + posGraduado.getNome() + " de matricula " + posGraduado.getMatricula());
+            System.out.println("Empréstimo do cd " + cd.getTitulo() +" realizado com sucesso para pós graduado " + posGraduado.getNome() + " de matricula " + posGraduado.getMatricula());
         }       
     }
 
@@ -257,10 +257,10 @@ public class GerenciadorEmprestimos {
             posGraduado.setItensEmprestados(posGraduado.getItensEmprestados() +1);
             dvd.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
-            System.out.println("Empréstimo do dvd " + dvd.getTitulo() +" realizado com sucesso para aluno " + posGraduado.getNome() + " de matricula " + posGraduado.getMatricula());
+            System.out.println("Empréstimo do dvd " + dvd.getTitulo() +" realizado com sucesso para pós graduado " + posGraduado.getNome() + " de matricula " + posGraduado.getMatricula());
         }
         else {
-            System.out.println("Usuário de matricula " + posGraduado.getMatricula() + "já atingiu o limite máximo de 5 itens");
+            System.out.println("Usuário de matricula " + posGraduado.getMatricula() + " já atingiu o limite máximo de 5 itens");
         }
       
     }
@@ -279,7 +279,7 @@ public class GerenciadorEmprestimos {
             funcionarioAdministrativo.setItensEmprestados(funcionarioAdministrativo.getItensEmprestados()+1);
             livro.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
-            System.out.println("Empréstimo do livro " + livro.getTitulo() +" realizado com sucesso para aluno " + funcionarioAdministrativo.getNome() + " de matricula " + funcionarioAdministrativo.getMatricula());
+            System.out.println("Empréstimo do livro " + livro.getTitulo() +" realizado com sucesso para funcionário " + funcionarioAdministrativo.getNome() + " de matricula " + funcionarioAdministrativo.getMatricula());
         }
         else {
             System.out.println("Usuário de matricula " + funcionarioAdministrativo.getMatricula() + " já atingiu o limite máximo de 2 itens");
@@ -297,7 +297,7 @@ public class GerenciadorEmprestimos {
             funcionarioAdministrativo.setItensEmprestados(funcionarioAdministrativo.getItensEmprestados() +1);
             revista.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
-            System.out.println("Empréstimo da revista " + revista.getTitulo() +" realizado com sucesso para aluno " + funcionarioAdministrativo.getNome() + " de matricula " + funcionarioAdministrativo.getMatricula());
+            System.out.println("Empréstimo da revista " + revista.getTitulo() +" realizado com sucesso para funcionário " + funcionarioAdministrativo.getNome() + " de matricula " + funcionarioAdministrativo.getMatricula());
         }
         else {
             System.out.println("Usuário de matricula " + funcionarioAdministrativo.getMatricula() + "já atingiu o limite máximo de 2 itens");
@@ -318,7 +318,7 @@ public class GerenciadorEmprestimos {
             funcionarioAdministrativo.setItensEmprestados(funcionarioAdministrativo.getItensEmprestados() +1);
             cd.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
-            System.out.println("Empréstimo do cd " + cd.getTitulo() +" realizado com sucesso para aluno " + funcionarioAdministrativo.getNome() + " de matricula " + funcionarioAdministrativo.getMatricula());
+            System.out.println("Empréstimo do cd " + cd.getTitulo() +" realizado com sucesso para funcionário " + funcionarioAdministrativo.getNome() + " de matricula " + funcionarioAdministrativo.getMatricula());
         }       
     }
 
@@ -333,7 +333,7 @@ public class GerenciadorEmprestimos {
             funcionarioAdministrativo.setItensEmprestados(funcionarioAdministrativo.getItensEmprestados() +1);
             dvd.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
-            System.out.println("Empréstimo do dvd " + dvd.getTitulo() +" realizado com sucesso para aluno " + funcionarioAdministrativo.getNome() + " de matricula " + funcionarioAdministrativo.getMatricula());
+            System.out.println("Empréstimo do dvd " + dvd.getTitulo() +" realizado com sucesso para funcionário " + funcionarioAdministrativo.getNome() + " de matricula " + funcionarioAdministrativo.getMatricula());
         }
         else {
             System.out.println("Usuário de matricula " + funcionarioAdministrativo.getMatricula() + "já atingiu o limite máximo de 2 itens");
