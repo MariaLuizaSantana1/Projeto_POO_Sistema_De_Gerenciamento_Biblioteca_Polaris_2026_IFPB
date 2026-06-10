@@ -1,6 +1,7 @@
 package br.edu.ifpb.poo.modelo;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 
@@ -75,15 +76,19 @@ public class Emprestimo {
     public void setDataEmprestimo(LocalDate dataEmprestimo) {
         this.dataEmprestimo = dataEmprestimo;
     }
-    public LocalDate getDataEmprestimo() {
-        return dataEmprestimo;
+    public String getDataEmprestimo() {
+        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String dataEmprestimoFormatada = dataEmprestimo.format(formatador);
+        return dataEmprestimoFormatada;
     }
 
     public void setDataDevolucao(LocalDate dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
     }
-    public LocalDate getDataDevolucao() {
-        return dataDevolucao;
+    public String getDataDevolucao() {
+        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String dataDevolucaoFormatada = dataDevolucao.format(formatador);
+        return dataDevolucaoFormatada;
     }
 
     public void setStatusEmprestimo(String statusEmprestimo) {
@@ -130,6 +135,6 @@ public class Emprestimo {
 
 
     public String toString(){
-        return "Nome do Usuário do Impréstimo: " + nomeUsuario + "\nItem emprestado: " + tituloItem + "\nData de Empréstimo: " + dataEmprestimo + "\nData de Devolução: " + dataDevolucao +"\nStatus: "+ statusPrazo + "\nMulta: " + statusMulta+ "\nStatus do Empréstimo: " + statusEmprestimo;
+        return "Nome do Usuário do Impréstimo: " + nomeUsuario + "\nItem emprestado: " + tituloItem + "\nData de Empréstimo: " + getDataEmprestimo() + "\nData de Devolução: " + getDataDevolucao() +"\nStatus: "+ statusPrazo + "\nMulta: " + statusMulta+ "\nStatus do Empréstimo: " + statusEmprestimo;
     }
 }
