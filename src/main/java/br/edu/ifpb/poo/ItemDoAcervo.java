@@ -6,7 +6,11 @@ public class ItemDoAcervo {
     private String autor;
     private String disponibilidade = "Disponivel";
 
-
+    public ItemDoAcervo(String id, String titulo, String autor){
+        this.id = id;
+        this.titulo = titulo;
+        this.autor = autor;
+    }
 
     public String getId(){
         return id;

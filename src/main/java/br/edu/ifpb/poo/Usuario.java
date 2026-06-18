@@ -7,6 +7,12 @@ public class Usuario {
     private String ativo = "ativo";
 
 
+    public Usuario(String nome, String matricula){
+        this.nome = nome;
+        this.matricula = matricula;
+    }
+
+
     public void setNome(String nome) {
         this.nome = nome;
     }
