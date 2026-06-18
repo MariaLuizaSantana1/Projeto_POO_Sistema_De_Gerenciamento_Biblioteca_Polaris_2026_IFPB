@@ -1,55 +1,18 @@
 package br.edu.ifpb.poo.modelo;
 
-public class PosGraduado {
-    private String nome;
-    private String matricula;
-    private int itensEmprestados = 0;
-    private String ativo = "ativo";
+import br.edu.ifpb.poo.Usuario;
 
+public class PosGraduado extends Usuario {
     public static final int MAX_ITENS_POS_GRADUADO = 5;
     public static final int PRAZO_LIVROS_POS_GRADUADO = 14;
     public static final int PRAZO_OUTRAS_MIDIAS_POS_GRADUADO = 7;
     public static final double VALOR_MULTA = 1.0;
 
 
-    public PosGraduado(String nome, String matricula){
-        this.nome = nome;
-        this.matricula = matricula;
+    public PosGraduado(){
+        
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    public String getNome() {
-        return nome;
-    }
-
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
-    public String getMatricula() {
-        return matricula;
-    }
-
-    public void setItensEmprestados(int itensEmprestados) {
-        this.itensEmprestados = itensEmprestados;
-    }
-    public int getItensEmprestados() {
-        return itensEmprestados;
-    }
-
-
-    public void setAtivo(String ativo) {
-        this.ativo = ativo;
-    }
-    public String getAtivo() {
-        return ativo;
-    }
-
-    public String toString(){
-        return "Nome: " + nome + "\nMatricula: " + matricula +"\nItens emprestados:"+ itensEmprestados + "\nStatus: " + ativo;
-    }
-
+    
     //teste
 }

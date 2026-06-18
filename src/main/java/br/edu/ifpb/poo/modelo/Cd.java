@@ -2,26 +2,19 @@ package br.edu.ifpb.poo.modelo;
 
 import java.util.Arrays;
 
-public class Cd {
-    private String titulo;
+import br.edu.ifpb.poo.ItemDoAcervo;
+
+public class Cd extends ItemDoAcervo{
     private String artista;
     private String[] listaFaixas;
-    private String disponibilidade = "Disponivel";
+   
 
-
-    public Cd(String titulo, String artista, String[] listaFaixas){
-        this.titulo = titulo;
+    public Cd(String artista, String[] listaFaixas){
         this.artista = artista;
         this.listaFaixas = listaFaixas;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-    public String getTitulo() {
-        return titulo;
-    }
-
+   
     public void setArtista(String artista) {
         this.artista = artista;
     }
@@ -38,14 +31,9 @@ public class Cd {
     }
 
 
-    public String getDisponibilidade(){
-        return disponibilidade;
-    }
-    public void setDisponibilidade(String disponibilidade) {
-        this.disponibilidade = disponibilidade;
-    }
 
     public String toString(){
-        return "\nTitulo: " + titulo + "\nArtista: " + artista + "\nFaixas: " + Arrays.toString(listaFaixas) + "\nDisponibilidade: " + disponibilidade;
+        return "\nArtista: " + artista + "\nFaixas: " + Arrays.toString(listaFaixas);
     }
+    
 }

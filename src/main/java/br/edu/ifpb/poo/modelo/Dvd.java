@@ -1,26 +1,19 @@
 package br.edu.ifpb.poo.modelo;
 
-public class Dvd {
-    private String titulo;
+import br.edu.ifpb.poo.ItemDoAcervo;
+
+public class Dvd extends ItemDoAcervo{
     private String diretor;
     private int duracao;
     private String classificacaoIndicativa;
-    private String disponibilidade = "Disponivel";
+    
 
-    public Dvd(String titulo, String diretor, int duracao, String classificacaoIndicativa){
-        this.titulo = titulo;
+    public Dvd(String diretor, int duracao, String classificacaoIndicativa){
         this.diretor = diretor;
         this.duracao = duracao;
         this.classificacaoIndicativa = classificacaoIndicativa;
     }
 
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-    public String getTitulo() {
-        return titulo;
-    }
 
 
     public void setDiretor(String diretor) {
@@ -46,17 +39,9 @@ public class Dvd {
         return classificacaoIndicativa;
     }
 
-    public String getDisponibilidade(){
-        return disponibilidade;
-    }
-    public void setDisponibilidade(String disponibilidade) {
-        this.disponibilidade = disponibilidade;
-    }
-
-
 
     public String toString(){
-        return "\nTitulo: " + titulo + "\nDiretor: " + diretor + "\nDuração: " + duracao +"min" + "\nClassificação indicativa: " + classificacaoIndicativa + "\nDisponibilidade: " + disponibilidade;
+        return "\nDiretor: " + diretor + "\nDuração: " + duracao +"min" + "\nClassificação indicativa: " + classificacaoIndicativa;
     }
 
 
