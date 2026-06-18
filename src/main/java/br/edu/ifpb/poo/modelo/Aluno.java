@@ -9,7 +9,6 @@ public class Aluno extends Usuario {
     public static final int PRAZO_ITENS_ALUNO = 7;
     public static final double VALOR_MULTA = 2.0;
 
-
     public Aluno(String curso){
         this.curso = curso;
     }
@@ -22,8 +21,7 @@ public class Aluno extends Usuario {
     }
 
     public String toString(){
-        return "\nCurso: " + curso;
+        return "Nome: " + this.getNome() + "\nMatricula: " + getMatricula() +"\nItens emprestados: "+ getItensEmprestados() + "\nStatus: " + getAtivo() +"\nCurso: " + curso;
     }
-
     //teste
 }

@@ -44,12 +44,8 @@ public class Revista extends ItemDoAcervo{
     }
 
     public String toString(){
-        return "\nISSN: " + issn +"\nEditora: " + editora;
+        return "\nId: " + getId() + "\nTitulo: " + getTitulo() + "\nAutor: " + getAutor() + "\nDisponibilidade: " + getDisponibilidade() + "\nISSN: " + issn +"\nEditora: " + editora;
     }
-
-
-
-
 
 }
 

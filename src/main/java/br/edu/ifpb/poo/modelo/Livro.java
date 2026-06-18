@@ -7,16 +7,14 @@ public class Livro extends ItemDoAcervo{
     private String editora;
     private int anoPublicacao;
     private String generoLiterario;
-    private int numeroPaginas;
     private String sinopse;
   
 
-    public Livro(String isbn,String editora, int anoPublicacao, String generoLiterario, int numeroPaginas, String sinopse){
+    public Livro(String isbn,String editora, int anoPublicacao, String generoLiterario, String sinopse){
         this.isbn = isbn;
         this.editora = editora;
         this.anoPublicacao = anoPublicacao;
         this.generoLiterario = generoLiterario;
-        this.numeroPaginas = numeroPaginas;
         this.sinopse = sinopse;
     }
 
@@ -49,13 +47,6 @@ public class Livro extends ItemDoAcervo{
         this.generoLiterario = generoLiterario;
     }
 
-    public int getNumeroPaginas(){
-        return numeroPaginas;
-    }
-    public void setNumeroPaginas(int numeroPaginas) {
-        this.numeroPaginas = numeroPaginas;
-    }
-    
     public String getSinopse(){
         return sinopse;
     }
@@ -65,7 +56,7 @@ public class Livro extends ItemDoAcervo{
 
 
     public String toString(){
-        return "\nAno de Publicação: " + anoPublicacao + "\nSinopse: " + sinopse;
+        return "\nId: " + getId() + "\nTitulo: " + getTitulo() + "\nAutor: " + getAutor() + "\nDisponibilidade: " + getDisponibilidade() + "\nAno de Publicação: " + anoPublicacao + "\nSinopse: " + sinopse;
     }
 
 }

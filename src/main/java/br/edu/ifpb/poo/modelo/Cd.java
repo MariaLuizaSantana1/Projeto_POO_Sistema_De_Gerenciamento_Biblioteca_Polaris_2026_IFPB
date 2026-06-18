@@ -33,7 +33,7 @@ public class Cd extends ItemDoAcervo{
 
 
     public String toString(){
-        return "\nArtista: " + artista + "\nFaixas: " + Arrays.toString(listaFaixas);
+        return "\nId: " + getId() + "\nTitulo: " + getTitulo() + "\nAutor: " + getAutor() + "\nDisponibilidade: " + getDisponibilidade() + "\nArtista: " + artista + "\nFaixas: " + Arrays.toString(listaFaixas);
     }
     
 }

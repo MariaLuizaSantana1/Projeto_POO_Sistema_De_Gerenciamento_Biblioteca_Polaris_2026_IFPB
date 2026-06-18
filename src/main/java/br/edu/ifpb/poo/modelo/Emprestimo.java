@@ -13,7 +13,6 @@ public class Emprestimo {
     private String tituloItem;
     private LocalDate dataEmprestimo;
     private LocalDate dataDevolucao;
-    private long diasAtraso = 0;
     private String statusEmprestimo = "Ativo";
     private String statusPrazo = "Em Dia";
     private String statusMulta = "Sem multa";
@@ -131,10 +130,10 @@ public class Emprestimo {
         
     }
 
-    
 
 
     public String toString(){
         return "Nome do Usuário do Impréstimo: " + nomeUsuario + "\nItem emprestado: " + tituloItem + "\nData de Empréstimo: " + getDataEmprestimo() + "\nData de Devolução: " + getDataDevolucao() +"\nStatus: "+ statusPrazo + "\nMulta: " + statusMulta+ "\nStatus do Empréstimo: " + statusEmprestimo;
     }
+
 }
