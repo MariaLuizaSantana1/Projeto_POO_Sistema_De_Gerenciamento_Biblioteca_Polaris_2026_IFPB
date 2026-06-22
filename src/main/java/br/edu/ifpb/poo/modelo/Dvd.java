@@ -8,7 +8,8 @@ public class Dvd extends ItemDoAcervo{
     private String classificacaoIndicativa;
     
 
-    public Dvd(String diretor, int duracao, String classificacaoIndicativa){
+    public Dvd(String id, String titulo, String autor, String diretor, int duracao, String classificacaoIndicativa){
+        super(id, titulo, autor);
         this.diretor = diretor;
         this.duracao = duracao;
         this.classificacaoIndicativa = classificacaoIndicativa;

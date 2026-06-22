@@ -9,7 +9,8 @@ public class Cd extends ItemDoAcervo{
     private String[] listaFaixas;
    
 
-    public Cd(String artista, String[] listaFaixas){
+    public Cd(String id, String titulo, String autor, String artista, String[] listaFaixas){
+        super(id, titulo, autor);
         this.artista = artista;
         this.listaFaixas = listaFaixas;
     }

@@ -4,6 +4,12 @@ public class LivroFisico extends Livro{
     private int numeroPaginas;
 
 
+    public LivroFisico(String id, String titulo, String autor, String isbn,String editora, int anoPublicacao, String generoLiterario, String sinopse, int numeroPaginas){
+        super(id, titulo, autor, isbn, editora, anoPublicacao, generoLiterario, sinopse);
+        this.numeroPaginas = numeroPaginas;
+    }
+
+
     public int getNumeroPaginas(){
         return numeroPaginas;
     }

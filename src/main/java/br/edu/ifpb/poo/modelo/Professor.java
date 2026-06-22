@@ -8,7 +8,8 @@ public class Professor extends Usuario{
     public static final int PRAZO_OUTRAS_MIDIAS_PROFESSOR = 7;
     public static final double VALOR_MULTA = 1.0;
 
-    public Professor(){
+    public Professor(String nome, String matricula){
+        super(nome, matricula);
     } 
     //teste
 }

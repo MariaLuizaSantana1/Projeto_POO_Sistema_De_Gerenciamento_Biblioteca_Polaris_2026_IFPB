@@ -3,6 +3,11 @@ package br.edu.ifpb.poo.modelo;
 public class AudioLivro extends Livro{
     private int duracao;
 
+
+    public AudioLivro(String id, String titulo, String autor, String isbn,String editora, int anoPublicacao, String generoLiterario, String sinopse, int duracao){
+        super(id, titulo, autor, isbn, editora, anoPublicacao, generoLiterario, sinopse);
+        this.duracao = duracao;
+    }
     
     public void setDuracao(int duracao) {
         this.duracao = duracao;
