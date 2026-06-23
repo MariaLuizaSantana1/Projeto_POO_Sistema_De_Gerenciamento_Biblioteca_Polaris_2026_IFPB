@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 import br.edu.ifpb.poo.modelo.Aluno;
+import br.edu.ifpb.poo.modelo.AudioLivro;
 import br.edu.ifpb.poo.modelo.Cd;
 import br.edu.ifpb.poo.modelo.Dvd;
 import br.edu.ifpb.poo.modelo.Emprestimo;
@@ -410,8 +411,7 @@ public class Main {
                 Qual item você deseja pegar emprestado 
                 [1] Livro
                 [2] Revista
-                [3] Cd
-                [4] Dvd
+                [3] Jogo
                 [0] Voltar
             """);
             resp = Integer.parseInt(sc.nextLine());
@@ -437,22 +437,8 @@ public class Main {
                     } break;
                 }
                 case 3:{
-                    System.out.println("Digite o titulo do cd que deseja emprestar");
-                    String tituloCd = sc.nextLine();
-                    Cd cdEncontrado = itens.buscarCd(tituloCd);
-                    if (itens.validarCdParaEmpréstimo(tituloCd) != null) {
-                        emprestimos.emprestarCdParaAluno(alunoEncontrado, cdEncontrado);
-                        break;
-                    } break;
-                }
-                case 4:{
-                    System.out.println("Digite o titulo do dvd que deseja emprestar");
-                    String tituloDvd = sc.nextLine();
-                    Dvd dvdEncontrado = itens.buscarDvd(tituloDvd);
-                    if (itens.validarDvdParaEmpréstimo(tituloDvd) != null) {
-                        emprestimos.emprestarDvdParaAluno(alunoEncontrado, dvdEncontrado);
-                        break;
-                    } break;
+                    System.out.println("Digite o titulo do Jogo que deseja emprestar");
+                    String tituloJogo = sc.nextLine();
                 }
                 case 0:
                     break;
@@ -498,22 +484,8 @@ public class Main {
                     } break;
                 }
                 case 3:{
-                    System.out.println("Digite o titulo do cd que deseja emprestar");
-                    String tituloCd = sc.nextLine();
-                    Cd cdEncontrado = itens.buscarCd(tituloCd);
-                    if (itens.validarCdParaEmpréstimo(tituloCd) != null) {
-                        emprestimos.emprestarCdParaProfessor(professorEncontrado, cdEncontrado);
-                        break;
-                    } break;
-                }
-                case 4:{
-                    System.out.println("Digite o titulo do dvd que deseja emprestar");
-                    String tituloDvd = sc.nextLine();
-                    Dvd dvdEncontrado = itens.buscarDvd(tituloDvd);
-                    if (itens.validarDvdParaEmpréstimo(tituloDvd) != null) {
-                        emprestimos.emprestarDvdParaProfessor(professorEncontrado, dvdEncontrado);
-                        break;
-                    } break;
+                    System.out.println("Digite o titulo do Jogo que deseja emprestar");
+                    String tituloJogo = sc.nextLine();
                 }
                 case 0:
                     break;
@@ -560,22 +532,8 @@ public class Main {
                     } break;
                 }
                 case 3:{
-                    System.out.println("Digite o titulo do cd que deseja emprestar");
-                    String tituloCd = sc.nextLine();
-                    Cd cdEncontrado = itens.buscarCd(tituloCd);
-                    if (itens.validarCdParaEmpréstimo(tituloCd) != null) {
-                        emprestimos.emprestarCdParaPosGraduado(posGraduadoEncontrado, cdEncontrado);
-                        break;
-                    } break;
-                }
-                case 4:{
-                    System.out.println("Digite o titulo do dvd que deseja emprestar");
-                    String tituloDvd = sc.nextLine();
-                    Dvd dvdEncontrado = itens.buscarDvd(tituloDvd);
-                    if (itens.validarDvdParaEmpréstimo(tituloDvd) != null) {
-                        emprestimos.emprestarDvdParaPosGraduado(posGraduadoEncontrado, dvdEncontrado);
-                        break;
-                    } break;
+                    System.out.println("Digite o titulo do Jogo que deseja emprestar");
+                    String tituloJogo = sc.nextLine();
                 }
                 case 0:
                     break;
@@ -621,22 +579,8 @@ public class Main {
                     } break;
                 }
                 case 3:{
-                    System.out.println("Digite o titulo do cd que deseja emprestar");
-                    String tituloCd = sc.nextLine();
-                    Cd cdEncontrado = itens.buscarCd(tituloCd);
-                    if (itens.validarCdParaEmpréstimo(tituloCd) != null) {
-                        emprestimos.emprestarCdParaFuncionario(funcionarioEncontrado, cdEncontrado);
-                        break;
-                    } break;
-                }
-                case 4:{
-                    System.out.println("Digite o titulo do dvd que deseja emprestar");
-                    String tituloDvd = sc.nextLine();
-                    Dvd dvdEncontrado = itens.buscarDvd(tituloDvd);
-                    if (itens.validarDvdParaEmpréstimo(tituloDvd) != null) {
-                        emprestimos.emprestarDvdParaFuncionario(funcionarioEncontrado, dvdEncontrado);
-                        break;
-                    } break;
+                    System.out.println("Digite o titulo do Jogo que deseja emprestar");
+                    String tituloJogo = sc.nextLine();
                 }
                 case 0:
                     break;
@@ -650,7 +594,7 @@ public class Main {
 
 
     private static void realizarDevolucao(Scanner sc, GerenciadorEmprestimos emprestimos) {
-        System.out.println("Digite o titulo do livro que deseja devolver: ");
+        System.out.println("Digite o titulo do item que deseja devolver: ");
             String tituloDevolucao = sc.nextLine();
             emprestimos.registrarDevolução(tituloDevolucao);
         System.out.println("Usuário tinha multa?(S/N) ");
@@ -695,26 +639,56 @@ public class Main {
             resp = Integer.parseInt(sc.nextLine());
             switch (resp) {
                 case 1: {
-                    System.out.println("\nDigite o isbn do livro: ");
-                    String isbn = sc.nextLine();
-                    System.out.println("\nDigite o titulo do livro: ");
-                    String titulo = sc.nextLine();
-                    System.out.println("\nDigite o nome do autor do livro: ");
-                    String autor = sc.nextLine();
-                    System.out.println("\nDigite o ano de Publicação do livro: ");
-                    int anoPublicacao = Integer.parseInt(sc.nextLine());
-                    System.out.println("\nDigite o nome da editora: ");
-                    String editora = sc.nextLine();
-                    System.out.println("\nDigite o genero literário do livro: ");
-                    String generoLiterario = sc.nextLine();
-                    System.out.println("\nDigite o numero de páginas do livro: ");
-                    int numeroPaginas = Integer.parseInt(sc.nextLine());
-                    System.out.println("\nDigite a sinopse do livro: ");
-                    String sinopse = sc.nextLine();
-
-                    Livro livros = new Livro(isbn, titulo, autor, editora, anoPublicacao, generoLiterario, numeroPaginas, sinopse);
-                    itens.addLivro(livros);
-                    System.out.println("\n Livro Cadastrado com sucesso!\n");
+                    System.out.println("\nQue tipo de livro você deseja cadastrar?\n[1]Livro Físico\n[2]Audio Livro\n Digite sua opção: ");
+                    int r = Integer.parseInt(sc.nextLine());
+                    switch (r) {
+                        case 1:{
+                            System.out.println("\n----------------------Cadastro de Livro Físico---------------------------");
+                            System.out.println("\nDigite o isbn do livro: ");
+                            String isbn = sc.nextLine();
+                            System.out.println("\nDigite o titulo do livro: ");
+                            String titulo = sc.nextLine();
+                            System.out.println("\nDigite o nome do autor do livro: ");
+                            String autor = sc.nextLine();
+                            System.out.println("\nDigite o ano de Publicação do livro: ");
+                            int anoPublicacao = Integer.parseInt(sc.nextLine());
+                            System.out.println("\nDigite o nome da editora: ");
+                            String editora = sc.nextLine();
+                            System.out.println("\nDigite o genero literário do livro: ");
+                            String generoLiterario = sc.nextLine();
+                            System.out.println("\nDigite o numero de páginas do livro: ");
+                            int numeroPaginas = Integer.parseInt(sc.nextLine());
+                            System.out.println("\nDigite a sinopse do livro: ");
+                            String sinopse = sc.nextLine();
+            
+                            LivroFisico livros = new LivroFisico(isbn, titulo, autor, editora, anoPublicacao, generoLiterario, numeroPaginas, sinopse);
+                            itens.addLivro(livros);
+                            System.out.println("\n Livro Fisico Cadastrado com sucesso!\n");
+                        }
+                        case 2:{
+                            System.out.println("\n----------------------Cadastro de Audio Livro----------------------------");
+                            System.out.println("\nDigite o isbn do livro: ");
+                            String isbn = sc.nextLine();
+                            System.out.println("\nDigite o titulo do livro: ");
+                            String titulo = sc.nextLine();
+                            System.out.println("\nDigite o nome do autor do livro: ");
+                            String autor = sc.nextLine();
+                            System.out.println("\nDigite o ano de Publicação do livro: ");
+                            int anoPublicacao = Integer.parseInt(sc.nextLine());
+                            System.out.println("\nDigite o nome da editora: ");
+                            String editora = sc.nextLine();
+                            System.out.println("\nDigite o genero literário do livro: ");
+                            String generoLiterario = sc.nextLine();
+                            System.out.println("\nDigite a duração do audio livro(em minutos): ");
+                            String duracao = sc.nextLine();
+                            System.out.println("\nDigite a sinopse do livro: ");
+                            String sinopse = sc.nextLine();
+            
+                            AudioLivro livros = new AudioLivro(isbn, titulo, autor, editora, anoPublicacao, generoLiterario, duracao, sinopse);
+                            itens.addLivro(livros);
+                            System.out.println("\n Audio Livro Cadastrado com sucesso!\n");
+                        }
+                    }
                 }
                 break;
                 case 2: {
