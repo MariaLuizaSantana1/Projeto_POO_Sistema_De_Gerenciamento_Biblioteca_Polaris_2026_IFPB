@@ -127,7 +127,7 @@ public class GerenciadorEmprestimos {
         for(Emprestimo emprestimo : this.listaEmprestimos){
             if (emprestimo.getTituloItem().equals(tituloItem) && emprestimo.getStatusEmprestimo().equals("Ativo") ) {
                 ItemDoAcervo item = emprestimo.getItem();
-                Object usuario = emprestimo.getUsuario();
+                Usuario usuario = emprestimo.getUsuario();
                 long dias = emprestimo.calcularAtraso();
                 item.setDisponibilidade("Disponivel");
                 emprestimo.setStatusEmprestimo("Devolvido");

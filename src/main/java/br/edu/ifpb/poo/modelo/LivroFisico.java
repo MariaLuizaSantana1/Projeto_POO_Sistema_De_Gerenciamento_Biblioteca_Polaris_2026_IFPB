@@ -4,7 +4,7 @@ public class LivroFisico extends Livro{
     private int numeroPaginas;
 
 
-    public LivroFisico(String id, String titulo, String autor,String editora, int anoPublicacao, String generoLiterario, int numeroPaginas, String sinopse){
+    public LivroFisico(String id, String titulo, String autor,String editora, int anoPublicacao, String generoLiterario, String sinopse, int numeroPaginas){
         super(id, titulo, autor, editora, anoPublicacao, generoLiterario, sinopse);
         this.numeroPaginas = numeroPaginas;
     }

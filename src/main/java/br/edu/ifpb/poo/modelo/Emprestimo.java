@@ -5,10 +5,11 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 import br.edu.ifpb.poo.ItemDoAcervo;
+import br.edu.ifpb.poo.Usuario;
 
 
 public class Emprestimo {
-    private Object usuario;
+    private Usuario usuario;
     private ItemDoAcervo item;
     private String nomeUsuario;
     private String matriculaUsuario;
@@ -20,7 +21,7 @@ public class Emprestimo {
     private String statusMulta = "Sem multa";
 
 
-    public Emprestimo(Object usuario, ItemDoAcervo item, String nomeUsuario, String tituloItem, LocalDate dataEmprestimo, LocalDate dataDevolucao){
+    public Emprestimo(Usuario usuario, ItemDoAcervo item, String nomeUsuario, String tituloItem, LocalDate dataEmprestimo, LocalDate dataDevolucao){
         this.usuario = usuario;
         this.item = item;
         this.nomeUsuario = nomeUsuario;
@@ -28,7 +29,7 @@ public class Emprestimo {
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucao = dataDevolucao;
     }
-    public Emprestimo(Object usuario, ItemDoAcervo item, String nomeUsuario, String matriculaUsuario, String tituloItem, LocalDate dataEmprestimo, LocalDate dataDevolucao){
+    public Emprestimo(Usuario usuario, ItemDoAcervo item, String nomeUsuario, String matriculaUsuario, String tituloItem, LocalDate dataEmprestimo, LocalDate dataDevolucao){
         this.usuario = usuario;
         this.item = item;
         this.nomeUsuario = nomeUsuario;
@@ -39,10 +40,10 @@ public class Emprestimo {
     }
 
 
-    public void setUsuario(Object usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    public Object getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
