@@ -9,6 +9,7 @@ import br.edu.ifpb.poo.modelo.Dvd;
 import br.edu.ifpb.poo.modelo.Emprestimo;
 import br.edu.ifpb.poo.modelo.FuncionarioAdministrativo;
 import br.edu.ifpb.poo.modelo.Livro;
+import br.edu.ifpb.poo.modelo.LivroFisico;
 import br.edu.ifpb.poo.modelo.PosGraduado;
 import br.edu.ifpb.poo.modelo.Professor;
 import br.edu.ifpb.poo.modelo.Revista;
@@ -25,39 +26,39 @@ public class Main {
         GerenciadorDeItens itens = new GerenciadorDeItens();
         GerenciadorEmprestimos emprestimos = new GerenciadorEmprestimos();
 
-        Livro livroDefault = new Livro("37910000194500", "O Senhor dos Aneis",
-                "J.R.R.Tolkien", "Harper Collins", 2020, "Fantasia",
-                1100, "Frodo Bolseiro embarca numa missão com seu seus amigos hobbits,\nseu guia Gandalf, elfos, um anão e humanos para levar o Um Anel para a\nMontanha da Perdição e salvar a Terra Média.");
+        LivroFisico livroDefault = new LivroFisico("37910000194500", "O Senhor dos Aneis",
+                "J.R.R.Tolkien", "Harper Collins", 2020, "Fantasia", 1100,
+                "Frodo Bolseiro embarca numa missão com seu seus amigos hobbits,\nseu guia Gandalf, elfos, um anão e humanos para levar o Um Anel para a\nMontanha da Perdição e salvar a Terra Média.");
         itens.addLivro(livroDefault);
 
-        Livro livroDefault4 = new Livro("37910000194400", "O Silmarillion",
-                "J.R.R.Tolkien", "Harper Collins", 2020, "Fantasia",
-                1100, "O épico narra a criação do universo de Tolkien, as joias lendárias\nchamadas Silmarils e as guerras ancestrais entre elfos e o primeiro\n Senhor Sombrio.");
+        LivroFisico livroDefault4 = new LivroFisico("37910000194400", "O Silmarillion",
+                "J.R.R.Tolkien", "Harper Collins", 2020, "Fantasia", 1100,
+                "O épico narra a criação do universo de Tolkien, as joias lendárias\nchamadas Silmarils e as guerras ancestrais entre elfos e o primeiro\n Senhor Sombrio.");
         itens.addLivro(livroDefault4);
 
-        Livro livroDefault2 = new Livro("18900000197700", "Sherlock Holmes",
-                "Arthur Conan Doyler", "Harper Collins", 2021, "Romance Policial",
-                220, "O Dr. Watson acompanha a resolução dos mistérios por seu amigo\nSherlock Holmes Detetive de Londres.");
+        LivroFisico livroDefault2 = new LivroFisico("18900000197700", "Sherlock Holmes",
+                "Arthur Conan Doyler", "Harper Collins", 2021, "Romance Policial", 220,
+                "O Dr. Watson acompanha a resolução dos mistérios por seu amigo\nSherlock Holmes Detetive de Londres.");
         itens.addLivro(livroDefault2);
-        Livro livroDefault3 = new Livro("17000000198400", "1984",
+        LivroFisico livroDefault3 = new LivroFisico("17000000198400", "1984",
                 "George Orwell", "Darkside", 1983, "Ficção Distopica",
-                336, "Winston Smith desafia o Partido e o Grande Irmão, buscando\nliberdade e amor em um mundo vigiado de controle absoluto.");
+                336,"Winston Smith desafia o Partido e o Grande Irmão, buscando\nliberdade e amor em um mundo vigiado de controle absoluto.");
         itens.addLivro(livroDefault3);
-        Livro livroDefault5 = new Livro("18900000197100", "Hamlet",
-                "Willian Shakespeare", "Penguin", 2018, "Drama",
-                220, "O Príncipe Hamlet busca vingar a morte de seu pai, assassinado\npelo tio que usurpou o trono e casou-se com sua mãe, simulando loucura\nenquanto pondera sobre a existência");
+        LivroFisico livroDefault5 = new LivroFisico("18900000197100", "Hamlet",
+                "Willian Shakespeare", "Penguin", 2018, "Drama", 220,
+                 "O Príncipe Hamlet busca vingar a morte de seu pai, assassinado\npelo tio que usurpou o trono e casou-se com sua mãe, simulando loucura\nenquanto pondera sobre a existência");
         itens.addLivro(livroDefault5);
-        Livro livroDefault6 = new Livro("18900000197000", "Dom Casmurro",
-                "Machado de Assis", "Principis", 2018, "Romance",
-                208, "Bento narra sua paixão juvenil por Capitu e o ciúme doentio\nque o faz suspeitar de traição com seu melhor amigo. Capitu traiu ou foi\napenas obsessão?");
+        LivroFisico livroDefault6 = new LivroFisico("18900000197000", "Dom Casmurro",
+                "Machado de Assis", "Principis", 2018, "Romance", 280,
+                 "Bento narra sua paixão juvenil por Capitu e o ciúme doentio\nque o faz suspeitar de traição com seu melhor amigo. Capitu traiu ou foi\napenas obsessão?");
         itens.addLivro(livroDefault6);
 
 
-        Revista revistaDefault = new Revista("1001002003004", "Veja", 1, "Abril", "11/08/2019");
+        Revista revistaDefault = new Revista("1001002003004", "Veja", "Julio Verne", 1, "Abril", "11/08/2019");
         itens.addRevista(revistaDefault);
-        Dvd dvdDefault = new Dvd("Titanic", "James Cameron", 194, "12+");
+        Dvd dvdDefault = new Dvd("12345","Titanic", "James Cameron", 194, "12+");
         itens.addDvd(dvdDefault);
-        Dvd dvdDefault2 = new Dvd("De Volta Para O Futuro", "Robert Zemeckis", 116, "12+");
+        Dvd dvdDefault2 = new Dvd("19855","De Volta Para O Futuro", "Robert Zemeckis", 116, "12+");
         itens.addDvd(dvdDefault2);
 
 
@@ -717,10 +718,12 @@ public class Main {
                 }
                 break;
                 case 2: {
-                    System.out.println("\nDigite o issn da revista: ");
-                    String issn = sc.nextLine();
+                    System.out.println("\nDigite o id da revista: ");
+                    String id = sc.nextLine();
                     System.out.println("\nDigite o nome da revista: ");
                     String titulo = sc.nextLine();
+                    System.out.println("\nDigite o nome do autor da revista: ");
+                    String autor = sc.nextLine();
                     System.out.println("\nDigite o volume do livro: ");
                     int volume = Integer.parseInt(sc.nextLine());
                     System.out.println("\nDigite o nome da editora: ");
@@ -728,16 +731,18 @@ public class Main {
                     System.out.println("\nDigite a data de publicação da revista: ");
                     String dataPublicacao = sc.next();
 
-                    Revista revistas = new Revista(issn, titulo, volume, editora, dataPublicacao);
+                    Revista revistas = new Revista(id, titulo, autor, volume, editora, dataPublicacao);
                     itens.addRevista(revistas);
                     System.out.println("\n Revista Cadastrado com sucesso!\n");
                 }
                 break;
                 case 3: {
+                    System.out.println("\nDigite o id do Cd: ");
+                    String id = sc.nextLine();
                     System.out.println("\nDigite o nome do Cd: ");
                     String titulo = sc.nextLine();
                     System.out.println("\nDigite o nome do artista do Cd: ");
-                    String artista = sc.nextLine();
+                    String autor = sc.nextLine();
                     System.out.println("\nQuantas faixas tem o Cd? ");
                     int numFaixas = Integer.parseInt(sc.nextLine());
                     String[] faixas = new String[numFaixas];
@@ -748,22 +753,24 @@ public class Main {
 
                     }
 
-                    Cd cds = new Cd(titulo, artista, faixas);
+                    Cd cds = new Cd(id, titulo, autor, faixas);
                     itens.addCd(cds);
                     System.out.println("\nCd Cadastrado com sucesso!\n");
                 }
                 break;
                 case 4: {
+                    System.out.println("\nDigite o id do Dvd: ");
+                    String id = sc.nextLine();
                     System.out.println("\nDigite o nome do Dvd: ");
                     String titulo = sc.nextLine();
                     System.out.println("\nDigite o nome do diretor: ");
-                    String diretor = sc.nextLine();
+                    String autor = sc.nextLine();
                     System.out.println("\nDigite a duracao do Dvd(em minutos): ");
                     int duracao = Integer.parseInt(sc.nextLine());
                     System.out.println("\nDigite a classificacao indicativa do Dvd: ");
                     String classificacaoIndicativa = sc.nextLine();
 
-                    Dvd dvds = new Dvd(titulo, diretor, duracao, classificacaoIndicativa);
+                    Dvd dvds = new Dvd(id, titulo, autor, duracao, classificacaoIndicativa);
                     itens.addDvd(dvds);
                     System.out.println("\nDvd Cadastrado com sucesso!\n");
                 }

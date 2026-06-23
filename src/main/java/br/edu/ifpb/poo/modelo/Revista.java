@@ -8,9 +8,8 @@ public class Revista extends ItemDoAcervo{
     private String editora;
     private String dataPublicacao;
     
-    public Revista(String id, String titulo, String autor, String issn,int volume, String editora, String dataPublicacao){
+    public Revista(String id, String titulo, String autor, int volume, String editora, String dataPublicacao){
         super(id, titulo, autor);
-        this.issn = issn;
         this.volume = volume;
         this.editora = editora;
         this.dataPublicacao = dataPublicacao;

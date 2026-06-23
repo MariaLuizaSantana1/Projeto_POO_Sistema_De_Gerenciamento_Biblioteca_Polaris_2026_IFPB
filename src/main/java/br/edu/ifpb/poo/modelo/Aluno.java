@@ -14,6 +14,12 @@ public class Aluno extends Usuario {
         this.curso = curso;
     }
 
+    public Aluno(String nome, String matricula, String curso, String ativo){
+        super(nome, matricula, ativo);
+        this.curso = curso;
+    }
+
+
     public void setCurso(String curso) {
         this.curso = curso;
     }

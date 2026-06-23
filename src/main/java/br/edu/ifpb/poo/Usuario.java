@@ -12,6 +12,12 @@ public class Usuario {
         this.matricula = matricula;
     }
 
+    public Usuario(String nome, String matricula, String ativo){
+        this.nome = nome;
+        this.matricula = matricula;
+        this.ativo = ativo;
+    }
+
 
     public void setNome(String nome) {
         this.nome = nome;
