@@ -344,52 +344,52 @@ public class Main {
                     System.out.println("---------------------Empréstimo de item---------------------------");
                     System.out.println("Digite a Matricula do Aluno que deseja emprestar");
                     String matriculaAluno = sc.nextLine();
-                    Usuario alunoEncontrado = usuarios.buscarUsuario(matriculaAluno);
-                    if (alunoEncontrado == null) {
+                    Usuario usuarioEncontrado = usuarios.buscarUsuario(matriculaAluno);
+                    if (usuarioEncontrado == null) {
                         System.out.println("\nAluno não encontrado\n");
-                    }else if (usuarios.validarAlunoParaEmpréstimo(matriculaAluno) == false) {
+                    }else if (usuarios.validarUsuarioParaEmpréstimo(matriculaAluno) == false) {
                         System.out.println("\nAluno não pode fazer empréstimo pois está inativo\n");
                     } else {
-                        EmprestimosEscolherItemAluno(sc, itens, emprestimos, alunoEncontrado);
+                        EmprestimosEscolherItem(sc, itens, emprestimos, usuarioEncontrado);
                     } break;
                 }
                 case 2:{
                     System.out.println("---------------------Empréstimo de item---------------------------");
                     System.out.println("Digite a Matricula do Professor que deseja emprestar");
-                    String matriculaProfessor = sc.nextLine();
-                    Usuario professorEncontrado = usuarios.buscarUsuario(matriculaProfessor);
-                    if (professorEncontrado == null) {
+                    String matricula = sc.nextLine();
+                    Usuario usuarioEncontrado = usuarios.buscarUsuario(matricula);
+                    if (usuarioEncontrado == null) {
                         System.out.println("\nProfessor não encontrado\n");
-                    }else if (usuarios.validarProfessorParaEmpréstimo(matriculaProfessor) == false) {
+                    }else if (usuarios.validarUsuarioParaEmpréstimo(matricula) == false) {
                         System.out.println("\nProfessor não pode fazer empréstimo pois está inativo\n");
                     } else {
-                        EmprestimosEscolherItemProfessor(sc, itens, emprestimos, professorEncontrado);
+                        EmprestimosEscolherItem(sc, itens, emprestimos, usuarioEncontrado);
                     } break;
                 }
                 case 3:{
                     System.out.println("---------------------Empréstimo de item---------------------------");
                     System.out.println("Digite a Matricula do Pós Graduado que deseja emprestar");
-                    String matriculaAluno = sc.nextLine();
-                    Usuario posGraduadoEncontrado = usuarios.buscarUsuario(matriculaAluno);
-                    if (posGraduadoEncontrado == null) {
+                    String matricula = sc.nextLine();
+                    Usuario usuarioEncontrado = usuarios.buscarUsuario(matricula);
+                    if (usuarioEncontrado == null) {
                         System.out.println("\nPós Graduado não encontrado\n");
-                    }else if (usuarios.validarPosGraduadoParaEmpréstimo(matriculaAluno) == false) {
+                    }else if (usuarios.validarUsuarioParaEmpréstimo(matricula) == false) {
                         System.out.println("\nPós Graduado não pode fazer empréstimo pois está inativo\n");
                     } else {
-                        EmprestimosEscolherItemPosGraduado(sc, itens, emprestimos, posGraduadoEncontrado);
+                        EmprestimosEscolherItem(sc, itens, emprestimos, usuarioEncontrado);
                     } break;
                 }
                 case 4:{
                     System.out.println("---------------------Empréstimo de item---------------------------");
                     System.out.println("Digite a Matricula do Funcionário que deseja emprestar");
-                    String matriculaFuncionario = sc.nextLine();
-                    Usuario funcionarioEncontrado = usuarios.buscarUsuario(matriculaFuncionario);
-                    if (funcionarioEncontrado == null) {
+                    String matricula = sc.nextLine();
+                    Usuario usuarioEncontrado = usuarios.buscarUsuario(matricula);
+                    if (usuarioEncontrado == null) {
                         System.out.println("\nFuncionario não encontrado\n");
-                    }else if (usuarios.validarFuncionarioParaEmpréstimo(matriculaFuncionario) == false) {
+                    }else if (usuarios.validarUsuarioParaEmpréstimo(matricula) == false) {
                         System.out.println("\nFuncionario não pode fazer empréstimo pois está inativo\n");
                     } else {
-                        EmprestimosEscolherItemFuncionario(sc, itens, emprestimos, funcionarioEncontrado);
+                        EmprestimosEscolherItem(sc, itens, emprestimos, usuarioEncontrado);
                     } break;
                 }
                 case 0:
@@ -404,7 +404,7 @@ public class Main {
     
 
 
-    private static void EmprestimosEscolherItemAluno(Scanner sc, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos, Usuario alunoEncontrado) {
+    private static void EmprestimosEscolherItem(Scanner sc, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos, Usuario usuarioEncontrado) {
         int resp = 1;
         while (resp != 0) {
             System.out.println("""
@@ -422,7 +422,7 @@ public class Main {
                     String tituloLivro = sc.nextLine();
                     Livro livroEncontrado = itens.buscarLivro(tituloLivro);
                     if (itens.validarLivroParaEmpréstimo(tituloLivro) != null) {
-                        emprestimos.emprestarItemParaAluno(alunoEncontrado, livroEncontrado);
+                        emprestimos.emprestarItemParaAluno(usuarioEncontrado, livroEncontrado);
                         break;
                     } break;
                     
@@ -433,149 +433,7 @@ public class Main {
                     String tituloRevista = sc.nextLine();
                     Revista revistaEncontrada = itens.buscarRevista(tituloRevista);
                     if (itens.validarRevistaParaEmpréstimo(tituloRevista) != null) {
-                        emprestimos.emprestarItemParaAluno(alunoEncontrado, revistaEncontrada);
-                        break;
-                    } break;
-                }
-                case 3:{
-                    System.out.println("Digite o titulo do Jogo que deseja emprestar");
-                    String tituloJogo = sc.nextLine();
-                }
-                case 0:
-                    break;
-                default:
-                    System.out.println("Opção inválida");
-            }
-        }
-
-    }
-
-
-    private static void EmprestimosEscolherItemProfessor(Scanner sc, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos, Usuario professorEncontrado) {
-        int resp = 1;
-        while (resp != 0) {
-            System.out.println("""
-
-                Qual item você deseja pegar emprestado 
-                [1] Livro
-                [2] Revista
-                [3] Cd
-                [4] Dvd
-                [0] Voltar
-            """);
-            resp = Integer.parseInt(sc.nextLine());
-            switch (resp) {
-                case 1: {
-                    System.out.println("Digite o titulo do livro que deseja emprestar");
-                    String tituloLivro = sc.nextLine();
-                    Livro livroEncontrado = itens.buscarLivro(tituloLivro);
-                    if (itens.validarLivroParaEmpréstimo(tituloLivro) != null) {
-                        emprestimos.emprestarItemParaProfessor(professorEncontrado, livroEncontrado);
-                        break;
-                    } break;
-                }
-                
-                case 2:{
-                    System.out.println("Digite o titulo da revista que deseja emprestar");
-                    String tituloRevista = sc.nextLine();
-                    Revista revistaEncontrada = itens.buscarRevista(tituloRevista);
-                    if (itens.validarRevistaParaEmpréstimo(tituloRevista) != null) {
-                        emprestimos.emprestarItemParaProfessor(professorEncontrado, revistaEncontrada);
-                        break;
-                    } break;
-                }
-                case 3:{
-                    System.out.println("Digite o titulo do Jogo que deseja emprestar");
-                    String tituloJogo = sc.nextLine();
-                }
-                case 0:
-                    break;
-                default:
-                    System.out.println("Opção inválida");
-            }
-        }
-
-    }
-
-
-
-    private static void EmprestimosEscolherItemPosGraduado(Scanner sc, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos, Usuario posGraduadoEncontrado) {
-        int resp = 1;
-        while (resp != 0) {
-            System.out.println("""
-
-                Qual item você deseja pegar emprestado 
-                [1] Livro
-                [2] Revista
-                [3] Cd
-                [4] Dvd
-                [0] Voltar
-            """);
-            resp = Integer.parseInt(sc.nextLine());
-            switch (resp) {
-                case 1: {
-                    System.out.println("Digite o titulo do livro que deseja emprestar");
-                    String tituloLivro = sc.nextLine();
-                    Livro livroEncontrado = itens.buscarLivro(tituloLivro);
-                    if (itens.validarLivroParaEmpréstimo(tituloLivro) != null) {
-                        emprestimos.emprestarItemParaPosGraduado(posGraduadoEncontrado, livroEncontrado);
-                        break;
-                    } break;
-                }
-                
-                case 2:{
-                    System.out.println("Digite o titulo da revista que deseja emprestar");
-                    String tituloRevista = sc.nextLine();
-                    Revista revistaEncontrada = itens.buscarRevista(tituloRevista);
-                    if (itens.validarRevistaParaEmpréstimo(tituloRevista) != null) {
-                        emprestimos.emprestarItemParaPosGraduado(posGraduadoEncontrado, revistaEncontrada);
-                        break;
-                    } break;
-                }
-                case 3:{
-                    System.out.println("Digite o titulo do Jogo que deseja emprestar");
-                    String tituloJogo = sc.nextLine();
-                }
-                case 0:
-                    break;
-                default:
-                    System.out.println("Opção inválida");
-            }
-        }
-
-    }
-
-
-    private static void EmprestimosEscolherItemFuncionario(Scanner sc, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos, Usuario funcionarioEncontrado) {
-        int resp = 1;
-        while (resp != 0) {
-            System.out.println("""
-
-                Qual item você deseja pegar emprestado 
-                [1] Livro
-                [2] Revista
-                [3] Cd
-                [4] Dvd
-                [0] Voltar
-            """);
-            resp = Integer.parseInt(sc.nextLine());
-            switch (resp) {
-                case 1: {
-                    System.out.println("Digite o titulo do livro que deseja emprestar");
-                    String tituloLivro = sc.nextLine();
-                    Livro livroEncontrado = itens.buscarLivro(tituloLivro);
-                    if (itens.validarLivroParaEmpréstimo(tituloLivro) != null) {
-                        emprestimos.emprestarItemParaFuncionario(funcionarioEncontrado, livroEncontrado);
-                        break;
-                    } break;
-                }
-                
-                case 2:{
-                    System.out.println("Digite o titulo da revista que deseja emprestar");
-                    String tituloRevista = sc.nextLine();
-                    Revista revistaEncontrada = itens.buscarRevista(tituloRevista);
-                    if (itens.validarRevistaParaEmpréstimo(tituloRevista) != null) {
-                        emprestimos.emprestarItemParaFuncionario(funcionarioEncontrado, revistaEncontrada);
+                        emprestimos.emprestarItemParaAluno(usuarioEncontrado, revistaEncontrada);
                         break;
                     } break;
                 }
