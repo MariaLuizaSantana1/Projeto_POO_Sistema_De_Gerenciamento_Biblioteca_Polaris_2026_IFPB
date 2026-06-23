@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import br.edu.ifpb.poo.ItemDoAcervo;
+import br.edu.ifpb.poo.Usuario;
 import br.edu.ifpb.poo.modelo.Aluno;
 import br.edu.ifpb.poo.modelo.Emprestimo;
 import br.edu.ifpb.poo.modelo.FuncionarioAdministrativo;
@@ -41,7 +42,7 @@ public class GerenciadorEmprestimos {
 
 
     
-    public void emprestarItemParaAluno(Aluno aluno, ItemDoAcervo item){
+    public void emprestarItemParaAluno(Usuario aluno, ItemDoAcervo item){
         if(aluno.getItensEmprestados() < Aluno.MAX_ITENS_ALUNO){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(Aluno.PRAZO_ITENS_ALUNO);
@@ -60,7 +61,7 @@ public class GerenciadorEmprestimos {
 
 
 
-    public void emprestarItemParaProfessor(Professor professor, ItemDoAcervo item){
+    public void emprestarItemParaProfessor(Usuario professor, ItemDoAcervo item){
         if(professor.getItensEmprestados() < Professor.MAX_ITENS_PROFESSOR ){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(Professor.PRAZO_LIVROS_PROFESSOR);
@@ -79,7 +80,7 @@ public class GerenciadorEmprestimos {
     }
 
 
-    public void emprestarItemParaPosGraduado(PosGraduado posGraduado, ItemDoAcervo item){
+    public void emprestarItemParaPosGraduado(Usuario posGraduado, ItemDoAcervo item){
         if(posGraduado.getItensEmprestados() < PosGraduado.MAX_ITENS_POS_GRADUADO ){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(PosGraduado.PRAZO_LIVROS_POS_GRADUADO);
@@ -99,7 +100,7 @@ public class GerenciadorEmprestimos {
 
 
 
-    public void emprestarItemParaFuncionario(FuncionarioAdministrativo funcionarioAdministrativo, ItemDoAcervo item){
+    public void emprestarItemParaFuncionario(Usuario funcionarioAdministrativo, ItemDoAcervo item){
         if(funcionarioAdministrativo.getItensEmprestados() < FuncionarioAdministrativo.MAX_ITENS_FUNCIONARIO){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(FuncionarioAdministrativo.PRAZO_ITENS_FUNCIONARIO);

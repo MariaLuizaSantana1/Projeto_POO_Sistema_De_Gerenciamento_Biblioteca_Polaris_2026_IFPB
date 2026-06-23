@@ -3,6 +3,7 @@ package br.edu.ifpb.poo.aplicacao;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import br.edu.ifpb.poo.Usuario;
 import br.edu.ifpb.poo.modelo.Aluno;
 import br.edu.ifpb.poo.modelo.AudioLivro;
 import br.edu.ifpb.poo.modelo.Cd;
@@ -217,7 +218,7 @@ public class Main {
                 case 1:
                     System.out.println("\nDigite a matricula do aluno que deseja buscar: ");
                     String matriculaAluno = sc.nextLine();
-                    Aluno alunoEncontrado = usuarios.buscarAluno(matriculaAluno);
+                    Usuario alunoEncontrado = usuarios.buscarUsuario(matriculaAluno);
                     if (alunoEncontrado == null) {
                         System.out.println("\nAluno não encontrado");
                     } else {
@@ -227,7 +228,7 @@ public class Main {
                 case 2:
                     System.out.println("\nDigite a matricula do Professor que deseja buscar: ");
                     String matriculaProfessor = sc.nextLine();
-                    Professor professorEncontrado = usuarios.buscarProfessor(matriculaProfessor);
+                    Usuario professorEncontrado = usuarios.buscarUsuario(matriculaProfessor);
                     if (professorEncontrado == null) {
                         System.out.println("\nProfessor não encontrado");
                     } else {
@@ -237,7 +238,7 @@ public class Main {
                 case 3:
                     System.out.println("\nDigite a matricula do Pós Graduado que deseja buscar: ");
                     String matriculaPos = sc.nextLine();
-                    PosGraduado posGraduadoEncontrado = usuarios.buscarPosGraduado(matriculaPos);
+                    Usuario posGraduadoEncontrado = usuarios.buscarUsuario(matriculaPos);
                     if (posGraduadoEncontrado == null) {
                         System.out.println("\nPosGraduado não encontrado");
                     } else {
@@ -247,7 +248,7 @@ public class Main {
                 case 4:
                     System.out.println("\nDigite a matricula do Funcionário Administrativo que deseja buscar: ");
                     String matriculaFuncionario = sc.nextLine();
-                    FuncionarioAdministrativo funcionarioEncontrado = usuarios.buscarFuncionario(matriculaFuncionario);
+                    Usuario funcionarioEncontrado = usuarios.buscarUsuario(matriculaFuncionario);
                     if (funcionarioEncontrado == null) {
                         System.out.println("\nFuncionario não encontrado");
                     } else {
@@ -343,7 +344,7 @@ public class Main {
                     System.out.println("---------------------Empréstimo de item---------------------------");
                     System.out.println("Digite a Matricula do Aluno que deseja emprestar");
                     String matriculaAluno = sc.nextLine();
-                    Aluno alunoEncontrado = usuarios.buscarAluno(matriculaAluno);
+                    Usuario alunoEncontrado = usuarios.buscarUsuario(matriculaAluno);
                     if (alunoEncontrado == null) {
                         System.out.println("\nAluno não encontrado\n");
                     }else if (usuarios.validarAlunoParaEmpréstimo(matriculaAluno) == false) {
@@ -356,7 +357,7 @@ public class Main {
                     System.out.println("---------------------Empréstimo de item---------------------------");
                     System.out.println("Digite a Matricula do Professor que deseja emprestar");
                     String matriculaProfessor = sc.nextLine();
-                    Professor professorEncontrado = usuarios.buscarProfessor(matriculaProfessor);
+                    Usuario professorEncontrado = usuarios.buscarUsuario(matriculaProfessor);
                     if (professorEncontrado == null) {
                         System.out.println("\nProfessor não encontrado\n");
                     }else if (usuarios.validarProfessorParaEmpréstimo(matriculaProfessor) == false) {
@@ -369,7 +370,7 @@ public class Main {
                     System.out.println("---------------------Empréstimo de item---------------------------");
                     System.out.println("Digite a Matricula do Pós Graduado que deseja emprestar");
                     String matriculaAluno = sc.nextLine();
-                    PosGraduado posGraduadoEncontrado = usuarios.buscarPosGraduado(matriculaAluno);
+                    Usuario posGraduadoEncontrado = usuarios.buscarUsuario(matriculaAluno);
                     if (posGraduadoEncontrado == null) {
                         System.out.println("\nPós Graduado não encontrado\n");
                     }else if (usuarios.validarPosGraduadoParaEmpréstimo(matriculaAluno) == false) {
@@ -382,7 +383,7 @@ public class Main {
                     System.out.println("---------------------Empréstimo de item---------------------------");
                     System.out.println("Digite a Matricula do Funcionário que deseja emprestar");
                     String matriculaFuncionario = sc.nextLine();
-                    FuncionarioAdministrativo funcionarioEncontrado = usuarios.buscarFuncionario(matriculaFuncionario);
+                    Usuario funcionarioEncontrado = usuarios.buscarUsuario(matriculaFuncionario);
                     if (funcionarioEncontrado == null) {
                         System.out.println("\nFuncionario não encontrado\n");
                     }else if (usuarios.validarFuncionarioParaEmpréstimo(matriculaFuncionario) == false) {
@@ -403,7 +404,7 @@ public class Main {
     
 
 
-    private static void EmprestimosEscolherItemAluno(Scanner sc, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos, Aluno alunoEncontrado) {
+    private static void EmprestimosEscolherItemAluno(Scanner sc, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos, Usuario alunoEncontrado) {
         int resp = 1;
         while (resp != 0) {
             System.out.println("""
@@ -450,7 +451,7 @@ public class Main {
     }
 
 
-    private static void EmprestimosEscolherItemProfessor(Scanner sc, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos, Professor professorEncontrado) {
+    private static void EmprestimosEscolherItemProfessor(Scanner sc, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos, Usuario professorEncontrado) {
         int resp = 1;
         while (resp != 0) {
             System.out.println("""
@@ -498,7 +499,7 @@ public class Main {
 
 
 
-    private static void EmprestimosEscolherItemPosGraduado(Scanner sc, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos, PosGraduado posGraduadoEncontrado) {
+    private static void EmprestimosEscolherItemPosGraduado(Scanner sc, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos, Usuario posGraduadoEncontrado) {
         int resp = 1;
         while (resp != 0) {
             System.out.println("""
@@ -545,7 +546,7 @@ public class Main {
     }
 
 
-    private static void EmprestimosEscolherItemFuncionario(Scanner sc, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos, FuncionarioAdministrativo funcionarioEncontrado) {
+    private static void EmprestimosEscolherItemFuncionario(Scanner sc, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos, Usuario funcionarioEncontrado) {
         int resp = 1;
         while (resp != 0) {
             System.out.println("""
