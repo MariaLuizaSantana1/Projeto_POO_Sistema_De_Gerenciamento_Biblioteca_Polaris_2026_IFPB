@@ -2,22 +2,35 @@ package br.edu.ifpb.poo.servico;
 
 import java.util.ArrayList;
 
+import br.edu.ifpb.poo.ItemDoAcervo;
 import br.edu.ifpb.poo.modelo.Cd;
 import br.edu.ifpb.poo.modelo.Dvd;
 import br.edu.ifpb.poo.modelo.Livro;
 import br.edu.ifpb.poo.modelo.Revista;
 
 public class GerenciadorDeItens {
+    private ArrayList<ItemDoAcervo> listaItens;
     private ArrayList<Livro> listaLivros;
     private ArrayList<Revista> listaRevistas;
     private ArrayList<Cd> listaCds;
     private ArrayList<Dvd> listaDvds;
 
     public GerenciadorDeItens() {
+        this.listaItens = new ArrayList<>();
         this.listaLivros = new ArrayList<>();
         this.listaRevistas = new ArrayList<>();
         this.listaCds = new ArrayList<>();
         this.listaDvds = new ArrayList<>();
+    }
+
+    public void addItem(ItemDoAcervo item){
+        this.listaItens.add(item);
+    }
+    public void listarItens(){
+        for(ItemDoAcervo item : this.listaItens){
+            System.out.println("-----------------");
+            System.out.println(item.toString());
+        }
     }
 
 

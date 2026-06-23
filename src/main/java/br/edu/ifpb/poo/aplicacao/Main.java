@@ -421,7 +421,7 @@ public class Main {
                     String tituloLivro = sc.nextLine();
                     Livro livroEncontrado = itens.buscarLivro(tituloLivro);
                     if (itens.validarLivroParaEmpréstimo(tituloLivro) != null) {
-                        emprestimos.emprestarLivroParaAluno(alunoEncontrado, livroEncontrado);
+                        emprestimos.emprestarItemParaAluno(alunoEncontrado, livroEncontrado);
                         break;
                     } break;
                     
@@ -432,7 +432,7 @@ public class Main {
                     String tituloRevista = sc.nextLine();
                     Revista revistaEncontrada = itens.buscarRevista(tituloRevista);
                     if (itens.validarRevistaParaEmpréstimo(tituloRevista) != null) {
-                        emprestimos.emprestarRevistaParaAluno(alunoEncontrado, revistaEncontrada);
+                        emprestimos.emprestarItemParaAluno(alunoEncontrado, revistaEncontrada);
                         break;
                     } break;
                 }
@@ -469,7 +469,7 @@ public class Main {
                     String tituloLivro = sc.nextLine();
                     Livro livroEncontrado = itens.buscarLivro(tituloLivro);
                     if (itens.validarLivroParaEmpréstimo(tituloLivro) != null) {
-                        emprestimos.emprestarLivroParaProfessor(professorEncontrado, livroEncontrado);
+                        emprestimos.emprestarItemParaProfessor(professorEncontrado, livroEncontrado);
                         break;
                     } break;
                 }
@@ -479,7 +479,7 @@ public class Main {
                     String tituloRevista = sc.nextLine();
                     Revista revistaEncontrada = itens.buscarRevista(tituloRevista);
                     if (itens.validarRevistaParaEmpréstimo(tituloRevista) != null) {
-                        emprestimos.emprestarRevistaParaProfessor(professorEncontrado, revistaEncontrada);
+                        emprestimos.emprestarItemParaProfessor(professorEncontrado, revistaEncontrada);
                         break;
                     } break;
                 }
@@ -517,7 +517,7 @@ public class Main {
                     String tituloLivro = sc.nextLine();
                     Livro livroEncontrado = itens.buscarLivro(tituloLivro);
                     if (itens.validarLivroParaEmpréstimo(tituloLivro) != null) {
-                        emprestimos.emprestarLivroParaPosGraduado(posGraduadoEncontrado, livroEncontrado);
+                        emprestimos.emprestarItemParaPosGraduado(posGraduadoEncontrado, livroEncontrado);
                         break;
                     } break;
                 }
@@ -527,7 +527,7 @@ public class Main {
                     String tituloRevista = sc.nextLine();
                     Revista revistaEncontrada = itens.buscarRevista(tituloRevista);
                     if (itens.validarRevistaParaEmpréstimo(tituloRevista) != null) {
-                        emprestimos.emprestarRevistaParaPosGraduado(posGraduadoEncontrado, revistaEncontrada);
+                        emprestimos.emprestarItemParaPosGraduado(posGraduadoEncontrado, revistaEncontrada);
                         break;
                     } break;
                 }
@@ -564,7 +564,7 @@ public class Main {
                     String tituloLivro = sc.nextLine();
                     Livro livroEncontrado = itens.buscarLivro(tituloLivro);
                     if (itens.validarLivroParaEmpréstimo(tituloLivro) != null) {
-                        emprestimos.emprestarLivroParaFuncionario(funcionarioEncontrado, livroEncontrado);
+                        emprestimos.emprestarItemParaFuncionario(funcionarioEncontrado, livroEncontrado);
                         break;
                     } break;
                 }
@@ -574,7 +574,7 @@ public class Main {
                     String tituloRevista = sc.nextLine();
                     Revista revistaEncontrada = itens.buscarRevista(tituloRevista);
                     if (itens.validarRevistaParaEmpréstimo(tituloRevista) != null) {
-                        emprestimos.emprestarRevistaParaFuncionario(funcionarioEncontrado, revistaEncontrada);
+                        emprestimos.emprestarItemParaFuncionario(funcionarioEncontrado, revistaEncontrada);
                         break;
                     } break;
                 }

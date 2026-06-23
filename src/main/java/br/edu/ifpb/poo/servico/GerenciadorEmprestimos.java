@@ -3,13 +3,12 @@ package br.edu.ifpb.poo.servico;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import br.edu.ifpb.poo.ItemDoAcervo;
 import br.edu.ifpb.poo.modelo.Aluno;
 import br.edu.ifpb.poo.modelo.Emprestimo;
 import br.edu.ifpb.poo.modelo.FuncionarioAdministrativo;
-import br.edu.ifpb.poo.modelo.Livro;
 import br.edu.ifpb.poo.modelo.PosGraduado;
 import br.edu.ifpb.poo.modelo.Professor;
-import br.edu.ifpb.poo.modelo.Revista;
 
 
 public class GerenciadorEmprestimos {
@@ -42,57 +41,37 @@ public class GerenciadorEmprestimos {
 
 
     
-    public void emprestarLivroParaAluno(Aluno aluno, Livro livro){
+    public void emprestarItemParaAluno(Aluno aluno, ItemDoAcervo item){
         if(aluno.getItensEmprestados() < Aluno.MAX_ITENS_ALUNO){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(Aluno.PRAZO_ITENS_ALUNO);
-            String tituloItem = livro.getTitulo();
+            String tituloItem = item.getTitulo();
             String nomeUsuario = aluno.getNome();
             String matricula = aluno.getMatricula();
-            Emprestimo emprestimo = new Emprestimo(aluno, livro, nomeUsuario, matricula, tituloItem, hoje, devolucao);
+            Emprestimo emprestimo = new Emprestimo(aluno, item, nomeUsuario, matricula, tituloItem, hoje, devolucao);
             aluno.setItensEmprestados(aluno.getItensEmprestados()+1);
-            livro.setDisponibilidade("Emprestado");
+            item.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
-            System.out.println("Empréstimo do livro " + livro.getTitulo() +" realizado com sucesso para aluno " + aluno.getNome() + " de matricula " + aluno.getMatricula());
+            System.out.println("Empréstimo do item " + item.getTitulo() +" realizado com sucesso para aluno " + aluno.getNome() + " de matricula " + aluno.getMatricula());
         } else{
             System.out.println("Usuário de matricula " + aluno.getMatricula() + "já atingiu o limite máximo de 3 itens");
         }   
     }
 
-    public void emprestarRevistaParaAluno(Aluno aluno, Revista revista){
-        if(aluno.getItensEmprestados() < Aluno.MAX_ITENS_ALUNO){
-            LocalDate hoje = LocalDate.now();
-            LocalDate devolucao = hoje.plusDays(Aluno.PRAZO_ITENS_ALUNO);
-            String tituloItem = revista.getTitulo();
-            String nomeUsuario = aluno.getNome();
-            String matricula = aluno.getMatricula();
-            Emprestimo emprestimo = new Emprestimo(aluno, revista, nomeUsuario, matricula, tituloItem, hoje, devolucao);
-            aluno.setItensEmprestados(aluno.getItensEmprestados() +1);
-            revista.setDisponibilidade("Emprestado");
-            listaEmprestimos.add(emprestimo);
-            System.out.println("Empréstimo do revista " + revista.getTitulo() +" realizado com sucesso para aluno " + aluno.getNome() + " de matricula " + aluno.getMatricula());
-        }
-        else{
-            System.out.println("Usuário de matricula " + aluno.getMatricula() + "já atingiu o limite máximo de 3 itens");
-        }        
-    }
-
-    
 
 
-
-    public void emprestarLivroParaProfessor(Professor professor, Livro livro){
+    public void emprestarItemParaProfessor(Professor professor, ItemDoAcervo item){
         if(professor.getItensEmprestados() < Professor.MAX_ITENS_PROFESSOR ){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(Professor.PRAZO_LIVROS_PROFESSOR);
-            String tituloItem = livro.getTitulo();
+            String tituloItem = item.getTitulo();
             String nomeUsuario = professor.getNome();
             String matricula = professor.getMatricula();
-            Emprestimo emprestimo = new Emprestimo(professor, livro, nomeUsuario, matricula, tituloItem, hoje, devolucao);
+            Emprestimo emprestimo = new Emprestimo(professor, item, nomeUsuario, matricula, tituloItem, hoje, devolucao);
             professor.setItensEmprestados(professor.getItensEmprestados()+1);
-            livro.setDisponibilidade("Emprestado");
+            item.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
-            System.out.println("Empréstimo do livro " + livro.getTitulo() +" realizado com sucesso para professor " + professor.getNome() + " de matricula " + professor.getMatricula());
+            System.out.println("Empréstimo do item " + item.getTitulo() +" realizado com sucesso para professor " + professor.getNome() + " de matricula " + professor.getMatricula());
         }
         else{
             System.out.println("Usuário de matricula " + professor.getMatricula() + " já atingiu o limite máximo de 5 itens");
@@ -100,119 +79,57 @@ public class GerenciadorEmprestimos {
     }
 
 
-    public void emprestarRevistaParaProfessor(Professor professor, Revista revista){
-        if(professor.getItensEmprestados() < Professor.MAX_ITENS_PROFESSOR ){
-            LocalDate hoje = LocalDate.now();
-            LocalDate devolucao = hoje.plusDays(Professor.PRAZO_OUTRAS_MIDIAS_PROFESSOR);
-            String tituloItem = revista.getTitulo();
-            String nomeUsuario = professor.getNome();
-            String matricula = professor.getMatricula();
-            Emprestimo emprestimo = new Emprestimo(professor, revista, nomeUsuario, matricula, tituloItem, hoje, devolucao);
-            professor.setItensEmprestados(professor.getItensEmprestados() +1);
-            revista.setDisponibilidade("Emprestado");
-            listaEmprestimos.add(emprestimo);
-            System.out.println("Empréstimo da revista " + revista.getTitulo() +" realizado com sucesso para professor " + professor.getNome() + " de matricula " + professor.getMatricula());
-        }
-        else {
-            System.out.println("Usuário de matricula " + professor.getMatricula() + " já atingiu o limite máximo de 5 itens");
-        }       
-    }
-
-   
-
-
-    public void emprestarLivroParaPosGraduado(PosGraduado posGraduado, Livro livro){
+    public void emprestarItemParaPosGraduado(PosGraduado posGraduado, ItemDoAcervo item){
         if(posGraduado.getItensEmprestados() < PosGraduado.MAX_ITENS_POS_GRADUADO ){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(PosGraduado.PRAZO_LIVROS_POS_GRADUADO);
-            String tituloItem = livro.getTitulo();
+            String tituloItem = item.getTitulo();
             String nomeUsuario = posGraduado.getNome();
             String matricula = posGraduado.getMatricula();
-            Emprestimo emprestimo = new Emprestimo(posGraduado, livro, nomeUsuario, matricula, tituloItem, hoje, devolucao);
+            Emprestimo emprestimo = new Emprestimo(posGraduado, item, nomeUsuario, matricula, tituloItem, hoje, devolucao);
             posGraduado.setItensEmprestados(posGraduado.getItensEmprestados()+1);
-            livro.setDisponibilidade("Emprestado");
+            item.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
-            System.out.println("Empréstimo do livro " + livro.getTitulo() +" realizado com sucesso para pós graduado " + posGraduado.getNome() + " de matricula " + posGraduado.getMatricula());
+            System.out.println("Empréstimo do item " + item.getTitulo() +" realizado com sucesso para pós graduado " + posGraduado.getNome() + " de matricula " + posGraduado.getMatricula());
         }
         else{
             System.out.println("Usuário de matricula " + posGraduado.getMatricula() + " já atingiu o limite máximo de 5 itens");
         }
     }
 
-    public void emprestarRevistaParaPosGraduado(PosGraduado posGraduado, Revista revista){
-        if(posGraduado.getItensEmprestados() < PosGraduado.MAX_ITENS_POS_GRADUADO ){
-            LocalDate hoje = LocalDate.now();
-            LocalDate devolucao = hoje.plusDays(PosGraduado.PRAZO_OUTRAS_MIDIAS_POS_GRADUADO);
-            String tituloItem = revista.getTitulo();
-            String nomeUsuario = posGraduado.getNome();
-            String matricula = posGraduado.getMatricula();
-            Emprestimo emprestimo = new Emprestimo(posGraduado, revista, nomeUsuario, matricula, tituloItem, hoje, devolucao);
-            posGraduado.setItensEmprestados(posGraduado.getItensEmprestados() +1);
-            revista.setDisponibilidade("Emprestado");
-            listaEmprestimos.add(emprestimo);
-            System.out.println("Empréstimo da revista " + revista.getTitulo() +" realizado com sucesso para pós graduado " + posGraduado.getNome() + " de matricula " + posGraduado.getMatricula());
-        }
-        else {
-            System.out.println("Usuário de matricula " + posGraduado.getMatricula() + "já atingiu o limite máximo de 5 itens");
-        }        
-    }
 
 
-
-
-
-    public void emprestarLivroParaFuncionario(FuncionarioAdministrativo funcionarioAdministrativo, Livro livro){
+    public void emprestarItemParaFuncionario(FuncionarioAdministrativo funcionarioAdministrativo, ItemDoAcervo item){
         if(funcionarioAdministrativo.getItensEmprestados() < FuncionarioAdministrativo.MAX_ITENS_FUNCIONARIO){
             LocalDate hoje = LocalDate.now();
             LocalDate devolucao = hoje.plusDays(FuncionarioAdministrativo.PRAZO_ITENS_FUNCIONARIO);
-            String tituloItem = livro.getTitulo();
+            String tituloItem = item.getTitulo();
             String nomeUsuario = funcionarioAdministrativo.getNome();
             String matricula = funcionarioAdministrativo.getMatricula();
-            Emprestimo emprestimo = new Emprestimo(funcionarioAdministrativo, livro, nomeUsuario, matricula, tituloItem, hoje, devolucao);
+            Emprestimo emprestimo = new Emprestimo(funcionarioAdministrativo, item, nomeUsuario, matricula, tituloItem, hoje, devolucao);
             funcionarioAdministrativo.setItensEmprestados(funcionarioAdministrativo.getItensEmprestados()+1);
-            livro.setDisponibilidade("Emprestado");
+            item.setDisponibilidade("Emprestado");
             listaEmprestimos.add(emprestimo);
-            System.out.println("Empréstimo do livro " + livro.getTitulo() +" realizado com sucesso para funcionário " + funcionarioAdministrativo.getNome() + " de matricula " + funcionarioAdministrativo.getMatricula());
+            System.out.println("Empréstimo do item " + item.getTitulo() +" realizado com sucesso para funcionário " + funcionarioAdministrativo.getNome() + " de matricula " + funcionarioAdministrativo.getMatricula());
         }
         else {
             System.out.println("Usuário de matricula " + funcionarioAdministrativo.getMatricula() + " já atingiu o limite máximo de 2 itens");
         }
     }
 
-    public void emprestarRevistaParaFuncionario(FuncionarioAdministrativo funcionarioAdministrativo, Revista revista){
-        if(funcionarioAdministrativo.getItensEmprestados() < FuncionarioAdministrativo.MAX_ITENS_FUNCIONARIO){
-            LocalDate hoje = LocalDate.now();
-            LocalDate devolucao = hoje.plusDays(FuncionarioAdministrativo.PRAZO_ITENS_FUNCIONARIO);
-            String tituloItem = revista.getTitulo();
-            String nomeUsuario = funcionarioAdministrativo.getNome();
-            String matricula = funcionarioAdministrativo.getMatricula();
-            Emprestimo emprestimo = new Emprestimo(funcionarioAdministrativo, revista, nomeUsuario, matricula, tituloItem, hoje, devolucao);
-            funcionarioAdministrativo.setItensEmprestados(funcionarioAdministrativo.getItensEmprestados() +1);
-            revista.setDisponibilidade("Emprestado");
-            listaEmprestimos.add(emprestimo);
-            System.out.println("Empréstimo da revista " + revista.getTitulo() +" realizado com sucesso para funcionário " + funcionarioAdministrativo.getNome() + " de matricula " + funcionarioAdministrativo.getMatricula());
-        }
-        else {
-            System.out.println("Usuário de matricula " + funcionarioAdministrativo.getMatricula() + "já atingiu o limite máximo de 2 itens");
-        }        
-    }
-
     
+
 
 
 
     public void registrarDevolução(String tituloItem){
         for(Emprestimo emprestimo : this.listaEmprestimos){
             if (emprestimo.getTituloItem().equals(tituloItem) && emprestimo.getStatusEmprestimo().equals("Ativo") ) {
-                Object item = emprestimo.getItem();
+                ItemDoAcervo item = emprestimo.getItem();
                 Object usuario = emprestimo.getUsuario();
                 long dias = emprestimo.calcularAtraso();
-                if (item instanceof Livro livro) {
-                       livro.setDisponibilidade("Disponivel");
-                       emprestimo.setStatusEmprestimo("Devolvido");
-                }else if (item instanceof Revista revista) {
-                        revista.setDisponibilidade("Disponivel");
-                        emprestimo.setStatusEmprestimo("Devolvido");}
+                item.setDisponibilidade("Disponivel");
+                emprestimo.setStatusEmprestimo("Devolvido");
                 if (usuario instanceof Aluno aluno) {
                     aluno.setItensEmprestados(aluno.getItensEmprestados() -1);
                     double multa = dias * Aluno.VALOR_MULTA;
@@ -259,6 +176,8 @@ public class GerenciadorEmprestimos {
             }
         }
     }
+
+
 
     public void pagarMulta(String tituloItem){
         for(Emprestimo emprestimo : this.listaEmprestimos){
