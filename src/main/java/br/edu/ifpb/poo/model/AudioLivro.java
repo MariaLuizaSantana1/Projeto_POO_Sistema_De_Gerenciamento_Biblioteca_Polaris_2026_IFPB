@@ -4,7 +4,7 @@ public class AudioLivro extends Livro{
     private String duracao;
 
 
-    public AudioLivro(String id, String titulo, String autor, String editora, int anoPublicacao, String generoLiterario, String duracao, String sinopse){
+    public AudioLivro(String id, String titulo, String autor, Editora editora, int anoPublicacao, String generoLiterario, String duracao, String sinopse){
         super(id, titulo, autor, editora, anoPublicacao, generoLiterario, sinopse);
         this.duracao = duracao;
     }

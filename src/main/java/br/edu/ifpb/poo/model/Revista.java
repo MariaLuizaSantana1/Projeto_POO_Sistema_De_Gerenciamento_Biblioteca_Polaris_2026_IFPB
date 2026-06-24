@@ -3,10 +3,10 @@ package br.edu.ifpb.poo.model;
 public class Revista extends ItemDoAcervo{
     private String issn;
     private int volume;
-    private String editora;
+    private Editora editora;
     private String dataPublicacao;
     
-    public Revista(String id, String titulo, String autor, int volume, String editora, String dataPublicacao){
+    public Revista(String id, String titulo, String autor, int volume, Editora editora, String dataPublicacao){
         super(id, titulo, autor);
         this.volume = volume;
         this.editora = editora;
@@ -27,10 +27,10 @@ public class Revista extends ItemDoAcervo{
         this.volume = volume;
     }
 
-    public String getEditora(){
+    public Editora getEditora(){
         return editora;
     }
-    public void setEditora(String editora) {
+    public void setEditora(Editora editora) {
         this.editora = editora;
     }
 

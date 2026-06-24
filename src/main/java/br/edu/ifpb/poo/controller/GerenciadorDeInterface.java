@@ -12,6 +12,8 @@ public class GerenciadorDeInterface {
     GerenciadorDeItens itens = new GerenciadorDeItens();
     GerenciadorEmprestimos emprestimos = new GerenciadorEmprestimos();
 
+    
+
     public static int getRespostaMenu() {
             return RESPOSTA_MENU;
         }
@@ -32,10 +34,10 @@ public class GerenciadorDeInterface {
 
     public void gerenciadorDeInterface(int resposta){
         switch (resposta) {
-            case 1 -> telaUi.gerenciarItensAcervo(sc, itens);
-            case 2 -> telaUi.gerenciarUsuarios(sc, usuarios);
-            case 3 -> telaUi.realizarEmprestimos(sc, usuarios, itens, emprestimos);
-            case 4 -> telaUi.realizarDevolucao(sc, emprestimos);
+            case 1 -> telaUi.gerenciarItensAcervo(itens);
+            case 2 -> telaUi.gerenciarUsuarios(usuarios);
+            case 3 -> telaUi.realizarEmprestimos(usuarios, itens, emprestimos);
+            case 4 -> telaUi.realizarDevolucao(emprestimos);
             case 5 -> telaUi.consultar(sc, usuarios, itens, emprestimos);
             case 0 -> System.out.println("Você saiu.");
             default -> System.out.println("Opção inválida");

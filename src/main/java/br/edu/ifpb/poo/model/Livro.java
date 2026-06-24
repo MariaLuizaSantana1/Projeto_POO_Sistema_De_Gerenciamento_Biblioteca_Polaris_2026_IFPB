@@ -2,13 +2,13 @@ package br.edu.ifpb.poo.model;
 
 public class Livro extends ItemDoAcervo{
     private String isbn;
-    private String editora;
+    private Editora editora;
     private int anoPublicacao;
     private String generoLiterario;
     private String sinopse;
   
 
-    public Livro(String id, String titulo, String autor,String editora, int anoPublicacao, String generoLiterario, String sinopse){
+    public Livro(String id, String titulo, String autor,Editora editora, int anoPublicacao, String generoLiterario, String sinopse){
         super(id, titulo, autor);
         this.editora = editora;
         this.anoPublicacao = anoPublicacao;
@@ -24,10 +24,10 @@ public class Livro extends ItemDoAcervo{
         this.isbn = isbn;
     }
 
-    public String getEditora(){
+    public Editora getEditora(){
         return editora;
     }
-    public void setEditora(String editora) {
+    public void setEditora(Editora editora) {
         this.editora = editora;
     }
 

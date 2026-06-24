@@ -22,10 +22,8 @@ import br.edu.ifpb.poo.model.Usuario;
 public class TelaPrincipalUI {
     private Console console;
     int resposta = 1;
-    GerenciadorDeUsuario usuarios = new GerenciadorDeUsuario();
-    GerenciadorDeItens itens = new GerenciadorDeItens();
-    GerenciadorEmprestimos emprestimos = new GerenciadorEmprestimos();
 
+    
 
     public int iniciarMenuPrincipal(){
         console.println("""
@@ -161,12 +159,112 @@ public class TelaPrincipalUI {
         resposta = Integer.parseInt(console.nextLine());
         return resposta;
     }
+
+
+
+
+
+
+    public void lerNovoLivro(GerenciadorDeItens itens){
+        System.out.println("\nQue tipo de livro você deseja cadastrar?\n[1]Livro Físico\n[2]Audio Livro\n Digite sua opção: ");
+                    int r = Integer.parseInt(console.nextLine());
+                    switch (r) {
+                        case 1:{
+                            System.out.println("\n----------------------Cadastro de Livro Físico---------------------------");
+                            System.out.println("\nDigite o isbn do livro: ");
+                            String isbn = console.nextLine();
+                            System.out.println("\nDigite o titulo do livro: ");
+                            String titulo = console.nextLine();
+                            System.out.println("\nDigite o nome do autor do livro: ");
+                            String autor = console.nextLine();
+                            System.out.println("\nDigite o ano de Publicação do livro: ");
+                            int anoPublicacao = Integer.parseInt(console.nextLine());
+                            System.out.println("\nDigite o nome da editora: ");
+                            String editora = console.nextLine();
+                            System.out.println("\nDigite o genero literário do livro: ");
+                            String generoLiterario = console.nextLine();
+                            System.out.println("\nDigite o numero de páginas do livro: ");
+                            int numeroPaginas = Integer.parseInt(console.nextLine());
+                            System.out.println("\nDigite a sinopse do livro: ");
+                            String sinopse = console.nextLine();
+            
+                            LivroFisico livros = new LivroFisico(isbn, titulo, autor, editora, anoPublicacao, generoLiterario, sinopse, numeroPaginas);
+                            itens.addLivro(livros);
+                            System.out.println("\n Livro Fisico Cadastrado com sucesso!\n");
+                        }
+                        case 2:{
+                            System.out.println("\n----------------------Cadastro de Audio Livro----------------------------");
+                            System.out.println("\nDigite o isbn do livro: ");
+                            String isbn = console.nextLine();
+                            System.out.println("\nDigite o titulo do livro: ");
+                            String titulo = console.nextLine();
+                            System.out.println("\nDigite o nome do autor do livro: ");
+                            String autor = console.nextLine();
+                            System.out.println("\nDigite o ano de Publicação do livro: ");
+                            int anoPublicacao = Integer.parseInt(console.nextLine());
+                            System.out.println("\nDigite o nome da editora: ");
+                            String editora = console.nextLine();
+                            System.out.println("\nDigite o genero literário do livro: ");
+                            String generoLiterario = console.nextLine();
+                            System.out.println("\nDigite a duração do audio livro(em minutos): ");
+                            String duracao = console.nextLine();
+                            System.out.println("\nDigite a sinopse do livro: ");
+                            String sinopse = console.nextLine();
+            
+                            AudioLivro livros = new AudioLivro(isbn, titulo, autor, editora, anoPublicacao, generoLiterario, duracao, sinopse);
+                            itens.addLivro(livros);
+                            System.out.println("\n Audio Livro Cadastrado com sucesso!\n");
+                        }
+                    }
+    }
+
+
+
+    public void lerNovaRevista(GerenciadorDeItens itens){
+        System.out.println("\nDigite o id da revista: ");
+                    String id = console.nextLine();
+                    System.out.println("\nDigite o nome da revista: ");
+                    String titulo = console.nextLine();
+                    System.out.println("\nDigite o nome do autor da revista: ");
+                    String autor = console.nextLine();
+                    System.out.println("\nDigite o volume do livro: ");
+                    int volume = Integer.parseInt(console.nextLine());
+                    System.out.println("\nDigite o nome da editora: ");
+                    String editora = console.nextLine();
+                    System.out.println("\nDigite a data de publicação da revista: ");
+                    String dataPublicacao = console.nextLine();
+
+                    Revista revistas = new Revista(id, titulo, autor, volume, editora, dataPublicacao);
+                    itens.addRevista(revistas);
+                    System.out.println("\n Revista Cadastrado com sucesso!\n");
+    }
+
+    public void lerNovoCd(GerenciadorDeItens itens){
+        System.out.println("\nDigite o id do Cd: ");
+                String id = console.nextLine();
+                System.out.println("\nDigite o nome do Cd: ");
+                String titulo = console.nextLine();
+                System.out.println("\nDigite o nome do artista do Cd: ");
+                String autor = console.nextLine();
+                System.out.println("\nQuantas faixas tem o Cd? ");
+                int numFaixas = Integer.parseInt(console.nextLine());
+                String[] faixas = new String[numFaixas];
+                System.out.println("\nDigite o nome das faixas do Cd: ");
+                for (int i = 0; i < numFaixas; i++) {
+                    String faixa = console.nextLine();
+                    faixas[i] = faixa;
+                }
+
+                Cd cds = new Cd(id, titulo, autor, faixas);
+                itens.addCd(cds);
+                System.out.println("\nCd Cadastrado com sucesso!\n");
+    }
     
 
 
 
 
-    public void gerenciarUsuarios(Scanner sc, GerenciadorDeUsuario usuarios) {
+    public void gerenciarUsuarios(GerenciadorDeUsuario usuarios) {
         int resp = 1;
         while (resp != 0) {
             resp = Integer.parseInt(console.nextLine());
@@ -227,103 +325,21 @@ public class TelaPrincipalUI {
     }
 
 
-    public void gerenciarItensAcervo(Scanner sc, GerenciadorDeItens itens) {
+    public void gerenciarItensAcervo(GerenciadorDeItens itens) {
         int resp = 1;
         while (resp != 0) {
             resp = Integer.parseInt(console.nextLine());
             switch (resp) {
                 case 1: {
-                    System.out.println("\nQue tipo de livro você deseja cadastrar?\n[1]Livro Físico\n[2]Audio Livro\n Digite sua opção: ");
-                    int r = Integer.parseInt(console.nextLine());
-                    switch (r) {
-                        case 1:{
-                            System.out.println("\n----------------------Cadastro de Livro Físico---------------------------");
-                            System.out.println("\nDigite o isbn do livro: ");
-                            String isbn = console.nextLine();
-                            System.out.println("\nDigite o titulo do livro: ");
-                            String titulo = console.nextLine();
-                            System.out.println("\nDigite o nome do autor do livro: ");
-                            String autor = console.nextLine();
-                            System.out.println("\nDigite o ano de Publicação do livro: ");
-                            int anoPublicacao = Integer.parseInt(console.nextLine());
-                            System.out.println("\nDigite o nome da editora: ");
-                            String editora = console.nextLine();
-                            System.out.println("\nDigite o genero literário do livro: ");
-                            String generoLiterario = console.nextLine();
-                            System.out.println("\nDigite o numero de páginas do livro: ");
-                            int numeroPaginas = Integer.parseInt(console.nextLine());
-                            System.out.println("\nDigite a sinopse do livro: ");
-                            String sinopse = console.nextLine();
-            
-                            LivroFisico livros = new LivroFisico(isbn, titulo, autor, editora, anoPublicacao, generoLiterario, sinopse, numeroPaginas);
-                            itens.addLivro(livros);
-                            System.out.println("\n Livro Fisico Cadastrado com sucesso!\n");
-                        }
-                        case 2:{
-                            System.out.println("\n----------------------Cadastro de Audio Livro----------------------------");
-                            System.out.println("\nDigite o isbn do livro: ");
-                            String isbn = console.nextLine();
-                            System.out.println("\nDigite o titulo do livro: ");
-                            String titulo = console.nextLine();
-                            System.out.println("\nDigite o nome do autor do livro: ");
-                            String autor = console.nextLine();
-                            System.out.println("\nDigite o ano de Publicação do livro: ");
-                            int anoPublicacao = Integer.parseInt(sc.nextLine());
-                            System.out.println("\nDigite o nome da editora: ");
-                            String editora = console.nextLine();
-                            System.out.println("\nDigite o genero literário do livro: ");
-                            String generoLiterario = console.nextLine();
-                            System.out.println("\nDigite a duração do audio livro(em minutos): ");
-                            String duracao = console.nextLine();
-                            System.out.println("\nDigite a sinopse do livro: ");
-                            String sinopse = console.nextLine();
-            
-                            AudioLivro livros = new AudioLivro(isbn, titulo, autor, editora, anoPublicacao, generoLiterario, duracao, sinopse);
-                            itens.addLivro(livros);
-                            System.out.println("\n Audio Livro Cadastrado com sucesso!\n");
-                        }
-                    }
+                    lerNovoLivro(itens);
                 }
                 break;
                 case 2: {
-                    System.out.println("\nDigite o id da revista: ");
-                    String id = console.nextLine();
-                    System.out.println("\nDigite o nome da revista: ");
-                    String titulo = console.nextLine();
-                    System.out.println("\nDigite o nome do autor da revista: ");
-                    String autor = console.nextLine();
-                    System.out.println("\nDigite o volume do livro: ");
-                    int volume = Integer.parseInt(console.nextLine());
-                    System.out.println("\nDigite o nome da editora: ");
-                    String editora = console.nextLine();
-                    System.out.println("\nDigite a data de publicação da revista: ");
-                    String dataPublicacao = console.nextLine();
-
-                    Revista revistas = new Revista(id, titulo, autor, volume, editora, dataPublicacao);
-                    itens.addRevista(revistas);
-                    System.out.println("\n Revista Cadastrado com sucesso!\n");
+                    lerNovaRevista(itens);
                 }
                 break;
                 case 3: {
-                    System.out.println("\nDigite o id do Cd: ");
-                    String id = console.nextLine();
-                    System.out.println("\nDigite o nome do Cd: ");
-                    String titulo = console.nextLine();
-                    System.out.println("\nDigite o nome do artista do Cd: ");
-                    String autor = console.nextLine();
-                    System.out.println("\nQuantas faixas tem o Cd? ");
-                    int numFaixas = Integer.parseInt(console.nextLine());
-                    String[] faixas = new String[numFaixas];
-                    System.out.println("\nDigite o nome das faixas do Cd: ");
-                    for (int i = 0; i < numFaixas; i++) {
-                        String faixa = console.nextLine();
-                        faixas[i] = faixa;
-
-                    }
-
-                    Cd cds = new Cd(id, titulo, autor, faixas);
-                    itens.addCd(cds);
-                    System.out.println("\nCd Cadastrado com sucesso!\n");
+                    lerNovoCd(itens);
                 }
                 break;
                 case 4: {
@@ -380,13 +396,13 @@ public class TelaPrincipalUI {
                     itens.listarDvds();
                     break;
                 case 3:
-                    consultarEmprestimosOpcoes(sc, emprestimos);
+                    consultarEmprestimosOpcoes(emprestimos);
                     break;
                 case 4:
-                    buscarUsuario(sc, usuarios);
+                    buscarUsuario(usuarios);
                     break;
                 case 5:
-                    buscarItem(sc, itens);
+                    buscarItem(itens);
                     break;
                 case 0:
                     break;
@@ -398,7 +414,7 @@ public class TelaPrincipalUI {
 
 
 
-    public void consultarEmprestimosOpcoes(Scanner sc, GerenciadorEmprestimos emprestimos) {
+    public void consultarEmprestimosOpcoes( GerenciadorEmprestimos emprestimos) {
         int respcons = 1;
         while (respcons != 0) {
             
@@ -422,7 +438,7 @@ public class TelaPrincipalUI {
     }
 
 
-    public void buscarUsuario(Scanner sc, GerenciadorDeUsuario usuarios) {
+    public void buscarUsuario(GerenciadorDeUsuario usuarios) {
         int respcons = 1;
         while (respcons != 0) {
             respcons = Integer.parseInt(console.nextLine());
@@ -475,7 +491,7 @@ public class TelaPrincipalUI {
         }
     }
 
-    public void buscarItem(Scanner sc, GerenciadorDeItens itens) {
+    public void buscarItem(GerenciadorDeItens itens) {
         int respco = 1;
         while (respco != 0) {
             
@@ -529,7 +545,7 @@ public class TelaPrincipalUI {
         }
     }
 
-    public void realizarEmprestimos(Scanner sc, GerenciadorDeUsuario usuarios, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos) {
+    public void realizarEmprestimos(GerenciadorDeUsuario usuarios, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos) {
         int resp = 1;
         while (resp != 0) {
             
@@ -545,7 +561,7 @@ public class TelaPrincipalUI {
                     }else if (usuarios.validarUsuarioParaEmpréstimo(matriculaAluno) == false) {
                         System.out.println("\nAluno não pode fazer empréstimo pois está inativo\n");
                     } else {
-                        EmprestimosEscolherItem(sc, itens, emprestimos, usuarioEncontrado);
+                        EmprestimosEscolherItem(itens, emprestimos, usuarioEncontrado);
                     } break;
                 }
                 case 2:{
@@ -558,7 +574,7 @@ public class TelaPrincipalUI {
                     }else if (usuarios.validarUsuarioParaEmpréstimo(matricula) == false) {
                         System.out.println("\nProfessor não pode fazer empréstimo pois está inativo\n");
                     } else {
-                        EmprestimosEscolherItem(sc, itens, emprestimos, usuarioEncontrado);
+                        EmprestimosEscolherItem(itens, emprestimos, usuarioEncontrado);
                     } break;
                 }
                 case 3:{
@@ -571,7 +587,7 @@ public class TelaPrincipalUI {
                     }else if (usuarios.validarUsuarioParaEmpréstimo(matricula) == false) {
                         System.out.println("\nPós Graduado não pode fazer empréstimo pois está inativo\n");
                     } else {
-                        EmprestimosEscolherItem(sc, itens, emprestimos, usuarioEncontrado);
+                        EmprestimosEscolherItem(itens, emprestimos, usuarioEncontrado);
                     } break;
                 }
                 case 4:{
@@ -584,7 +600,7 @@ public class TelaPrincipalUI {
                     }else if (usuarios.validarUsuarioParaEmpréstimo(matricula) == false) {
                         System.out.println("\nFuncionario não pode fazer empréstimo pois está inativo\n");
                     } else {
-                        EmprestimosEscolherItem(sc, itens, emprestimos, usuarioEncontrado);
+                        EmprestimosEscolherItem(itens, emprestimos, usuarioEncontrado);
                     } break;
                 }
                 case 0:
@@ -599,11 +615,11 @@ public class TelaPrincipalUI {
     
 
 
-    public void EmprestimosEscolherItem(Scanner sc, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos, Usuario usuarioEncontrado) {
+    public void EmprestimosEscolherItem(GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos, Usuario usuarioEncontrado) {
         int resp = 1;
         while (resp != 0) {
             
-            resp = Integer.parseInt(sc.nextLine());
+            resp = Integer.parseInt(console.nextLine());
             switch (resp) {
                 case 1: {
                     System.out.println("Digite o titulo do livro que deseja emprestar");
@@ -639,7 +655,7 @@ public class TelaPrincipalUI {
 
 
 
-    public void realizarDevolucao(Scanner sc, GerenciadorEmprestimos emprestimos) {
+    public void realizarDevolucao(GerenciadorEmprestimos emprestimos) {
         System.out.println("Digite o titulo do item que deseja devolver: ");
             String tituloDevolucao = console.nextLine();
             emprestimos.registrarDevolução(tituloDevolucao);
