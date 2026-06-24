@@ -13,6 +13,7 @@ import br.edu.ifpb.poo.model.FuncionarioAdministrativo;
 import br.edu.ifpb.poo.model.LivroFisico;
 import br.edu.ifpb.poo.model.Professor;
 import br.edu.ifpb.poo.model.Revista;
+import br.edu.ifpb.poo.ui.TelaPrincipalUI;
 
 
 public class Main {
@@ -73,9 +74,9 @@ public class Main {
         livroDefault3.setDisponibilidade("Emprestado");
         emprestimos.addEmprestimo(emprestimoDefault);
 
-        GerenciadorDeInterface controller = new GerenciadorDeInterface();
-
-        controller.gerenciadorDeInterface();
+        TelaPrincipalUI ui = new TelaPrincipalUI();
+        GerenciadorDeInterface controlador = new GerenciadorDeInterface(ui);
+        controlador.execute();
     
     }
     
