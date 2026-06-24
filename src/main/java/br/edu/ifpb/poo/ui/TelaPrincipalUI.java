@@ -1,6 +1,6 @@
 package br.edu.ifpb.poo.ui;
 
-import java.util.Scanner;
+
 
 import br.edu.ifpb.poo.controller.GerenciadorDeItens;
 import br.edu.ifpb.poo.controller.GerenciadorDeUsuario;
@@ -23,6 +23,11 @@ import br.edu.ifpb.poo.model.Usuario;
 public class TelaPrincipalUI {
     private Console console;
     int resposta = 1;
+
+    public TelaPrincipalUI(){
+        this.console = new Console();
+    }
+    
 
     
 
@@ -396,7 +401,7 @@ public class TelaPrincipalUI {
 
 
 
-    public void consultar(Scanner sc, GerenciadorDeUsuario usuarios, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos) {
+    public void consultar(GerenciadorDeUsuario usuarios, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos) {
 
         int respconsult = 1;
         while (respconsult != 0) {
