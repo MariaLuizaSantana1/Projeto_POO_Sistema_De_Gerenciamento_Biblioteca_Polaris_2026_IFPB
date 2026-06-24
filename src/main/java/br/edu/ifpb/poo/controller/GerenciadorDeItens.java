@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import br.edu.ifpb.poo.model.Cd;
 import br.edu.ifpb.poo.model.Dvd;
+import br.edu.ifpb.poo.model.Editora;
 import br.edu.ifpb.poo.model.ItemDoAcervo;
 import br.edu.ifpb.poo.model.Livro;
 import br.edu.ifpb.poo.model.Revista;
@@ -14,6 +15,7 @@ public class GerenciadorDeItens {
     private ArrayList<Revista> listaRevistas;
     private ArrayList<Cd> listaCds;
     private ArrayList<Dvd> listaDvds;
+    private ArrayList<Editora> listaEditoras;
 
     public GerenciadorDeItens() {
         this.listaItens = new ArrayList<>();
@@ -21,6 +23,7 @@ public class GerenciadorDeItens {
         this.listaRevistas = new ArrayList<>();
         this.listaCds = new ArrayList<>();
         this.listaDvds = new ArrayList<>();
+        this.listaRevistas = new ArrayList<>();
     }
 
     public void addItem(ItemDoAcervo item){
@@ -74,6 +77,18 @@ public class GerenciadorDeItens {
         }
     }
 
+
+    public void addEditora(Editora editora){
+        this.listaEditoras.add(editora);
+    }
+    public void listarEditoras(){
+        for(Editora editora : this.listaEditoras){
+            System.out.println("-----------------");
+            System.out.println(editora.toString());
+        }
+    }
+
+
     public Livro buscarLivro(String titulo){
         for (Livro livros : listaLivros) {
             if (livros.getTitulo().equals(titulo)){
@@ -106,6 +121,14 @@ public class GerenciadorDeItens {
                 return dvd;
             }            
         }return null;
+    }
+
+    public Editora buscarEditora(String nome){
+        for (Editora editoras : listaEditoras) {
+            if (editoras.getNome().equals(nome)){
+                return editoras;
+            }           
+        } return null;
     }
 
     public Livro validarLivroParaEmpréstimo(String titulo){
