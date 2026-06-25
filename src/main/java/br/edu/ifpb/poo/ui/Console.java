@@ -36,5 +36,10 @@ public class Console {
         System.out.print(Cores.CLEAR_CURSOR);
     }
 
+    public void pause() {
+        this.nextLine();
+    }
+
+    
 
 }

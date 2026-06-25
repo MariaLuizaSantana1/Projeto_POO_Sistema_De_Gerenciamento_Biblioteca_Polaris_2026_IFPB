@@ -53,7 +53,7 @@ public class TelaPrincipalUI {
                 Qual tipo de usuário você gostaria de adicionar? 
                 [1] Aluno
                 [2] Professor
-                [3] Pos Graduado
+                [3] Pós-Graduado
                 [4] Funcionário Administrativo
                 [0] Voltar
             """);
@@ -114,7 +114,7 @@ public class TelaPrincipalUI {
                Que usuário você gostaria de buscar? 
                [1] Pesquisar Aluno
                [2] Pesquisar Professor
-               [3] Pesquisar Pós Graduado
+               [3] Pesquisar Pós-Graduado
                [4] Pesquisar Funcionário Administrativo
                [0] Voltar
             """);
@@ -124,7 +124,7 @@ public class TelaPrincipalUI {
 
 
 
-    public int iniciarMenuBuscarItem(){
+    public void iniciarMenuBuscarItem(){
         console.println("""
 
                Que item do acervo você gostaria de buscar? 
@@ -134,23 +134,20 @@ public class TelaPrincipalUI {
                [4] Pesquisar Dvd
                [0] Voltar
             """);
-        resposta = Integer.parseInt(console.nextLine());
-        return resposta;
     }
 
-    public int iniciarMenuRealizarEmprestimo(){
+    public void iniciarMenuRealizarEmprestimo(){
         console.println("""
             ---------------------Empréstimo de item---------------------------
 
                 Para qual tipo de usuário você deseja realizar um empréstimo? 
                 [1] Aluno
                 [2] Professor
-                [3] Pós Graduado
+                [3] Pós-Graduado
                 [4] Funcionário Administrativo
                 [0] Voltar
             """);
-        resposta = Integer.parseInt(console.nextLine());
-        return resposta;
+        
     }
 
     public int iniciarMenuEscolherItemEmprestimo(){
@@ -339,14 +336,14 @@ public class TelaPrincipalUI {
                 }
                 break;
                 case 3: {
-                    System.out.println("\nDigite o nome do pós graduado: ");
+                    System.out.println("\nDigite o nome do pós-graduado: ");
                     String nome = console.nextLine();
-                    System.out.println("\nDigite a matricula do pós graduado: ");
+                    System.out.println("\nDigite a matricula do pós-graduado: ");
                     String matricula = console.nextLine();
 
                     PosGraduado posGraduados = new PosGraduado(nome, matricula);
                     usuarios.addPosGraduado(posGraduados);
-                    System.out.println("\n pós graduado Cadastrado com sucesso!\n");
+                    System.out.println("\n pós-graduado Cadastrado com sucesso!\n");
                 }
                 break;
                 case 4: {
@@ -412,7 +409,7 @@ public class TelaPrincipalUI {
                     usuarios.listarAlunos();
                     System.out.println("\nProfessores cadastrados: ");
                     usuarios.listarProfessores();
-                    System.out.println("\nPos Graduados cadastrados: ");
+                    System.out.println("\nPós-Graduados cadastrados: ");
                     usuarios.listarPosGraduados();
                     System.out.println("\nFuncionário Administrativos cadastrados: ");
                     usuarios.listarFuncionariosAdministrativos();
@@ -449,7 +446,6 @@ public class TelaPrincipalUI {
     public void consultarEmprestimosOpcoes( GerenciadorEmprestimos emprestimos) {
         int respcons = 1;
         while (respcons != 0) {
-            
             respcons = Integer.parseInt(console.nextLine());
             switch (respcons) {
                 case 1:
@@ -496,7 +492,7 @@ public class TelaPrincipalUI {
                     }
                     break;
                 case 3:
-                    System.out.println("\nDigite a matricula do Pós Graduado que deseja buscar: ");
+                    System.out.println("\nDigite a matricula do Pós-Graduado que deseja buscar: ");
                     String matriculaPos = console.nextLine();
                     Usuario posGraduadoEncontrado = usuarios.buscarUsuario(matriculaPos);
                     if (posGraduadoEncontrado == null) {
@@ -580,7 +576,6 @@ public class TelaPrincipalUI {
     public void realizarEmprestimos(GerenciadorDeUsuario usuarios, GerenciadorDeItens itens, GerenciadorEmprestimos emprestimos) {
         int resp = 1;
         while (resp != 0) {
-            
             resp = Integer.parseInt(console.nextLine());
             switch (resp) {
                 case 1: {
@@ -611,13 +606,13 @@ public class TelaPrincipalUI {
                 }
                 case 3:{
                     System.out.println("---------------------Empréstimo de item---------------------------");
-                    System.out.println("Digite a Matricula do Pós Graduado que deseja emprestar");
+                    System.out.println("Digite a Matricula do Pós-Graduado que deseja emprestar");
                     String matricula = console.nextLine();
                     Usuario usuarioEncontrado = usuarios.buscarUsuario(matricula);
                     if (usuarioEncontrado == null) {
-                        System.out.println("\nPós Graduado não encontrado\n");
+                        System.out.println("\nPós-Graduado não encontrado\n");
                     }else if (usuarios.validarUsuarioParaEmpréstimo(matricula) == false) {
-                        System.out.println("\nPós Graduado não pode fazer empréstimo pois está inativo\n");
+                        System.out.println("\nPós-Graduado não pode fazer empréstimo pois está inativo\n");
                     } else {
                         EmprestimosEscolherItem(itens, emprestimos, usuarioEncontrado);
                     } break;
@@ -717,8 +712,21 @@ public class TelaPrincipalUI {
     }
 
 
+    public void limpeTela() {
+        this.console.clrscr();
+    }
 
-    
+    public void pause() {
+        console.pause();
+    }
+
+    public void exibaCursor() {
+        console.showCursor();
+    }
+
+    public void oculteCursor() {
+        console.clearCursor();
+    }
 
     
 }
