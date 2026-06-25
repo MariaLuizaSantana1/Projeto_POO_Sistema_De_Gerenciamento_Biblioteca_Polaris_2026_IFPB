@@ -6,6 +6,14 @@ public class JogoTabuleiro {
     private String quantidade;
     private String preco;
 
+
+    public JogoTabuleiro(String nome, String tipo, String quantidade, String preco){
+        this.nome = nome;
+        this.tipo = tipo;
+        this.quantidade = quantidade;
+        this.preco = preco;
+    }
+
     public String getNome() {
         return nome;
     }
