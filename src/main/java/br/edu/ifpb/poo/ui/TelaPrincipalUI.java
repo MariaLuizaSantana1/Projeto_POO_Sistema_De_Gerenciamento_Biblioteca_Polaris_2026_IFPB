@@ -97,22 +97,21 @@ public class TelaPrincipalUI {
 
 
 
-    public int iniciarMenuOpçõesEmprestimos(){
+    public void iniciarMenuOpçõesEmprestimos(){
         console.println("""
 
                Como você gostaria de listar os empréstimos? 
+
                [1] Listar todos os empréstimos
                [2] Listar por Item
                [0] Voltar
 
             Digite a sua opção: """);
-        resposta = Integer.parseInt(console.nextLine());
-        return resposta;
     }
 
 
 
-    public int iniciarMenuBuscarUsuario(){
+    public void iniciarMenuBuscarUsuario(){
         console.println("""
 
                Que usuário você gostaria de buscar? 
@@ -123,8 +122,6 @@ public class TelaPrincipalUI {
                [0] Voltar
 
             Digite a sua opção: """);
-        resposta = Integer.parseInt(console.nextLine());
-        return resposta;
     }
 
 
@@ -156,7 +153,7 @@ public class TelaPrincipalUI {
             Digite a sua opção: """);
     }
 
-    public int iniciarMenuEscolherItemEmprestimo(){
+    public void iniciarMenuEscolherItemEmprestimo(){
         console.println("""
 
                 Qual item você deseja pegar emprestado 
@@ -166,8 +163,6 @@ public class TelaPrincipalUI {
                 [0] Voltar
 
             Digite a sua opção: """);
-        resposta = Integer.parseInt(console.nextLine());
-        return resposta;
     }
 
 
@@ -178,6 +173,7 @@ public class TelaPrincipalUI {
     public void lerNovoLivro(GerenciadorDeItens itens){
         System.out.println("""
             Que tipo de livro você deseja cadastrar?
+            
             [1]Livro Físico
             [2]Audio Livro
             
