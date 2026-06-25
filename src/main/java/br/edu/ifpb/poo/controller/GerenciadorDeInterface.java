@@ -8,6 +8,7 @@ import br.edu.ifpb.poo.model.Dvd;
 import br.edu.ifpb.poo.model.Editora;
 import br.edu.ifpb.poo.model.Emprestimo;
 import br.edu.ifpb.poo.model.FuncionarioAdministrativo;
+import br.edu.ifpb.poo.model.JogoTabuleiro;
 import br.edu.ifpb.poo.model.LivroFisico;
 import br.edu.ifpb.poo.model.Professor;
 import br.edu.ifpb.poo.model.Revista;
@@ -155,6 +156,9 @@ public class GerenciadorDeInterface {
         usuarios.addProfessor(professorDefault);
         FuncionarioAdministrativo funcionarioDefault = new FuncionarioAdministrativo("Maria Janette Jonnes", "2024137001");
         usuarios.addFuncionarioAdministrativo(funcionarioDefault);
+
+        JogoTabuleiro jogoDefault = new JogoTabuleiro("Xadrez", "Xadrez", 2, "R$60,00");
+        itens.addJogoTabuleiro(jogoDefault);
 
         Emprestimo emprestimoDefault = new Emprestimo(alunoDefault, livroDefault3, "Anna Silva", "1984", LocalDate.of(2026,04,21), LocalDate.of(2026,04,28));
         alunoDefault.setItensEmprestados(1);
