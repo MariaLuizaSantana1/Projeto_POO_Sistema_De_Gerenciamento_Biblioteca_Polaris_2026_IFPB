@@ -145,6 +145,14 @@ public class GerenciadorDeItens {
         } return null;
     }
 
+    public JogoTabuleiro buscarJogo(String nome){
+        for (JogoTabuleiro jogos : listaJogos) {
+            if (jogos.getNome().equals(nome)){
+                return jogos;
+            }           
+        } return null;
+    }
+
     public Livro validarLivroParaEmpréstimo(String titulo){
         for (Livro livro : listaLivros) {
             if (livro.getTitulo().equals(titulo) && livro.getDisponibilidade().equals("Disponivel")){

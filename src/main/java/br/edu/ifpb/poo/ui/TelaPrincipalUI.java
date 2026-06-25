@@ -4,6 +4,7 @@ package br.edu.ifpb.poo.ui;
 
 import br.edu.ifpb.poo.controller.GerenciadorDeItens;
 import br.edu.ifpb.poo.controller.GerenciadorDeUsuario;
+import br.edu.ifpb.poo.controller.GerenciadorDeVenda;
 import br.edu.ifpb.poo.controller.GerenciadorEmprestimos;
 import br.edu.ifpb.poo.model.Aluno;
 import br.edu.ifpb.poo.model.AudioLivro;
@@ -11,6 +12,7 @@ import br.edu.ifpb.poo.model.Cd;
 import br.edu.ifpb.poo.model.Dvd;
 import br.edu.ifpb.poo.model.Editora;
 import br.edu.ifpb.poo.model.FuncionarioAdministrativo;
+import br.edu.ifpb.poo.model.JogoTabuleiro;
 import br.edu.ifpb.poo.model.Livro;
 import br.edu.ifpb.poo.model.LivroFisico;
 import br.edu.ifpb.poo.model.PosGraduado;
@@ -42,6 +44,7 @@ public class TelaPrincipalUI {
                 [3] Emprestimos
                 [4] Devoluções
                 [5] Consultar
+                [6] Comprar Jogo de Tabuleiro
                 [0] Sair
              """);
         resposta = Integer.parseInt(console.nextLine());
@@ -672,6 +675,11 @@ public class TelaPrincipalUI {
                 case 3:{
                     System.out.println("Digite o titulo do Jogo que deseja emprestar");
                     String tituloJogo = console.nextLine();
+                    JogoTabuleiro jogoEncontrado = itens.buscarJogo(tituloJogo);
+                    if (itens.validarRevistaParaEmpréstimo(tituloJogo) != null) {
+    
+                        break;
+                    } break;
                 }
                 case 0:
                     break;
@@ -712,6 +720,83 @@ public class TelaPrincipalUI {
                 System.out.println("Opção inválida");
         }
     }
+
+
+    public void realizarVenda(GerenciadorDeUsuario usuarios, GerenciadorDeItens itens, GerenciadorDeVenda venda) {
+        int resp = 1;
+        while (resp != 0) {
+            resp = Integer.parseInt(console.nextLine());
+            switch (resp) {
+                case 1: {
+                    System.out.println("---------------------Venda de Jogo de Tabuleiro---------------------------");
+                    System.out.println("Digite a Matricula do Aluno que deseja vender jogo ");
+                    String matriculaAluno = console.nextLine();
+                    Usuario usuarioEncontrado = usuarios.buscarUsuario(matriculaAluno);
+                    if (usuarioEncontrado == null) {
+                        System.out.println("\nAluno não encontrado\n");
+                    }else if (usuarios.validarUsuarioParaCompra(matriculaAluno) == false) {
+                        System.out.println("\nAluno não pode fazer compra pois está inativo\n");
+                    } else {
+                        VendaJogo(itens, venda, usuarioEncontrado);
+                    } break;
+                }
+                case 2:{
+                    System.out.println("---------------------Venda de Jogo de Tabuleiro---------------------------");
+                    System.out.println("Digite a Matricula do Professor que deseja vender jogo ");
+                    String matricula = console.nextLine();
+                    Usuario usuarioEncontrado = usuarios.buscarUsuario(matricula);
+                    if (usuarioEncontrado == null) {
+                        System.out.println("\nProfessor não encontrado\n");
+                    }else if (usuarios.validarUsuarioParaCompra(matricula) == false) {
+                        System.out.println("\nProfessor não pode fazer compra pois está inativo\n");
+                    } else {
+                        VendaJogo(itens, venda, usuarioEncontrado);
+                    } break;
+                }
+                case 3:{
+                    System.out.println("---------------------Venda de Jogo de Tabuleiro---------------------------");
+                    System.out.println("Digite a Matricula do Pós-Graduado que deseja vender jogo ");
+                    String matricula = console.nextLine();
+                    Usuario usuarioEncontrado = usuarios.buscarUsuario(matricula);
+                    if (usuarioEncontrado == null) {
+                        System.out.println("\nPós-Graduado não encontrado\n");
+                    }else if (usuarios.validarUsuarioParaCompra(matricula) == false) {
+                        System.out.println("\nPós-Graduado não pode fazer compra pois está inativo\n");
+                    } else {
+                        VendaJogo(itens, venda, usuarioEncontrado);
+                    } break;
+                }
+                case 4:{
+                    System.out.println("---------------------Venda de Jogo de Tabuleiro---------------------------");
+                    System.out.println("Digite a Matricula do Funcionário que deseja vender jogo ");
+                    String matricula = console.nextLine();
+                    Usuario usuarioEncontrado = usuarios.buscarUsuario(matricula);
+                    if (usuarioEncontrado == null) {
+                        System.out.println("\nFuncionario não encontrado\n");
+                    }else if (usuarios.validarUsuarioParaCompra(matricula) == false) {
+                        System.out.println("\nFuncionario não pode fazer compra pois está inativo\n");
+                    } else {
+                        VendaJogo(itens, venda, usuarioEncontrado);
+                    } break;
+                }
+                case 0:
+                    break;
+                default:
+                    System.out.println("Opção inválida");
+            }
+        }
+
+    }
+
+    public void VendaJogo(GerenciadorDeItens itens, GerenciadorDeVenda venda, Usuario usuarioEncontrado) {
+        System.out.println("Digite o nome do jogo que deseja vender ");
+        String nomeJogo = console.nextLine();
+        JogoTabuleiro jogoEncontrado = itens.buscarJogo(nomeJogo);
+        if (itens.validarJogoTabuleiroParaCompra(nomeJogo) != null) {
+            venda.venderJogoParaUsuario(usuarioEncontrado, jogoEncontrado);
+        }  
+     }
+
 
 
     public void limpeTela() {

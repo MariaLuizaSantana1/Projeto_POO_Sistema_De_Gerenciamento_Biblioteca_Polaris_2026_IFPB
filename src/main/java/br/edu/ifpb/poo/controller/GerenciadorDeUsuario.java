@@ -83,6 +83,14 @@ public class GerenciadorDeUsuario {
         }return false;
     }
 
+    public boolean validarUsuarioParaCompra(String matricula){
+        for (Usuario usuario : listaUsuarios) {
+            if (usuario.getMatricula().equals(matricula) && usuario.getAtivo().equals("ativo")){
+                return true;
+            } 
+        }return false;
+    }
+
     
     
 }

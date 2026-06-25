@@ -118,9 +118,6 @@ public class GerenciadorEmprestimos {
         }
     }
 
-    
-
-
 
 
     public void registrarDevolução(String tituloItem){

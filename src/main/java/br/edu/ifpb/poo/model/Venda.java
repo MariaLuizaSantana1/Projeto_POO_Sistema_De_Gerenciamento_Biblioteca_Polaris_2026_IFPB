@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Venda {
     private Usuario usuario;
-    private ItemDoAcervo item;
+    private JogoTabuleiro jogoTabuleiro;
     private String nomeUsuario;
     private String matriculaUsuario;
     private String nomeJogo;
@@ -14,18 +14,19 @@ public class Venda {
     private String preco;
 
 
-    public Venda(Usuario usuario, ItemDoAcervo item, String nomeUsuario, String nomeJogo, LocalDate dataVenda, String preco){
+    public Venda(Usuario usuario, JogoTabuleiro jogoTabuleiro, String nomeUsuario, String nomeJogo, LocalDate dataVenda, String preco){
         this.usuario = usuario;
-        this.item = item;
+        this.jogoTabuleiro = jogoTabuleiro;
         this.nomeUsuario = nomeUsuario;
         this.nomeJogo = nomeJogo;
         this.dataVenda = dataVenda;
         this.preco = preco;
         
     }
-    public Venda(Usuario usuario, ItemDoAcervo item, String nomeUsuario, String matriculaUsuario, String nomeJogo, LocalDate dataVenda, String preco){
+
+    public Venda(Usuario usuario, JogoTabuleiro jogoTabuleiro, String nomeUsuario, String matriculaUsuario, String nomeJogo, LocalDate dataVenda, String preco){
         this.usuario = usuario;
-        this.item = item;
+        this.jogoTabuleiro = jogoTabuleiro;
         this.nomeUsuario = nomeUsuario;
         this.matriculaUsuario = matriculaUsuario;
         this.nomeJogo = nomeJogo;
@@ -42,11 +43,11 @@ public class Venda {
         return usuario;
     }
 
-    public void setItem(ItemDoAcervo item) {
-        this.item = item;
+    public void setItem(JogoTabuleiro jogoTabuleiro) {
+        this.jogoTabuleiro = jogoTabuleiro;
     }
-    public ItemDoAcervo getItem() {
-        return item;
+    public JogoTabuleiro getItem() {
+        return jogoTabuleiro;
     }
 
     public void setNomeUsuario(String nomeUsuario) {
