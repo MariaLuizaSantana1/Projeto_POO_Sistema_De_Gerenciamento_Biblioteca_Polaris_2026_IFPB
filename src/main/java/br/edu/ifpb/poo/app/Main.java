@@ -7,7 +7,6 @@ import br.edu.ifpb.poo.ui.TelaPrincipalUI;
 public class Main {
 
     public static void main(String[] args) {
-        
         TelaPrincipalUI ui = new TelaPrincipalUI();
         GerenciadorDeInterface controlador = new GerenciadorDeInterface(ui);
         controlador.inicializadorDeDadosPadrao();

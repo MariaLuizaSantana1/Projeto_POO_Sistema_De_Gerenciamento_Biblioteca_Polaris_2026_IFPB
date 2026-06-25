@@ -3,11 +3,11 @@ package br.edu.ifpb.poo.model;
 public class JogoTabuleiro {
     private String nome;
     private String tipo;
-    private String quantidade;
+    private int quantidade;
     private String preco;
 
 
-    public JogoTabuleiro(String nome, String tipo, String quantidade, String preco){
+    public JogoTabuleiro(String nome, String tipo, int quantidade, String preco){
         this.nome = nome;
         this.tipo = tipo;
         this.quantidade = quantidade;
@@ -30,11 +30,11 @@ public class JogoTabuleiro {
         this.tipo = tipo;
     }
 
-    public String getQuantidade() {
+    public int getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(String quantidade) {
+    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
 

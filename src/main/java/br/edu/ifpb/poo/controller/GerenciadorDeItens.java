@@ -201,5 +201,33 @@ public class GerenciadorDeItens {
         return null;
     }
 
+    public JogoTabuleiro validarJogoTabuleiroParaEmpréstimo(String titulo){
+        for (JogoTabuleiro jogoTabuleiro : listaJogos) {
+            if (jogoTabuleiro.getNome().equals(titulo) && jogoTabuleiro.getQuantidade() >=1){
+                return jogoTabuleiro;
+            } 
+            else if (jogoTabuleiro.getNome().equals(titulo) && jogoTabuleiro.getQuantidade() < 1) {
+                System.out.println("Jogo de Tabuleiro não disponivel");
+                return null;
+            }
+        }
+        System.out.println("Jogo de Tabuleiro não encontrado");
+        return null;
+    }
+
+    public JogoTabuleiro validarJogoTabuleiroParaCompra(String titulo){
+        for (JogoTabuleiro jogoTabuleiro : listaJogos) {
+            if (jogoTabuleiro.getNome().equals(titulo) && jogoTabuleiro.getQuantidade() >=1){
+                return jogoTabuleiro;
+            } 
+            else if (jogoTabuleiro.getNome().equals(titulo) && jogoTabuleiro.getQuantidade() < 1) {
+                System.out.println("Jogo de Tabuleiro não disponivel");
+                return null;
+            }
+        }
+        System.out.println("Jogo de Tabuleiro não encontrado");
+        return null;
+    }
+
 }
 
