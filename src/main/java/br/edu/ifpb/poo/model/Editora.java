@@ -31,4 +31,8 @@ public class Editora {
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
+
+    public String toString(){
+        return "\nId: " + getId() + "\nNome: " + getNome() + "\nCNPJ: " + cnpj;
+    }
 }

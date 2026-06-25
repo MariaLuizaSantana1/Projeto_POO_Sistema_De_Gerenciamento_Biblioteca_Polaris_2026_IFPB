@@ -46,7 +46,8 @@ public class TelaPrincipalUI {
                 [5] Consultar
                 [6] Comprar Jogo de Tabuleiro
                 [0] Sair
-             """);
+
+             Digite a sua opção: """);
         resposta = Integer.parseInt(console.nextLine());
         return resposta;
     }
@@ -61,7 +62,8 @@ public class TelaPrincipalUI {
                 [3] Pós-Graduado
                 [4] Funcionário Administrativo
                 [0] Voltar
-            """);
+
+            Digite a sua opção: """);
         resposta = Integer.parseInt(console.nextLine());
         return resposta;
     }
@@ -76,7 +78,8 @@ public class TelaPrincipalUI {
                 [3] Cd
                 [4] Dvd
                 [0] Voltar
-            """);
+
+            Digite a sua opção: """);
         resposta = Integer.parseInt(console.nextLine());
         return resposta;
     }
@@ -92,7 +95,8 @@ public class TelaPrincipalUI {
                [4] Pesquisar Usuário
                [5] Pesquisar Item do Acervo
                [0] Voltar
-            """);
+
+            Digite a sua opção: """);
         resposta = Integer.parseInt(console.nextLine());
         return resposta;
     }
@@ -106,7 +110,8 @@ public class TelaPrincipalUI {
                [1] Listar todos os empréstimos
                [2] Listar por Item
                [0] Voltar
-            """);
+
+            Digite a sua opção: """);
         resposta = Integer.parseInt(console.nextLine());
         return resposta;
     }
@@ -122,7 +127,8 @@ public class TelaPrincipalUI {
                [3] Pesquisar Pós-Graduado
                [4] Pesquisar Funcionário Administrativo
                [0] Voltar
-            """);
+
+            Digite a sua opção: """);
         resposta = Integer.parseInt(console.nextLine());
         return resposta;
     }
@@ -138,7 +144,8 @@ public class TelaPrincipalUI {
                [3] Pesquisar Cd
                [4] Pesquisar Dvd
                [0] Voltar
-            """);
+
+            Digite a sua opção: """);
     }
 
     public void iniciarMenuRealizarEmprestimo(){
@@ -151,8 +158,8 @@ public class TelaPrincipalUI {
                 [3] Pós-Graduado
                 [4] Funcionário Administrativo
                 [0] Voltar
-            """);
-        
+
+            Digite a sua opção: """);
     }
 
     public int iniciarMenuEscolherItemEmprestimo(){
@@ -163,7 +170,8 @@ public class TelaPrincipalUI {
                 [2] Revista
                 [3] Jogo
                 [0] Voltar
-            """);
+                
+            Digite a sua opção: """);
         resposta = Integer.parseInt(console.nextLine());
         return resposta;
     }
@@ -174,7 +182,12 @@ public class TelaPrincipalUI {
 
 
     public void lerNovoLivro(GerenciadorDeItens itens){
-        System.out.println("\nQue tipo de livro você deseja cadastrar?\n[1]Livro Físico\n[2]Audio Livro\n Digite sua opção: ");
+        System.out.println("""
+            Que tipo de livro você deseja cadastrar?
+            [1]Livro Físico
+            [2]Audio Livro
+            
+            Digite sua opção: """);
                     int r = Integer.parseInt(console.nextLine());
                     switch (r) {
                         case 1:{
@@ -188,6 +201,7 @@ public class TelaPrincipalUI {
                             System.out.println("\nDigite o ano de Publicação do livro: ");
                             int anoPublicacao = Integer.parseInt(console.nextLine());
                             System.out.println("\nDigite o nome da editora: ");
+                            itens.listarEditoras();
                             String nomeEditora = console.nextLine();
                             Editora editoraEncontrada = itens.buscarEditora(nomeEditora);
                             if (editoraEncontrada == null) {
@@ -218,6 +232,7 @@ public class TelaPrincipalUI {
                             System.out.println("\nDigite o ano de Publicação do livro: ");
                             int anoPublicacao = Integer.parseInt(console.nextLine());
                             System.out.println("\nDigite o nome da editora: ");
+                            itens.listarEditoras();
                             String nomeEditora = console.nextLine();
                             Editora editoraEncontrada = itens.buscarEditora(nomeEditora);
                             if (editoraEncontrada == null) {
@@ -253,6 +268,7 @@ public class TelaPrincipalUI {
         System.out.println("\nDigite o volume do livro: ");
         int volume = Integer.parseInt(console.nextLine());
         System.out.println("\nDigite o nome da editora: ");
+        itens.listarEditoras();
         String nomeEditora = console.nextLine();
         Editora editoraEncontrada = itens.buscarEditora(nomeEditora);
         if (editoraEncontrada == null) {

@@ -84,6 +84,7 @@ public class GerenciadorDeItens {
     public void addEditora(Editora editora){
         this.listaEditoras.add(editora);
     }
+    
     public void listarEditoras(){
         for(Editora editora : this.listaEditoras){
             System.out.println("-----------------");
