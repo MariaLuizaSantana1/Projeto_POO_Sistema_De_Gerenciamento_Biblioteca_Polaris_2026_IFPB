@@ -64,7 +64,9 @@ public class GerenciadorDeInterface {
                  break;
                 }
             case 4: { 
-                telaUi.realizarDevolucao(emprestimos);}
+                telaUi.realizarDevolucao(emprestimos);
+                execute();
+            }
             case 5: { 
                  telaUi.iniciarMenuConsultar();
                  gerenciadorConsultar();
@@ -79,6 +81,7 @@ public class GerenciadorDeInterface {
             }
             default :{ 
                 System.out.println("Opção inválida");
+                break;
             }
         }
     }
