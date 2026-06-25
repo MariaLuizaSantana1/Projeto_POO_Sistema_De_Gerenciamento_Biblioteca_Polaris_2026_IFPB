@@ -53,7 +53,7 @@ public class TelaPrincipalUI {
     }
 
     
-    public int iniciarMenuGerenciadorUsuarios(){
+    public void iniciarMenuGerenciadorUsuarios(){
         console.println("""
 
                 Qual tipo de usuário você gostaria de adicionar? 
@@ -64,12 +64,10 @@ public class TelaPrincipalUI {
                 [0] Voltar
 
             Digite a sua opção: """);
-        resposta = Integer.parseInt(console.nextLine());
-        return resposta;
     }
 
 
-    public int iniciarMenuGereciarItem(){
+    public void iniciarMenuGereciarItem(){
         console.println("""
 
                 Qual tipo de item você gostaria de adicionar? 
@@ -80,12 +78,10 @@ public class TelaPrincipalUI {
                 [0] Voltar
 
             Digite a sua opção: """);
-        resposta = Integer.parseInt(console.nextLine());
-        return resposta;
     }
 
 
-    public int iniciarMenuConsultar(){
+    public void iniciarMenuConsultar(){
         console.println("""
 
                O que você gostaria de fazer? 
@@ -97,8 +93,6 @@ public class TelaPrincipalUI {
                [0] Voltar
 
             Digite a sua opção: """);
-        resposta = Integer.parseInt(console.nextLine());
-        return resposta;
     }
 
 
@@ -170,7 +164,7 @@ public class TelaPrincipalUI {
                 [2] Revista
                 [3] Jogo
                 [0] Voltar
-                
+
             Digite a sua opção: """);
         resposta = Integer.parseInt(console.nextLine());
         return resposta;

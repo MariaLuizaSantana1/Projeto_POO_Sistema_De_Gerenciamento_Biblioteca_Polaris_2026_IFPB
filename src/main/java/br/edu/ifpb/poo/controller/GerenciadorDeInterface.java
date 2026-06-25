@@ -20,6 +20,7 @@ public class GerenciadorDeInterface {
     GerenciadorDeUsuario usuarios = new GerenciadorDeUsuario();
     GerenciadorDeItens itens = new GerenciadorDeItens();
     GerenciadorEmprestimos emprestimos = new GerenciadorEmprestimos();
+    GerenciadorDeVenda venda = new GerenciadorDeVenda();
     
 
     
@@ -48,34 +49,29 @@ public class GerenciadorDeInterface {
     public void menuSecundario(int resposta){
         switch (resposta) {
             case 1 :{
-                int resposta2 = RESPOSTA_MENU;
-               do{
-                 resposta2 = telaUi.iniciarMenuGereciarItem();
-                 gerenciadorItens(resposta2);
-               }
-               while(resposta2 != RESPOSTA_MENU);
+                 telaUi.iniciarMenuGereciarItem();
+                 gerenciadorItens();
+                 break;
             }
             case 2: {
-                int resposta2 = RESPOSTA_MENU;
-               do{
-                 resposta2 = telaUi.iniciarMenuGerenciadorUsuarios();
-                 menuSecundario(resposta2);
-               }
-               while(resposta2 != RESPOSTA_MENU);
+                 telaUi.iniciarMenuGerenciadorUsuarios();
+                 gerenciadorUsuarios();
+                 break;
             }
             case 3: {
-                int resposta2 = RESPOSTA_MENU;
-               do{
                  telaUi.iniciarMenuRealizarEmprestimo();
-                 gerenciadorEmprestimo(resposta2);
-               }
-               while(resposta2 != RESPOSTA_MENU);
+                 gerenciadorEmprestimo();
+                 break;
                 }
             case 4: { 
                 telaUi.realizarDevolucao(emprestimos);}
             case 5: { 
                  telaUi.iniciarMenuConsultar();
                  gerenciadorConsultar();
+                 break;
+            }
+            case 6:{
+                telaUi.realizarVenda(usuarios, itens, venda);
             }
             case 0: { 
                 System.out.println("Você saiu.");
@@ -87,12 +83,17 @@ public class GerenciadorDeInterface {
         }
     }
 
-    public void gerenciadorItens(int resposta2){
+    public void gerenciadorItens(){
         telaUi.gerenciarItensAcervo(itens);
         execute();
     }
 
-    public void gerenciadorEmprestimo(int resposta2){
+    public void gerenciadorUsuarios(){
+        telaUi.gerenciarUsuarios(usuarios);
+        execute();
+    }
+
+    public void gerenciadorEmprestimo(){
         telaUi.realizarEmprestimos(usuarios, itens, emprestimos);
         execute();
     }
