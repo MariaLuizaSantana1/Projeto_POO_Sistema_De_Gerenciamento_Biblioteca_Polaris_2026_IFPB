@@ -6,6 +6,7 @@ import br.edu.ifpb.poo.model.Cd;
 import br.edu.ifpb.poo.model.Dvd;
 import br.edu.ifpb.poo.model.Editora;
 import br.edu.ifpb.poo.model.ItemDoAcervo;
+import br.edu.ifpb.poo.model.JogoTabuleiro;
 import br.edu.ifpb.poo.model.Livro;
 import br.edu.ifpb.poo.model.Revista;
 
@@ -15,6 +16,7 @@ public class GerenciadorDeItens {
     private ArrayList<Revista> listaRevistas;
     private ArrayList<Cd> listaCds;
     private ArrayList<Dvd> listaDvds;
+    private ArrayList<JogoTabuleiro> listaJogos;
     private ArrayList<Editora> listaEditoras;
 
     public GerenciadorDeItens() {
@@ -23,7 +25,8 @@ public class GerenciadorDeItens {
         this.listaRevistas = new ArrayList<>();
         this.listaCds = new ArrayList<>();
         this.listaDvds = new ArrayList<>();
-        this.listaRevistas = new ArrayList<>();
+        this.listaEditoras = new ArrayList<>();
+        this.listaJogos = new ArrayList<>();
     }
 
     public void addItem(ItemDoAcervo item){
@@ -85,6 +88,17 @@ public class GerenciadorDeItens {
         for(Editora editora : this.listaEditoras){
             System.out.println("-----------------");
             System.out.println(editora.toString());
+        }
+    }
+
+
+    public void addJogoTabuleiro(JogoTabuleiro jogos){
+        this.listaJogos.add(jogos);
+    }
+    public void listarJogoTabuleiros(){
+        for(JogoTabuleiro jogos : this.listaJogos){
+            System.out.println("-----------------");
+            System.out.println(jogos.toString());
         }
     }
 
